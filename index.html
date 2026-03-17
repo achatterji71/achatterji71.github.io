@@ -11,13 +11,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink:       #1a1a18;
-      --ink-light: #5a5a54;
-      --ink-faint: #9a9a92;
-      --paper:     #faf9f6;
-      --cream:     #f2efe8;
-      --rule:      #e0ddd4;
-      --accent:    #b85c2a;
+      --ink:         #1a1a18;
+      --ink-light:   #5a5a54;
+      --ink-faint:   #9a9a92;
+      --paper:       #faf9f6;
+      --cream:       #f2efe8;
+      --rule:        #e0ddd4;
+      --accent:      #b85c2a;
       --accent-soft: #e8c4a8;
     }
 
@@ -45,7 +45,6 @@
     }
 
     .site-eyebrow {
-      font-family: 'DM Sans', sans-serif;
       font-size: 0.7rem;
       font-weight: 500;
       letter-spacing: 0.18em;
@@ -94,36 +93,69 @@
     }
 
     nav a:hover { color: var(--accent); }
+    nav .nav-sep { color: var(--rule); font-weight: 300; }
 
-    nav .nav-sep {
-      color: var(--rule);
-      font-weight: 300;
-    }
-
-    /* ── Intro ── */
-    .intro {
+    /* ── Hero ── */
+    .hero {
       max-width: 860px;
       margin: 0 auto;
-      padding: 3rem 2rem 2rem;
-      animation: fadeUp 0.8s 0.2s ease both;
+      padding: 3rem 2rem 0;
+      animation: fadeUp 0.8s 0.15s ease both;
     }
 
-    .intro p {
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .hero-photo {
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: sepia(10%) contrast(1.05);
+    }
+
+    .hero-caption {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 2.2vw, 1.3rem);
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--ink);
-      max-width: 680px;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--ink-faint);
+      margin-top: 0.6rem;
+      line-height: 1.5;
     }
 
-    .intro p + p { margin-top: 1.2rem; }
+    /* ── Bio ── */
+    .bio p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--ink);
+    }
+
+    .bio p + p { margin-top: 1.1rem; }
+
+    .datestamp {
+      margin-top: 1.75rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
 
     /* ── Section grid ── */
     main {
       max-width: 860px;
       margin: 0 auto;
-      padding: 2rem 2rem 5rem;
+      padding: 3rem 2rem 5rem;
     }
 
     .section-group {
@@ -170,16 +202,10 @@
       flex-direction: column;
       gap: 0.4rem;
       transition: background 0.2s;
-      position: relative;
     }
 
-    .card:hover {
-      background: var(--cream);
-    }
-
-    .card:hover .card-title {
-      color: var(--accent);
-    }
+    .card:hover { background: var(--cream); }
+    .card:hover .card-title { color: var(--accent); }
 
     .card-title {
       font-family: 'Cormorant Garamond', serif;
@@ -207,17 +233,14 @@
       transition: opacity 0.2s, transform 0.2s;
     }
 
-    .card:hover .card-arrow {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    .card:hover .card-arrow { opacity: 1; transform: translateX(0); }
 
     /* ── Footer ── */
     footer {
       border-top: 1px solid var(--rule);
       max-width: 860px;
       margin: 0 auto;
-      padding: 2rem 2rem;
+      padding: 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -225,18 +248,8 @@
       gap: 1rem;
     }
 
-    footer p {
-      font-size: 0.78rem;
-      color: var(--ink-faint);
-      font-weight: 300;
-    }
-
-    footer a {
-      color: var(--ink-faint);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--accent); }
 
     /* ── Animation ── */
@@ -246,8 +259,9 @@
     }
 
     /* ── Responsive ── */
-    @media (max-width: 600px) {
-      header, nav, .intro, main, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+    @media (max-width: 640px) {
+      header, nav, .hero, main, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .hero-inner { grid-template-columns: 1fr; }
       .cards { grid-template-columns: 1fr; }
     }
   </style>
@@ -268,9 +282,24 @@
     <a href="#interests">Interests</a>
   </nav>
 
-  <div class="intro">
-    <p>Welcome. This is a personal corner of the web — a place to remember the people who shaped me, the places that made me, and the passions that sustain me.</p>
-    <p>Much of what you'll find here was written around 2005, when these memories were fresh in a different way. They remain true.</p>
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-photo">
+          <img src="images/Bruges20050414.jpg.jpg" alt="The family in Bruges, Belgium, April 2005" />
+        </div>
+        <p class="hero-caption">Bruges, Belgium · April 14, 2005</p>
+      </div>
+      <div class="bio">
+        <p>Welcome. I began life in Meerut, a small academic and military town in northern India, where our house at 71 Western Kutchery Road has always been — and remains — <em>Home</em>.</p>
+        <p>I studied at St. Mary's Academy through high school, then spent four transformative years at the Regional Engineering College in Rourkela, graduating in Computer Science in 1992. More friends were made there than anywhere else in my life.</p>
+        <p>After college I joined CMC Limited in Calcutta, working on an extraordinary project to automate the steelmaking process at Bhilai Steel Plant — one of the largest steel factories in the world. CMC's office at 28 Camac Street was the focal point of the most intense friendships, the finest examples of human virtue and vice, and some of the most hilarious incidents of my professional life.</p>
+        <p>I moved to Calcutta proper in 1995, spending two rich years delving into the city's remarkable history and culture before coming to the United States in 1996. I have lived in the Washington DC area since, most recently in Ashburn, Virginia.</p>
+        <p>In 2002, after eight years away from academia, I completed a Master of Science in Computer Science at The George Washington University — primarily, I confess, for managing to finish my coursework at the eleventh hour.</p>
+        <p>I have been married since 1997, and am the proud father of two grown children.</p>
+        <div class="datestamp">Originally written May 2005 · Restored 2026</div>
+      </div>
+    </div>
   </div>
 
   <main>
@@ -343,7 +372,7 @@
         </a>
         <a href="rourkela.htm" class="card">
           <span class="card-title">Rourkela Ruckus</span>
-          <span class="card-desc">Growing up in a steel town.</span>
+          <span class="card-desc">Four years at REC — friends, engineering, and growing up.</span>
           <span class="card-arrow">→</span>
         </a>
         <a href="bhilai.htm" class="card">
@@ -368,7 +397,7 @@
         </a>
         <a href="gwu.htm" class="card">
           <span class="card-title">Foggy Bottom</span>
-          <span class="card-desc">Student days at George Washington University.</span>
+          <span class="card-desc">Graduate studies at George Washington University.</span>
           <span class="card-arrow">→</span>
         </a>
         <a href="us_homes.htm" class="card">
@@ -378,7 +407,7 @@
         </a>
         <a href="marian.htm" class="card">
           <span class="card-title">Marian Musings</span>
-          <span class="card-desc">Reflections from Marian.</span>
+          <span class="card-desc">St. Mary's Academy and the friends who lasted.</span>
           <span class="card-arrow">→</span>
         </a>
         <a href="around.htm" class="card">
@@ -419,7 +448,7 @@
   </main>
 
   <footer>
-    <p>© Ashu Chatterji · Originally created circa 2005 · Rebuilt 2026</p>
+    <p>© Ashu Chatterji · Originally written May 2005 · Restored 2026</p>
     <p><a href="https://github.com/achatterji71">GitHub</a></p>
   </footer>
 
