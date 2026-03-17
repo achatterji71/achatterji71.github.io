@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marian Musings · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a1a18;
+      --ink-light:  #5a5a54;
+      --ink-faint:  #9a9a92;
+      --paper:      #faf9f6;
+      --cream:      #f2efe8;
+      --rule:       #e0ddd4;
+      --accent:     #b85c2a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 4rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--ink-light);
+    }
+
+    nav {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      gap: 0.5rem 1.5rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    nav a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+
+    article {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 2rem;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    /* ── Anthem block ── */
+    .anthem {
+      background: var(--cream);
+      border-left: 3px solid var(--accent-soft, #e8c4a8);
+      padding: 2rem 2rem 2rem 2.5rem;
+      margin-bottom: 3rem;
+      max-width: 600px;
+    }
+
+    .anthem p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.9;
+      color: var(--ink-light);
+    }
+
+    .anthem p + p { margin-top: 1rem; }
+
+    .anthem .refrain {
+      font-weight: 600;
+      font-style: normal;
+      color: var(--ink);
+      margin-top: 0.5rem;
+    }
+
+    .anthem-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    /* ── Body text ── */
+    .body-text {
+      max-width: 680px;
+    }
+
+    .body-text p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--ink);
+    }
+
+    .body-text p + p { margin-top: 1.2rem; }
+
+    /* ── Photo items ── */
+    .photo-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+      margin: 3rem 0;
+      padding: 3rem 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .photo-item + .photo-item {
+      border-top: none;
+      margin-top: 0;
+    }
+
+    .photo-wrap {
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: sepia(15%) contrast(1.05);
+      transition: transform 0.4s ease;
+    }
+
+    .photo-wrap:hover img { transform: scale(1.02); }
+
+    .photo-meta { padding-top: 0.5rem; }
+
+    .photo-number {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .photo-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.75;
+      color: var(--ink-light);
+    }
+
+    /* ── Datestamp ── */
+    .datestamp {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    /* ── Sub-nav ── */
+    .subnav {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem 3rem;
+      display: flex;
+      gap: 0.5rem 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .subnav a, .subnav span.active {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .subnav a { color: var(--ink-faint); }
+    .subnav a:hover { color: var(--accent); }
+    .subnav span.active { color: var(--accent); }
+    .subnav .sep { color: var(--rule); font-size: 0.72rem; }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      header, nav, article, footer, .subnav { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .photo-item { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <span class="current">Marian Musings</span>
+    </div>
+    <div class="eyebrow">Meerut · 1975–1988</div>
+    <h1>Marian Musings</h1>
+    <p class="subtitle">Thirteen years at St. Mary's Academy, Meerut Cantonment.</p>
+  </header>
+
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+
+  <article>
+
+    <div class="anthem">
+      <div class="anthem-label">School Anthem · St. Mary's Academy</div>
+      <p>"The school of St. Mary's, our hope and our pride,<br/>
+      Where from the bright morning to calm eventide,<br/>
+      In work ever earnest and keen happy play,<br/>
+      We grow mind and muscle, more manly each day.</p>
+      <p class="refrain">REFRAIN: "The School of St. Mary's,<br/>
+      Ah! Hear it is calling,<br/>
+      The young lives, the true lives,<br/>
+      The brave and the free,<br/>
+      With comrades beloved and courage ne'er failing,<br/>
+      Fair school days shall roll on, roll on,<br/>
+      For you and me.</p>
+      <p>"The porch of St. Mary's is ................./<br/>
+      Is the porch to our lives that will ever be true,<br/>
+      Though far away in the world our footsteps may roam,<br/>
+      To God and our country, our school and our home.</p>
+      <p class="refrain">REFRAIN</p>
+    </div>
+
+    <div class="body-text">
+      <p>The above was our school anthem at St. Mary's Academy, Meerut Cantonment — sung every day from 1975 until 1988. St. Mary's was a wonderful period complete with all its challenges and adventures. My thirteen years in school saw me grow from a shy little boy, who needed suspenders until the third grade, to well, a shy not-so-little boy who would leave St. Mary's as just another one of her hundred boys that would not become a public charge.</p>
+    </div>
+
+    <div class="photo-item">
+      <div class="photo-wrap">
+        <img src="images/OldSketch.jpg" alt="A page from my drawing book, Class VIII, circa 1983" />
+      </div>
+      <div class="photo-meta">
+        <div class="photo-number">Class VIII · circa 1983</div>
+        <p class="photo-caption">A page from my drawing book from Class VIII, circa 1983. I guess I could not draw another one of these today.</p>
+      </div>
+    </div>
+
+    <div class="body-text">
+      <p>I was a rather weird little boy who made no use of the extensive sports facilities of my school but did make as much good as possible of the school's excellent but less spectacular library and computing facilities. I was a regular contributor to our school magazine, The Marian Lookout, but never became a writer or an editor in real life. I sang in the school choir from 1980 until 1986 but no one who met me for the first time after my St. Mary's days would believe, even in the state of utmost inebriation, that I could sing a note that was not off key.</p>
+      <p>To most of my fellow students, I was the ugly duckling — not fit for their company. Nevertheless, I had friends who stuck to me through the years, specifically three of them. I also had my guardian angels in some of my teachers, who heavily influenced me into becoming what I am today. Foremost among them was the late Mrs. Winnie G. Sada, our English and history teacher, who instilled in all her students an inherent curiosity for the past and the art of discovering the direction of the future from it. Also, there was the late Reverend Brother Aloysius, who taught us from his own life and actions that it did not take just strictness and regimentation to implement discipline and regard — sometimes a little love and mutual respect works just fine.</p>
+    </div>
+
+    <div class="photo-item">
+      <div class="photo-wrap">
+        <img src="images/MarianChoir.jpg" alt="The School Choir at the Annual Function, 1984" />
+      </div>
+      <div class="photo-meta">
+        <div class="photo-number">School Choir · Annual Function 1984</div>
+        <p class="photo-caption">Standing, front row, left to right: Syed Ali Naqi, Anish Gautam, Ashutosh Chatterji, Akash Khanna, Rajat Bhargava, Shailendra Bhatnagar and Vishal Jain. The second from left in the back row is Umang Mithal. Picture attributable to Mr. Jagdish or Mr. Bansi Arora of the erstwhile Arora Photo Studio on Begum Bridge Road — the official school photographers, now turned into an apparel store.</p>
+      </div>
+    </div>
+
+    <div class="body-text">
+      <p>I lost touch with my Marian friends over the years as they, like me, moved away from Meerut. My visits back home did not coincide with theirs, and my only Marian connection was the occasional visit to some of my teachers at school. All that changed in November 2000, when I chanced upon my friend Nisheeth Srivastava's email address. That led to a spate of reunions with my other two friends who were also in the United States all this time.</p>
+      <p>My friend for the longest period of time, and the one who has suffered more abuse from me than any other, Lakshmi — besides his many talents — is also an excellent writer. There is a link on this page in memory of the writer who instead became a computer scientist.</p>
+    </div>
+
+    <div class="datestamp">Originally written May 2005 · Restored 2026</div>
+
+  </article>
+
+  <div class="subnav">
+    <a href="reminiscences.htm">Reminiscences</a>
+    <span class="sep">·</span>
+    <a href="visitingstmarys.htm">Visiting St. Mary's</a>
+    <span class="sep">·</span>
+    <a href="lakshmi_the_poet.htm">Lakshmi the Poet</a>
+  </div>
+
+  <footer>
+    <p>© Ashu Chatterji · Originally written May 2005 · Restored 2026</p>
+    <p><a href="index.html">← Home</a></p>
+  </footer>
+
+</body>
+</html>

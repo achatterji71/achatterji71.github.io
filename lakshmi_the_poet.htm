@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lakshmi the Poet · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a1a18;
+      --ink-light:  #5a5a54;
+      --ink-faint:  #9a9a92;
+      --paper:      #faf9f6;
+      --cream:      #f2efe8;
+      --rule:       #e0ddd4;
+      --accent:     #b85c2a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 4rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--ink-light);
+    }
+
+    nav {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      gap: 0.5rem 1.5rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    nav a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+
+    article {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 2rem;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .prose {
+      max-width: 660px;
+    }
+
+    .prose p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.08rem, 2vw, 1.25rem);
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--ink);
+    }
+
+    .prose p + p { margin-top: 1.4rem; }
+
+    /* ── Poem block ── */
+    .poem-block {
+      margin: 3rem 0;
+      padding: 2.5rem;
+      background: var(--cream);
+      border-left: 3px solid var(--accent);
+      max-width: 620px;
+    }
+
+    .poem-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .poem-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      font-style: italic;
+      line-height: 2;
+      color: var(--ink);
+    }
+
+    .poem-attribution {
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--ink-faint);
+      font-family: 'DM Sans', sans-serif;
+      font-style: normal;
+    }
+
+    /* ── License block ── */
+    .license-block {
+      margin: 3rem 0;
+      padding: 2rem 2.5rem;
+      border: 1px solid var(--rule);
+      max-width: 620px;
+    }
+
+    .license-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1.25rem;
+    }
+
+    .license-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--ink-light);
+    }
+
+    .license-text p + p { margin-top: 0.75rem; }
+
+    .datestamp {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .subnav {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+      display: flex;
+      gap: 0.5rem 1.5rem;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--rule);
+    }
+
+    .subnav a, .subnav span.active {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .subnav a { color: var(--ink-faint); }
+    .subnav a:hover { color: var(--accent); }
+    .subnav span.active { color: var(--accent); }
+    .subnav .sep { color: var(--rule); font-size: 0.72rem; }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      header, nav, article, footer, .subnav { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .poem-block, .license-block { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="marian.htm">Marian Musings</a>
+      <span>·</span>
+      <span class="current">Lakshmi the Poet</span>
+    </div>
+    <div class="eyebrow">Marian Musings</div>
+    <h1>Lakshmi the Poet</h1>
+    <p class="subtitle">In which Tagore meets Linux — a brief lapse of Lakshmi's normal self.</p>
+  </header>
+
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+
+  <article>
+
+    <div class="prose">
+      <p>In what Lakshmi calls a brief lapse of his normal self, he wrote the following version of Tagore's "Where the Mind is Without Fear" — publishable now that the copyrights on Tagore's works have lapsed.</p>
+    </div>
+
+    <div class="poem-block">
+      <div class="poem-label">After Tagore · Version 2.0</div>
+      <p class="poem-text">
+        "Where the disk is without junk and the monitor is held high/<br/>
+        Where the OS is free/<br/>
+        Where the internet has not been broken up into {impregnable} domains/<br/>
+        By narrow corporate {firewalls}/<br/>
+        Where commands come out from the simplicity of the prompt/<br/>
+        Where tireless context switching stretches its arms towards the ultimate job scheduling/<br/>
+        Where the clear flow of {logic} has not lost its way/<br/>
+        Into the buggy code of Windows/<br/>
+        Where the computer is led forward by Thee/<br/>
+        Into ever-widening downloads and {installs}/<br/>
+        Into that heaven of Linux, my Father, let all computers awake."
+      </p>
+      <p class="poem-attribution">© Lakshminarayan "Satyan" Chidambaran · January 26, 2002</p>
+    </div>
+
+    <div class="prose">
+      <p>Lakshmi tells me that this is version 2.0 — he did send me the beta, which he calls 1.0 — and has also dedicated this to me (thank you, Lakshmi!). Since I had to beg Lakshmi to grant me the license to publish this wonderful piece of literary plagiarism, I am required by law to provide you with the license agreement.</p>
+    </div>
+
+    <div class="license-block">
+      <div class="license-label">WNC License Agreement</div>
+      <div class="license-text">
+        <p>This poem is part of the WNC (for those not familiar, WNC stands for "Wnc is Not Copyrighted") Library. The WNC Library is all free writings; you can redistribute it and/or modify it under the terms of the WNC Lesser General Public License as published by the Free Writings Foundation (FWF); either version 2.1 of the License, or (at your option) any later version.</p>
+        <p>The WNC Library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the WNC Lesser General Public License for more details.</p>
+        <p>You should have received a copy of the WNC Lesser General Public License along with the WNC WQ Library; see the file COPYING-WNC.LIB. If not, write to the Free Writings Foundation Unlimited, No. 0 WNC Way, Meerut UP 250221, India.</p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>For those of you who are just setting off to locate WNC Way in Meerut, please do not bother just yet. I have a feeling that the WNC's office location is still under construction. Lakshmi has mentioned that address only because he feels that the location may be ready in time for the mail to be delivered there.</p>
+    </div>
+
+    <div class="datestamp">Originally written circa 2002 · Restored 2026</div>
+
+  </article>
+
+  <div class="subnav">
+    <a href="reminiscences.htm">Reminiscences</a>
+    <span class="sep">·</span>
+    <a href="visitingstmarys.htm">Visiting St. Mary's</a>
+    <span class="sep">·</span>
+    <span class="active">Lakshmi the Poet</span>
+  </div>
+
+  <footer>
+    <p>© Ashu Chatterji · Originally written circa 2002 · Restored 2026</p>
+    <p><a href="marian.htm">← Marian Musings</a></p>
+  </footer>
+
+</body>
+</html>

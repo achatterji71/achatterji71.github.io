@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visiting St. Mary's · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a1a18;
+      --ink-light:  #5a5a54;
+      --ink-faint:  #9a9a92;
+      --paper:      #faf9f6;
+      --cream:      #f2efe8;
+      --rule:       #e0ddd4;
+      --accent:     #b85c2a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 4rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--ink-light);
+    }
+
+    nav {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      gap: 0.5rem 1.5rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    nav a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+
+    article {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 2rem;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .prose {
+      max-width: 660px;
+    }
+
+    .prose p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.08rem, 2vw, 1.25rem);
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--ink);
+    }
+
+    .prose p + p { margin-top: 1.4rem; }
+
+    .photo-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+      margin: 3rem 0;
+      padding: 3rem 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .photo-wrap {
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: sepia(10%) contrast(1.05);
+      transition: transform 0.4s ease;
+    }
+
+    .photo-wrap:hover img { transform: scale(1.02); }
+
+    .photo-meta { padding-top: 0.5rem; }
+
+    .photo-number {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .photo-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.75;
+      color: var(--ink-light);
+    }
+
+    .datestamp {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .subnav {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+      display: flex;
+      gap: 0.5rem 1.5rem;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--rule);
+    }
+
+    .subnav a, .subnav span.active {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .subnav a { color: var(--ink-faint); }
+    .subnav a:hover { color: var(--accent); }
+    .subnav span.active { color: var(--accent); }
+    .subnav .sep { color: var(--rule); font-size: 0.72rem; }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      header, nav, article, footer, .subnav { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .photo-item { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="marian.htm">Marian Musings</a>
+      <span>·</span>
+      <span class="current">Visiting St. Mary's</span>
+    </div>
+    <div class="eyebrow">Meerut · January 2003</div>
+    <h1>Visiting St. Mary's</h1>
+    <p class="subtitle">A homecoming — and the chair I was finally allowed to sit in.</p>
+  </header>
+
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+
+  <article>
+
+    <div class="photo-item" style="border-top:none; padding-top:0; margin-top:0;">
+      <div class="photo-wrap">
+        <img src="images/Visit_002.jpg" alt="The school building from the corridor outside the library" />
+      </div>
+      <div class="photo-meta">
+        <div class="photo-number">January 2003</div>
+        <p class="photo-caption">The school building and the lawns from the corridor outside what used to be the library.</p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>I made a pilgrimage to my alma mater in January 2003. This visit was of special significance in more than one way. The foremost was that I was able to visit St. Mary's with my daughter. I had made several visits to school since I graduated in 1988, but this was very different. Here I was, showing my own child around the grounds that hold so many cherished memories of my own childhood.</p>
+
+      <p>I also realized that I had been naive all along in believing that the school would not have changed since I left. However, it had, and so had the people that made it. I met Mrs. Bhatnagar, our beloved biology teacher — the same mother figure that she had been when we were there. I met Mrs. Rachna Trivedi, who too is one of those wonderful persons whose presence around you is a blessing. She never taught me directly, but she is one of those persons who could hardly have not touched the heart of a school boy she came across. I can think of many other people who touched my life, but who have sadly enough passed on. The name that comes up most in my mind is that of Mrs. Sada, whose biggest gift to us was the appreciation of history and literature.</p>
+
+      <p>The physical changes in the school were a shock, too, but then they just show how much our beloved school has grown in the last fifteen years — a new staff room and library behind the auditorium, a primary section where the junior playground used to be, a state-of-the-art computer lab, a far cry from our BBC Micros and Sujata dot-matrix printers, not to mention the SSSD five-and-quarter floppies. Even the quadrangle where we assembled for our morning prayers has changed its orientation. It was too foggy to see across the playing fields to see if our celebrated "African Jungle" is still there.</p>
+    </div>
+
+    <div class="photo-item">
+      <div class="photo-wrap">
+        <img src="images/Visit_001.jpg" alt="Arpita in the corridors leading to the 5th and 7th grade classrooms" />
+      </div>
+      <div class="photo-meta">
+        <div class="photo-number">The familiar corridors</div>
+        <p class="photo-caption">Standing in the corridors leading to the classrooms that housed the 5th and 7th grades in 1980–83.</p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>Mrs. Bhatnagar took me over to meet the principal, Reverend Brother Paul. Sitting in one of the chairs in the Principal's Office, I was reminded of an incident from 1988. I believe we were testing the boundaries at the time where equality with grown-ups was concerned, and I sat without invitation in this same office. Our principal at the time, our beloved Brother Aloysius — who usually did not object to us sitting next to him at sporting events — objected. "Get up, my son. You can't sit there," said Aloo, as we called him. "Why?" I retorted. "We sit with you all the time at the games." Looking back, I feel ashamed of my impudence. He smiled, as he always did, and said, "You can sit there when you come to see me with your <em>chhotu</em>, son."</p>
+
+      <p>I did not think about that until I was back in the principal's office. He was right after all. The first time I got to sit in that same chair was with my <em>chhotu</em>. While I am disappointed that Brother Aloysius is no longer with us so that I could share this thought with him, I am sure he was looking down at us and that he will bless her the way he blessed us all with his presence in our lives at one time.</p>
+    </div>
+
+    <div class="photo-item">
+      <div class="photo-wrap">
+        <img src="images/Visit_003.jpg" alt="With Mr. N. S. Yadav in the Chemistry Lab" />
+      </div>
+      <div class="photo-meta">
+        <div class="photo-number">The Chemistry Lab</div>
+        <p class="photo-caption">With Mr. N. S. Yadav in the Chemistry Lab.</p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>All said and done, I returned with copies of the Marian Lookout's special Golden Jubilee edition — incidentally, our school celebrated its Silver Jubilee when we were in the first grade in 1977 — key rings and commemorative school caps for Krishnan, Lakshmi and myself. I also picked up house T-shirts for each of us from the official school tailor in Sadar Bazaar, with the hope that we can wear those the next time we are together. Mrs. Trivedi was kind enough to provide me phone numbers for my first teacher, Mrs. Ahuja, now retired and living in Gurgaon, and our fifth grade teacher, then Miss Kushwaha and now Mrs. Sinha, who now lives in New Delhi. I talked to Mrs. Ahuja on the telephone but could not reach Mrs. Sinha — something I will leave for my next visit.</p>
+    </div>
+
+    <div class="photo-item">
+      <div class="photo-wrap">
+        <img src="images/Visit_004.jpg" alt="Evergreen Mrs. Bhatnagar and her Biology Class" />
+      </div>
+      <div class="photo-meta">
+        <div class="photo-number">Mrs. Bhatnagar</div>
+        <p class="photo-caption">Evergreen Mrs. Bhatnagar and her Biology Class — a few things never change, thank goodness.</p>
+      </div>
+    </div>
+
+    <div class="datestamp">Originally written circa 2003 · Restored 2026</div>
+
+  </article>
+
+  <div class="subnav">
+    <a href="reminiscences.htm">Reminiscences</a>
+    <span class="sep">·</span>
+    <span class="active">Visiting St. Mary's</span>
+    <span class="sep">·</span>
+    <a href="lakshmi_the_poet.htm">Lakshmi the Poet</a>
+  </div>
+
+  <footer>
+    <p>© Ashu Chatterji · Originally written circa 2003 · Restored 2026</p>
+    <p><a href="marian.htm">← Marian Musings</a></p>
+  </footer>
+
+</body>
+</html>
