@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #1a1a18;
+      --ink-light: #5a5a54;
+      --ink-faint: #9a9a92;
+      --paper:     #faf9f6;
+      --cream:     #f2efe8;
+      --rule:      #e0ddd4;
+      --accent:    #b85c2a;
+      --accent-soft: #e8c4a8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 4rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .site-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    .site-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--ink-light);
+      margin-top: 0.25rem;
+      max-width: 520px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      gap: 0.5rem 1.5rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    nav a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    nav .nav-sep {
+      color: var(--rule);
+      font-weight: 300;
+    }
+
+    /* ── Intro ── */
+    .intro {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem 2rem;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .intro p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--ink);
+      max-width: 680px;
+    }
+
+    .intro p + p { margin-top: 1.2rem; }
+
+    /* ── Section grid ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 2rem 5rem;
+    }
+
+    .section-group {
+      margin-top: 3rem;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .section-group:nth-child(1) { animation-delay: 0.3s; }
+    .section-group:nth-child(2) { animation-delay: 0.4s; }
+    .section-group:nth-child(3) { animation-delay: 0.5s; }
+
+    .group-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .group-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .card {
+      background: var(--paper);
+      padding: 1.5rem 1.4rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: background 0.2s;
+      position: relative;
+    }
+
+    .card:hover {
+      background: var(--cream);
+    }
+
+    .card:hover .card-title {
+      color: var(--accent);
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      transition: color 0.2s;
+      line-height: 1.2;
+    }
+
+    .card-desc {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--ink-faint);
+      line-height: 1.5;
+    }
+
+    .card-arrow {
+      margin-top: auto;
+      padding-top: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .card:hover .card-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+      font-weight: 300;
+    }
+
+    footer a {
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    /* ── Animation ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      header, nav, .intro, main, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="site-eyebrow">Personal Homepage</span>
+    <h1>Ashu Chatterji</h1>
+    <p class="site-tagline">A life in places, people, and the spaces between.</p>
+  </header>
+
+  <nav>
+    <a href="#family">Family</a>
+    <span class="nav-sep">·</span>
+    <a href="#places">Places</a>
+    <span class="nav-sep">·</span>
+    <a href="#interests">Interests</a>
+  </nav>
+
+  <div class="intro">
+    <p>Welcome. This is a personal corner of the web — a place to remember the people who shaped me, the places that made me, and the passions that sustain me.</p>
+    <p>Much of what you'll find here was written around 2005, when these memories were fresh in a different way. They remain true.</p>
+  </div>
+
+  <main>
+
+    <!-- FAMILY -->
+    <div class="section-group" id="family">
+      <div class="group-label">Family</div>
+      <div class="cards">
+        <a href="family.htm" class="card">
+          <span class="card-title">Family</span>
+          <span class="card-desc">God Almighty has blessed me with the most wonderful family.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="thamma.htm" class="card">
+          <span class="card-title">Thamma</span>
+          <span class="card-desc">My grandmother.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="ma.htm" class="card">
+          <span class="card-title">Ma</span>
+          <span class="card-desc">My mother.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="babali.htm" class="card">
+          <span class="card-title">Babali</span>
+          <span class="card-desc">My father.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="jamu.htm" class="card">
+          <span class="card-title">Jamu</span>
+          <span class="card-desc">My uncle.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="mamon.htm" class="card">
+          <span class="card-title">Mamon</span>
+          <span class="card-desc">My aunt.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="tanu.htm" class="card">
+          <span class="card-title">Tanu</span>
+          <span class="card-desc">My wife.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="mini.htm" class="card">
+          <span class="card-title">Mini</span>
+          <span class="card-desc">My daughter.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="pronoy.htm" class="card">
+          <span class="card-title">Pronoy</span>
+          <span class="card-desc">My son.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="gagga.htm" class="card">
+          <span class="card-title">Gagga</span>
+          <span class="card-desc">My sister.</span>
+          <span class="card-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- PLACES -->
+    <div class="section-group" id="places">
+      <div class="group-label">Places</div>
+      <div class="cards">
+        <a href="71_wk_road.htm" class="card">
+          <span class="card-title">71 Western Kutchery Road</span>
+          <span class="card-desc">Our permanent home in Meerut, India.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="rourkela.htm" class="card">
+          <span class="card-title">Rourkela Ruckus</span>
+          <span class="card-desc">Growing up in a steel town.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="bhilai.htm" class="card">
+          <span class="card-title">28 Camac Street</span>
+          <span class="card-desc">Calcutta and the address that defined an era.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="calcutta.htm" class="card">
+          <span class="card-title">Project Calcutta</span>
+          <span class="card-desc">The city of joy, revisited.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="asansol.htm" class="card">
+          <span class="card-title">Asansol</span>
+          <span class="card-desc">Coal smoke and summer cousins.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="boumar_bari.htm" class="card">
+          <span class="card-title">Bouma'r Bari</span>
+          <span class="card-desc">A house with the taste of dark chocolate.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="gwu.htm" class="card">
+          <span class="card-title">Foggy Bottom</span>
+          <span class="card-desc">Student days at George Washington University.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="us_homes.htm" class="card">
+          <span class="card-title">Our Homes</span>
+          <span class="card-desc">The houses that became home in America.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="marian.htm" class="card">
+          <span class="card-title">Marian Musings</span>
+          <span class="card-desc">Reflections from Marian.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="around.htm" class="card">
+          <span class="card-title">Around the World</span>
+          <span class="card-desc">Travels and the world beyond home.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="passage_to_india.htm" class="card">
+          <span class="card-title">Passage to India</span>
+          <span class="card-desc">Going back.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="passage_to_america.htm" class="card">
+          <span class="card-title">Passage to America</span>
+          <span class="card-desc">Coming here.</span>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="boy_trips.htm" class="card">
+          <span class="card-title">Boyhood Trips</span>
+          <span class="card-desc">The journeys that formed a young mind.</span>
+          <span class="card-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- INTERESTS -->
+    <div class="section-group" id="interests">
+      <div class="group-label">Interests & Links</div>
+      <div class="cards">
+        <a href="links.htm" class="card">
+          <span class="card-title">Interests & Links</span>
+          <span class="card-desc">Philately, numismatics, reading, cooking, and the web of things I love.</span>
+          <span class="card-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© Ashu Chatterji · Originally created circa 2005 · Rebuilt 2026</p>
+    <p><a href="https://github.com/achatterji71">GitHub</a></p>
+  </footer>
+
+</body>
+</html>
