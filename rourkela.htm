@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rourkela Ruckus · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a1a18;
+      --ink-light:  #5a5a54;
+      --ink-faint:  #9a9a92;
+      --paper:      #faf9f6;
+      --cream:      #f2efe8;
+      --rule:       #e0ddd4;
+      --accent:     #b85c2a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 4rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--accent); }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--ink-light);
+    }
+
+    /* ── Nav ── */
+    nav {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      gap: 0.5rem 1.5rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    nav a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+
+    /* ── Body content ── */
+    article {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--ink);
+      max-width: 680px;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 2rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-top: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .section-body p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--ink);
+      max-width: 600px;
+    }
+
+    .section-body p + p {
+      margin-top: 1.2rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+      font-weight: 300;
+    }
+
+    footer a {
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    /* ── Animation ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .section { grid-template-columns: 1fr; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="back-link">← Home</a>
+    <div class="eyebrow">Places</div>
+    <h1>Rourkela Ruckus</h1>
+    <p class="subtitle">Four years at Regional Engineering College, Rourkela, Orissa — 1988–1992.</p>
+  </header>
+
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+
+  <article>
+
+    <p class="lead">I spent my four wonderful college years in Rourkela, an industrial town in the state of Orissa, India. My alma mater, Regional Engineering College, Rourkela — soon to be known as the National Institute of Technology, Rourkela — is one of the more prestigious engineering schools in India. It was no mean feat getting in for me and my classmates: entrance was extremely competitive, and I think it was as much luck as the hard work that I put in (and my father put in, in making me work hard) that I ended up there. Besides the education and the valuable degree I obtained, I made a bunch of invaluable and timeless friends — as well as gaining invaluable experience about people whom you should not befriend.</p>
+
+    <div class="sections">
+
+      <div class="section">
+        <div class="section-label">Hall 1<br/>1988–1990</div>
+        <div class="section-body">
+          <p>During the first two years, I stayed in Hall 1, which had four boys to one large room. The first few weeks in an engineering school in India involve what is known as ragging — the closest thing I can think of for the American reader is the Marines boot camp. You are treated really badly by the seniors, apparently because they were treated badly themselves and because you should be making up for it the next year. I have never been a supporter of this form of fraternization, although at times I have felt that some idiots (including, perhaps, me) did deserve having some corners rubbed off.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Hall 2<br/>1990–1992</div>
+        <div class="section-body">
+          <p>I stayed in Hall 2 during the last two years — the best dorm of all in our college, one of the two at the time that had private rooms. There is something to be said for a room of one's own after two years of four to a room.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">CSEA Friends</div>
+        <div class="section-body">
+          <p>The Department of Computer Science, Engineering & Applications was my home department, and my friends from this department are a bunch of interesting fellows worth mention. Their memorable antics have stayed with me long after the degree itself has faded into the background of daily life.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">The UP Association</div>
+        <div class="section-body">
+          <p>The 15 RECs are unique in the sense that they have students from each state in India, based on state quotas, so the student body is quite diverse. Some of the larger states have enough students to justify the formation of state associations, and my state — Uttar Pradesh, with family roots there going back more than 150 years — being one such state, there was a rather active UP Association on campus.</p>
+          <p>The UP Association, however, was the most undemocratic and parochial institution I have had the privilege of being associated with in my life. The only reason it even finds special mention is because of two good friends who were also co-members, and were my partners in leaving the organization in the last year of college.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">The Pongopal</div>
+        <div class="section-body">
+          <p>I discovered my Bengali heritage outside my family for the first time when I came to REC. The Bengali Association, unlike the UP one, comprised of anyone who spoke Bengali and cared to be part of it. It was democratic to the point of being forever locked in discussion and indecision. Nevertheless, this was the most colorful group I have ever met, and the friends I made here are the ones I have cherished most.</p>
+          <p>They include seniors who made sure I stayed out of big trouble and juniors who did pretty much the same. We had picnics and singing during power outages — or shouting, if you will — and a lot of fun riding trains to and from college. The Bengali boys were collectively known as the Pongopal, which is a horde of locusts in Bengali, a name that we were rightly proud of. Unlike locusts, however, this group was rather constructive in more ways than one.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Expeditions</div>
+        <div class="section-body">
+          <p>During my four years in college, I traveled pretty extensively through the length and breadth of India — finding a shorter route home, taking a short break in Calcutta, representing my college at a quiz in Madras or a youth festival in Varanasi, or presenting student papers at IEEE events in Calcutta, Coimbatore, Nagpur, and Trichy. The India of those train journeys is one I carry with me still.</p>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <footer>
+    <p>© Ashu Chatterji · Originally created circa 2005 · Rebuilt 2026</p>
+    <p><a href="index.html">← Back to Home</a></p>
+  </footer>
+
+</body>
+</html>

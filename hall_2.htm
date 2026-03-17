@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hall 2 · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a1a18;
+      --ink-light:  #5a5a54;
+      --ink-faint:  #9a9a92;
+      --paper:      #faf9f6;
+      --cream:      #f2efe8;
+      --rule:       #e0ddd4;
+      --accent:     #b85c2a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 4rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--ink-light);
+    }
+
+    nav {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      gap: 0.5rem 1.5rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    nav a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+
+    article {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .intro {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--ink);
+      max-width: 680px;
+      margin-bottom: 3.5rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .photo-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .photo-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .photo-wrap {
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+      filter: sepia(15%) contrast(1.05);
+    }
+
+    .photo-wrap:hover img { transform: scale(1.02); }
+
+    .photo-meta { padding-top: 0.5rem; }
+
+    .photo-number {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .photo-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.75;
+      color: var(--ink-light);
+    }
+
+    .subnav {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem 3rem;
+      display: flex;
+      gap: 0.5rem 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .subnav a, .subnav span.active {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .subnav a { color: var(--ink-faint); }
+    .subnav a:hover { color: var(--accent); }
+    .subnav span.active { color: var(--accent); }
+    .subnav .sep { color: var(--rule); font-size: 0.72rem; }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      header, nav, article, footer, .subnav { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .photo-item { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="rourkela.htm">Rourkela Ruckus</a>
+      <span>·</span>
+      <span class="current">Hall 2</span>
+    </div>
+    <div class="eyebrow">Rourkela · 1990–1992</div>
+    <h1>Hall 2</h1>
+    <p class="subtitle">The final two years — a private room, and the luxury of solitude.</p>
+  </header>
+
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+
+  <article>
+
+    <p class="intro">I stayed in Hall 2 during the last two years — the best dorm of all in our college, one of the two at the time that had private rooms. There is something to be said for a room of one's own after two years of four to a room. Hall 2 sat atop a hill, and the view from it has stayed with me long after the engineering has faded.</p>
+
+    <div class="gallery">
+
+      <div class="photo-item">
+        <div class="photo-wrap">
+          <img src="images/Hostel6.jpg" alt="Atop hill behind Hall 2, November 1990" />
+        </div>
+        <div class="photo-meta">
+          <div class="photo-number">01 · 11 November 1990</div>
+          <p class="photo-caption">Atop the hill behind Hall 2. Front, left to right: Mayur Misra, Rohit Basu, Ashutosh Chatterji. Back, left to right: Dev Narayan Srivastava, Anupam Jaju.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap">
+          <img src="images/Hostel7.jpg" alt="B-68, Hall 2, November 1990" />
+        </div>
+        <div class="photo-meta">
+          <div class="photo-number">02 · November 1990</div>
+          <p class="photo-caption">B-68, Hall 2. Ashutosh Chatterji at his desk — the private room that made the final two years feel like a different life entirely.</p>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <div class="subnav">
+    <a href="hall_1.htm">Hall 1</a>
+    <span class="sep">·</span>
+    <span class="active">Hall 2</span>
+    <span class="sep">·</span>
+    <a href="csea.htm">CSEA Friends</a>
+    <span class="sep">·</span>
+    <a href="up_association.htm">UP Association</a>
+    <span class="sep">·</span>
+    <a href="pongopal.htm">Pongopal</a>
+    <span class="sep">·</span>
+    <a href="expeditions.htm">Expeditions</a>
+  </div>
+
+  <footer>
+    <p>© Ashu Chatterji · Originally created circa 2005 · Rebuilt 2026</p>
+    <p><a href="rourkela.htm">← Rourkela Ruckus</a></p>
+  </footer>
+
+</body>
+</html>
