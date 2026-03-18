@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workplaces · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 2rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose { max-width: 660px; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .chapters { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 5rem; }
+    .group-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 1rem; }
+    .group-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .card { background: var(--paper); padding: 1.5rem 1.4rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.4rem; transition: background 0.2s; }
+    .card:hover { background: var(--cream); }
+    .card:hover .card-title { color: var(--accent); }
+    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--ink); transition: color 0.2s; line-height: 1.2; }
+    .card-years { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; color: var(--accent); margin-top: 0.1rem; }
+    .card-desc { font-size: 0.8rem; font-weight: 300; color: var(--ink-faint); line-height: 1.5; }
+    .card-arrow { margin-top: auto; padding-top: 0.8rem; font-size: 0.8rem; color: var(--accent); opacity: 0; transform: translateX(-4px); transition: opacity 0.2s, transform 0.2s; }
+    .card:hover .card-arrow { opacity: 1; transform: translateX(0); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, .chapters, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <span class="current">Workplaces</span>
+    </div>
+    <div class="eyebrow">Places · Work</div>
+    <h1>Workplaces</h1>
+    <p class="subtitle">A professional life in six chapters — idealism, exploitation, scale, agency, reckoning, and giving away.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+    <div class="prose">
+      <p>Every professional life has a shape, even if you can only see it in retrospect. Mine looks something like this: begin with genuine idealism, get ground down by systems designed to extract rather than develop, find unexpected scale, attempt something of your own, reckon with the ways you became what you once resisted, and then — with whatever remains — try to give it away usefully.</p>
+      <p>These are the workplaces where that arc played out. The stories are coming in Phase 2.</p>
+    </div>
+  </article>
+  <div class="chapters">
+    <div class="group-label">The Chapters</div>
+    <div class="cards">
+      <a href="cmc.htm" class="card">
+        <span class="card-title">CMC Limited</span>
+        <span class="card-years">1992–1995</span>
+        <span class="card-desc">The idealist years. Bhilai Steel Plant, 28 Camac Street, and the most satisfying technological work of a young career.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="sweatshop.htm" class="card">
+        <span class="card-title">The Sweatshop Decade</span>
+        <span class="card-years">1995–2005</span>
+        <span class="card-desc">Offshore India and the H1B circuit — the exploitation often lost in the gilded story of the meritocratic immigrant.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="microsoft.htm" class="card">
+        <span class="card-title">Microsoft</span>
+        <span class="card-years">2007–2020</span>
+        <span class="card-desc">Thirteen years at one of the world's most consequential technology companies — the chapter that redefined everything.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="caravel.htm" class="card">
+        <span class="card-title">Caravel Labs</span>
+        <span class="card-years">2020–present</span>
+        <span class="card-desc">The attempt at something of one's own — entrepreneurship, agency, and the lessons that only failure and persistence can teach.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="enslaver.htm" class="card">
+        <span class="card-title">The Enslaver Phases</span>
+        <span class="card-years">Fannie Mae · ADB</span>
+        <span class="card-desc">Two chapters where the systems I once resisted became, uncomfortably, systems I administered. The reckoning that followed.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="digital_agency.htm" class="card">
+        <span class="card-title">The Digital Agency Project</span>
+        <span class="card-years">Current</span>
+        <span class="card-desc">Sharing professional experience and wisdom so the next generation may retain agency — and use their privileges to give agency to others.</span>
+        <span class="card-arrow">→</span>
+      </a>
+    </div>
+  </div>
+  <footer>
+    <p>© Ashu Chatterji · 2026</p>
+    <p><a href="index.html">← Home</a></p>
+  </footer>
+</body>
+</html>
