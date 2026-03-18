@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Family · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92;
+      --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 2rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose { max-width: 660px; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .members { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 5rem; }
+    .group-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 1rem; }
+    .group-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .card { background: var(--paper); padding: 1.5rem 1.4rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.4rem; transition: background 0.2s; }
+    .card:hover { background: var(--cream); }
+    .card:hover .card-title { color: var(--accent); }
+    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--ink); transition: color 0.2s; line-height: 1.2; }
+    .card-desc { font-size: 0.8rem; font-weight: 300; color: var(--ink-faint); line-height: 1.5; }
+    .card-arrow { margin-top: auto; padding-top: 0.8rem; font-size: 0.8rem; color: var(--accent); opacity: 0; transform: translateX(-4px); transition: opacity 0.2s, transform 0.2s; }
+    .card:hover .card-arrow { opacity: 1; transform: translateX(0); }
+    .datestamp { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, .members, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <span class="current">Family</span>
+    </div>
+    <div class="eyebrow">Family</div>
+    <h1>Family</h1>
+    <p class="subtitle">God Almighty has blessed me with the most wonderful family.</p>
+  </header>
+  <nav>
+    <a href="index.html#family" class="active">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+    <div class="prose">
+      <p>God Almighty has blessed me with the most wonderful family. By family, of course, I am speaking in the Indian context, which includes my late grandfather, my dear departed aunt and uncle (my mother's oldest sister and brother-in-law), my wonderful parents, the world's best sister, a most loving wife and two beautiful children. Each of them deserves special mention.</p>
+      <p>Our house at 71 Western Kutchery Road, Meerut, India is our permanent home. It also houses some curious things that remain part of my sweetest boyhood memories. This section also talks about some of them.</p>
+      <p>My parents have always believed in staying in touch with the extended family, so I remember visits to and from grandparents, uncles and aunts and cousins. In India there are no great uncles and aunts — their children are not <em>k-th</em> cousin, <em>n-times</em> removed, they are your uncles and aunts and your cousins have to be treated the same as your siblings. The happiest ones were the visits to my aunt's place in Asansol, what used to be a small town of immense importance because of its huge railway junction, the richness of its hinterland in mineral wealth and, consequently, its industrial strength. There was a certain something in the air that you smelt shortly before you arrived in Asansol — most probably the smell of burning coals from the steam engines that huffed and puffed along the myriad branch and colliery lines — that I can associate with even today. I was the only boy in my mother's generation on that side of the family, and given that my four cousins are all at least thirteen years older than me, they took turns at spoiling rotten their baby brother. Only the youngest cousin and my sister, both of whom did not have anyone younger to boss around than me, would have a reproachful word.</p>
+      <p>Much closer to home in Meerut, there was the house of my father's aunt that we visited on a regular basis. This grandmother, or Bouma, as my sister and I called her, lived with her two oldest daughters and her oldest grandson and his family. Bouma was very affectionate to everyone and was especially fond of my parents and, by association, of my sister and me. <em>Bouma'r Bari</em>, or Bouma's House, was therefore a place that has the taste of dark chocolate for me as a little boy.</p>
+      <p>Growing up, I traveled extensively with both my parents and my uncle and aunt. Three of these trips are especially worth mention.</p>
+      <div class="datestamp">Originally written May 2005 · Restored 2026</div>
+    </div>
+  </article>
+  <div class="members">
+    <div class="group-label">Family Members</div>
+    <div class="cards">
+      <a href="thamma.htm" class="card">
+        <span class="card-title">Thamma</span>
+        <span class="card-desc">My grandmother.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="ma.htm" class="card">
+        <span class="card-title">Ma</span>
+        <span class="card-desc">My mother.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="babali.htm" class="card">
+        <span class="card-title">Babali</span>
+        <span class="card-desc">My father.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="jamu.htm" class="card">
+        <span class="card-title">Jamu</span>
+        <span class="card-desc">My uncle.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="mamon.htm" class="card">
+        <span class="card-title">Mamon</span>
+        <span class="card-desc">My aunt.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="tanu.htm" class="card">
+        <span class="card-title">Tanu</span>
+        <span class="card-desc">My wife.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="mini.htm" class="card">
+        <span class="card-title">Mini</span>
+        <span class="card-desc">My daughter.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="pronoy.htm" class="card">
+        <span class="card-title">Pronoy</span>
+        <span class="card-desc">My son.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="gagga.htm" class="card">
+        <span class="card-title">Gagga</span>
+        <span class="card-desc">My sister.</span>
+        <span class="card-arrow">→</span>
+      </a>
+    </div>
+  </div>
+  <footer>
+    <p>© Ashu Chatterji · Originally written May 2005 · Restored 2026</p>
+    <p><a href="index.html">← Home</a></p>
+  </footer>
+</body>
+</html>
