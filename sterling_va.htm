@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sterling, Virginia · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .intro { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); max-width: 660px; margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--rule); }
+
+    /* ── Gallery ── */
+    .gallery-section { margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--rule); }
+    .gallery-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .gallery-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+    .photo-grid { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .photo-grid.single { grid-template-columns: 1fr; max-width: 400px; }
+    .photo-grid.double { grid-template-columns: 1fr 1fr; }
+    .photo-wrap { background: var(--cream); overflow: hidden; }
+    .photo-wrap img { width: 100%; height: auto; display: block; filter: sepia(8%) contrast(1.05); transition: transform 0.4s ease; }
+    .photo-wrap:hover img { transform: scale(1.02); }
+    .photo-caption { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-style: italic; color: var(--ink-faint); margin-top: 0.75rem; line-height: 1.5; }
+
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) {
+      header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .photo-grid.double { grid-template-columns: 1fr; }
+      .photo-grid.single { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="us_homes.htm">Our Homes</a>
+      <span>·</span>
+      <span class="current">Sterling, Virginia</span>
+    </div>
+    <div class="eyebrow">Our Homes · January 2001 – March 2005</div>
+    <h1>Sterling, Virginia</h1>
+    <p class="subtitle">The first home we could call our own.</p>
+  </header>
+  <nav>
+    <a href="index.html#family" class="active">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+
+    <p class="intro">The first home that we could call our own, we loved this townhouse where we stayed from January 2001 until March 2005. Meenakshi took special pride in decorating this home — her first real canvas. Our son Pronoy was born here in April 2002. Just a few months earlier, we had witnessed on television the great tragedy that befell this nation on September 11, 2001. As much as we loved this house, it was a little too cramped for a family of four, which is why we had to move again.</p>
+
+    <div class="gallery-section">
+      <div class="gallery-label">Exterior</div>
+      <div class="photo-grid single">
+        <div class="photo-wrap">
+          <img src="images/boxcar00.jpg" alt="The townhouse on a snowy morning" />
+        </div>
+      </div>
+      <p class="photo-caption">Outside, on a snowy morning.</p>
+    </div>
+
+    <div class="gallery-section">
+      <div class="gallery-label">Living Room</div>
+      <div class="photo-grid double">
+        <div class="photo-wrap"><img src="images/boxcar01.jpg" alt="Living room view 1" /></div>
+        <div class="photo-wrap"><img src="images/boxcar02.jpg" alt="Living room view 2" /></div>
+      </div>
+      <p class="photo-caption">Two views of the living room.</p>
+    </div>
+
+    <div class="gallery-section">
+      <div class="gallery-label">Dining Room</div>
+      <div class="photo-grid single">
+        <div class="photo-wrap">
+          <img src="images/boxcar03.jpg" alt="The formal dining arrangement" />
+        </div>
+      </div>
+      <p class="photo-caption">The formal dining arrangement.</p>
+    </div>
+
+    <div class="gallery-section">
+      <div class="gallery-label">Kitchen</div>
+      <div class="photo-grid double">
+        <div class="photo-wrap"><img src="images/boxcar04.jpg" alt="Kitchen view 1" /></div>
+        <div class="photo-wrap"><img src="images/boxcar05.jpg" alt="Kitchen view 2" /></div>
+      </div>
+      <p class="photo-caption">The large, sunlit kitchen — the most popular place in the house.</p>
+      <div class="photo-grid single" style="margin-top: 1px;">
+        <div class="photo-wrap"><img src="images/boxcar06.jpg" alt="Kitchen table" /></div>
+      </div>
+      <p class="photo-caption">The kitchen table arrangement, where we ate most of our meals.</p>
+    </div>
+
+    <div class="gallery-section">
+      <div class="gallery-label">Main Level Bathroom</div>
+      <div class="photo-grid single">
+        <div class="photo-wrap">
+          <img src="images/boxcar07.jpg" alt="The bathroom on the main level" />
+        </div>
+      </div>
+      <p class="photo-caption">The bathroom on the main level.</p>
+    </div>
+
+    <div class="gallery-section">
+      <div class="gallery-label">Master Suite</div>
+      <div class="photo-grid single">
+        <div class="photo-wrap"><img src="images/boxcar08.jpg" alt="The master bedroom" /></div>
+      </div>
+      <p class="photo-caption">The master bedroom.</p>
+      <div class="photo-grid single" style="margin-top: 1px;">
+        <div class="photo-wrap"><img src="images/boxcar09.jpg" alt="Meenakshi's study" /></div>
+      </div>
+      <p class="photo-caption">Meenakshi's study.</p>
+      <div class="photo-grid single" style="margin-top: 1px;">
+        <div class="photo-wrap"><img src="images/boxcar10.jpg" alt="Walk-in closet" /></div>
+      </div>
+      <p class="photo-caption">Our walk-in closet.</p>
+      <div class="photo-grid single" style="margin-top: 1px;">
+        <div class="photo-wrap"><img src="images/boxcar11.jpg" alt="The master bathroom" /></div>
+      </div>
+      <p class="photo-caption">The master bathroom.</p>
+    </div>
+
+    <div class="gallery-section">
+      <div class="gallery-label">Children's Rooms</div>
+      <div class="photo-grid double">
+        <div class="photo-wrap"><img src="images/boxcar12.jpg" alt="Arpita's room" /></div>
+        <div class="photo-wrap"><img src="images/boxcar13.jpg" alt="Pronoy's room" /></div>
+      </div>
+      <p class="photo-caption">Arpita's room (left) and Pronoy's room (right).</p>
+      <div class="photo-grid single" style="margin-top: 1px;">
+        <div class="photo-wrap"><img src="images/boxcar14.jpg" alt="The kids' bathroom" /></div>
+      </div>
+      <p class="photo-caption">The kids' bathroom.</p>
+    </div>
+
+    <div class="gallery-section">
+      <div class="gallery-label">My Study</div>
+      <div class="photo-grid double">
+        <div class="photo-wrap"><img src="images/boxcar15.jpg" alt="My study view 1" /></div>
+        <div class="photo-wrap"><img src="images/boxcar16.jpg" alt="My study view 2" /></div>
+      </div>
+      <p class="photo-caption">My study.</p>
+    </div>
+
+    <div class="datestamp">Originally written March 2005 · Restored 2026</div>
+  </article>
+  <footer>
+    <p>© Ashu Chatterji · Originally written March 2005 · Restored 2026</p>
+    <p><a href="us_homes.htm">← Our Homes</a></p>
+  </footer>
+</body>
+</html>
