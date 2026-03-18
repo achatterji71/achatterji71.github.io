@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Homes · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 2rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose { max-width: 660px; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .homes { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 5rem; }
+    .group-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 1rem; }
+    .group-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .card { background: var(--paper); padding: 1.5rem 1.4rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.4rem; transition: background 0.2s; }
+    .card:hover { background: var(--cream); }
+    .card:hover .card-title { color: var(--accent); }
+    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--ink); transition: color 0.2s; line-height: 1.2; }
+    .card-desc { font-size: 0.8rem; font-weight: 300; color: var(--ink-faint); line-height: 1.5; }
+    .card-years { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; color: var(--accent); margin-top: 0.25rem; }
+    .card-arrow { margin-top: auto; padding-top: 0.8rem; font-size: 0.8rem; color: var(--accent); opacity: 0; transform: translateX(-4px); transition: opacity 0.2s, transform 0.2s; }
+    .card:hover .card-arrow { opacity: 1; transform: translateX(0); }
+    .datestamp { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, .homes, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <span class="current">Our Homes</span>
+    </div>
+    <div class="eyebrow">Family · America</div>
+    <h1>Our Homes</h1>
+    <p class="subtitle">Six homes since 1996 — and a few more chapters still being written.</p>
+  </header>
+  <nav>
+    <a href="index.html#family" class="active">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+    <div class="prose">
+      <p>As of 2005, we had lived in six homes in the United States — four apartments and two that we owned (theoretically, since the deeds were held by our generous bank, who kindly extended us the opportunity to live in neck-deep debt, happily ever after). Each of these homes has special memories.</p>
+      <p>The apartments tell the story of an itinerant engineer and his family finding their footing in a new country. The houses that followed tell a different story — of putting down roots, of children growing up, of a family defining itself. And then came Manila, which reminded us that home is not always where you expect to find it.</p>
+      <div class="datestamp">Originally written March 2005 · Updated 2026</div>
+    </div>
+  </article>
+  <div class="homes">
+    <div class="group-label">The Chapters</div>
+    <div class="cards">
+      <a href="apartments.htm" class="card">
+        <span class="card-title">The Apartments</span>
+        <span class="card-years">1996–2001</span>
+        <span class="card-desc">Have H1B, will travel — and the exploitation often lost in the gilded story of the meritocratic immigrant.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="sterling_va.htm" class="card">
+        <span class="card-title">Sterling, Virginia</span>
+        <span class="card-years">2001–2005</span>
+        <span class="card-desc">The first transition milestone — from modern-day hunter-gatherer to the agrarian.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="ashburn_va.htm" class="card">
+        <span class="card-title">Ashburn, Virginia</span>
+        <span class="card-years">2005–present</span>
+        <span class="card-desc">Where we came of age, raised our children, and ended up defining ourselves.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="manila.htm" class="card">
+        <span class="card-title">Manila</span>
+        <span class="card-years">2024–2025</span>
+        <span class="card-desc">The gilded cage that reminded me of the responsibility that comes from privilege.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="calcutta_ashram.htm" class="card">
+        <span class="card-title">The Calcutta Ashram</span>
+        <span class="card-years">Forthcoming</span>
+        <span class="card-desc">A winter residence and workshop — still being planned, still being dreamed.</span>
+        <span class="card-arrow">→</span>
+      </a>
+    </div>
+  </div>
+  <footer>
+    <p>© Ashu Chatterji · Originally written March 2005 · Updated 2026</p>
+    <p><a href="index.html">← Home</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Apartments · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .intro { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); max-width: 660px; margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--rule); }
+    .sections { display: flex; flex-direction: column; gap: 0; }
+    .section { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; padding-bottom: 3rem; margin-bottom: 3rem; border-bottom: 1px solid var(--rule); }
+    .section:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .section-label { padding-top: 0.25rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--ink); line-height: 1.2; margin-bottom: 0.4rem; }
+    .section-years { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+    .section-body p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.05rem, 2vw, 1.2rem); font-weight: 300; line-height: 1.85; color: var(--ink); max-width: 580px; }
+    .section-body p + p { margin-top: 1.2rem; }
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .section { grid-template-columns: 1fr; gap: 0.5rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="us_homes.htm">Our Homes</a>
+      <span>·</span>
+      <span class="current">The Apartments</span>
+    </div>
+    <div class="eyebrow">Our Homes · 1996–2001</div>
+    <h1>The Apartments</h1>
+    <p class="subtitle">Have H1B, will travel.</p>
+  </header>
+  <nav>
+    <a href="index.html#family" class="active">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+    <p class="intro">The H1B visa is the mechanism by which America imports its engineers — a system that is simultaneously a ladder of opportunity and a leash of dependency. You go where the assignment takes you, you stay as long as the contract lasts, and you build a life in the margins of someone else's business plan. These are the four apartments where we did exactly that, between December 1996 and January 2001.</p>
+
+    <div class="sections">
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-title">Herndon, Virginia</div>
+          <div class="section-years">December 1996 – August 1997</div>
+        </div>
+        <div class="section-body">
+          <p>This was my first home in the United States. A tiny little luxury apartment, it set the standard for our homes in the future. This was where I painstakingly acquired and assembled my first set of furniture — mostly from the now defunct chain store Caldor, and some from Kmart. Meenakshi arrived here after our wedding, and rearranged everything — or at least as much as our budget would allow. We left this apartment in August 1997, when my assignment came to an end, moving to the dreary expanses of upstate New York.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-title">Watervliet, New York</div>
+          <div class="section-years">August – November 1997</div>
+        </div>
+        <div class="section-body">
+          <p>We lived in this apartment for only about three months — what we like to call our exile from the Washington/Baltimore area. We spent as much time as possible away from here, plotting our return to Washington.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-title">Columbia, Maryland</div>
+          <div class="section-years">December 1997 – January 2000</div>
+        </div>
+        <div class="section-body">
+          <p>This was our new home after our return to the Washington/Baltimore area. Our daughter Arpita was born here. We lived here from December 1997 until January 2000.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-title">Fairfax, Virginia</div>
+          <div class="section-years">January 2000 – January 2001</div>
+        </div>
+        <div class="section-body">
+          <p>The move to Fairfax was ostensibly to help with the commute to Washington DC, but it really marked our return to Virginia. This apartment was an exact replica of the one in Columbia, MD, except that it was on the first floor. We began our earnest quest at home ownership from here and succeeded at it in November 2000.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="datestamp">Originally written March 2005 · Restored 2026</div>
+  </article>
+  <footer>
+    <p>© Ashu Chatterji · Originally written March 2005 · Restored 2026</p>
+    <p><a href="us_homes.htm">← Our Homes</a></p>
+  </footer>
+</body>
+</html>
