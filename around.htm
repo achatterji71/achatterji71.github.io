@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Around the World · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    .content { max-width: 860px; margin: 0 auto; padding: 4rem 2rem 6rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose { max-width: 620px; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .counter { margin: 3rem 0; padding: 2.5rem; background: var(--cream); max-width: 480px; display: flex; gap: 3rem; align-items: center; }
+    .count { text-align: center; }
+    .count-number { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; line-height: 1; color: var(--accent); }
+    .count-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-top: 0.5rem; }
+    .count-divider { width: 1px; background: var(--rule); align-self: stretch; }
+    .note { margin-top: 2.5rem; font-size: 0.78rem; font-weight: 300; color: var(--ink-faint); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1rem; }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, .content, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .counter { flex-direction: column; gap: 1.5rem; } .count-divider { width: 100%; height: 1px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <span class="current">Around the World</span>
+    </div>
+    <div class="eyebrow">Places</div>
+    <h1>Around the World</h1>
+    <p class="subtitle">A life measured, in part, in passports and boarding passes.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <div class="content">
+    <div class="prose">
+      <p>When this site was first written in 2005, I had visited thirteen countries — mostly India, the United States, and a handful of others. It felt like a reasonable start. Meenakshi and I both inherited a passion for travel from our respective parents, and we had been blessed with opportunities to visit parts of Asia, Europe, and North America.</p>
+      <p>What happened next was not entirely planned. The years between 2005 and 2026 took me to places I had only read about — across six continents, through deserts and archipelagos, ancient cities and wild coastlines. The number grew slowly at first, then faster, then became something of a quiet mission.</p>
+    </div>
+
+    <div class="counter">
+      <div class="count">
+        <div class="count-number">13</div>
+        <div class="count-label">Countries in 2005</div>
+      </div>
+      <div class="count-divider"></div>
+      <div class="count">
+        <div class="count-number">84</div>
+        <div class="count-label">Countries in 2026</div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>The stories from these travels — the places, the people, the moments that stay with you long after the jet lag fades — are coming in Phase 2 of this site. There is a great deal to write.</p>
+      <p class="note">With some luck, the count will be at 88 by April 2026.</p>
+    </div>
+  </div>
+  <footer>
+    <p>© Ashu Chatterji · 2026</p>
+    <p><a href="index.html">← Home</a></p>
+  </footer>
+</body>
+</html>
