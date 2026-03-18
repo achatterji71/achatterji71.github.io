@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Reckoning - History of Calcutta - Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .context-note { background: var(--cream); border-left: 3px solid var(--accent); padding: 1.75rem 2rem; margin-bottom: 3rem; max-width: 660px; }
+    .context-note p { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; line-height: 1.8; color: var(--ink-light); }
+    .prose { max-width: 660px; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .coming-note { margin-top: 2.5rem; padding: 1.5rem; background: var(--cream); font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--ink-faint); line-height: 1.7; }
+    .chapter-nav { max-width: 860px; margin: 0 auto; padding: 2rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .chapter-nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .chapter-nav a:hover { color: var(--accent); }
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, footer, .chapter-nav { padding-left: 1.25rem; padding-right: 1.25rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="calcutta.htm">Project Calcutta</a>
+      <span>·</span>
+      <a href="calcutta_history.htm">History</a>
+      <span>·</span>
+      <span class="current">A Reckoning</span>
+    </div>
+    <div class="eyebrow">History of Calcutta · Chapter VII</div>
+    <h1>A Reckoning</h1>
+    <p class="subtitle">What the first six chapters got wrong — and what Calcutta is actually about.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+
+    <div class="context-note">
+      <p>The six chapters that precede this one were written in 1997 and revised through 2003. They are preserved as a document of their time — including their blind spots. This chapter, written in 2026, is an attempt to name those blind spots honestly.</p>
+    </div>
+
+    <div class="prose">
+      <p>I wrote those six chapters as a young man of twenty-six, living in Washington DC, trying to counter a particular narrative about Calcutta that was prevalent at the time — the poverty narrative, driven by the celebrities and NGO-tourists who came to walk in Mother Teresa's footsteps and left with photographs of suffering and a story of redemption. My counter-narrative was: look what we had. The neo-Gothic buildings, the oldest golf course outside the British Isles, the first hotels in Asia, the Nobel Laureates, the railways, the universities.</p>
+
+      <p>I see now what I could not see then. That counter-narrative was just as colonial as the one I was countering. It measured Calcutta's worth in the currency of empire — what the British built, what European institutions took root, how Calcutta compared to London. The whole framing accepted the premise that European institutions were the standard of value, and that Calcutta's dignity depended on having matched or exceeded them.</p>
+
+      <p>It took my millennial coworkers — visiting Calcutta with me for the first time around 2013 — to show me what I had been missing. They were not interested in the Victoria Memorial. They wanted to sit in a <em>para</em> and talk until midnight. They wanted the street food at Dacres Lane. They wanted to watch the potters of Kumartuli work at dawn. They responded to something in the city that my 1997 framework had no category for: the adda, the spontaneous intellectual life, the radical inclusivity that has nothing to do with any colonial institution and everything to do with something much older and much more interesting.</p>
+
+      <p>Calcutta's cosmopolitan humanity was not a gift of empire. The Durga Puja that first began publicly in 1757 — that I recorded as Raja Nobo Kissen Deb celebrating a Company victory — was in fact a continuation of something that predated Job Charnock by centuries. The tradition of welcome that absorbed Armenians, Chinese, Jews, Greeks and every other community was not an effect of British rule. It was what the British found when they arrived, and what survived everything they did.</p>
+
+      <p>The poverty narrative and the colonial nostalgia narrative are mirror images of each other. Both are told from outside the city, both use the city as a backdrop for someone else's story, and both miss what anyone who has actually lived in Calcutta knows: that the city has a genius for life that has nothing to do with its buildings, its institutions, or its colonial infrastructure.</p>
+
+      <p>This chapter is a placeholder for the fuller reckoning that this history deserves. It will be written properly in time.</p>
+
+      <div class="coming-note">This chapter will be substantially expanded in Phase 2 — drawing on two decades of return visits, the friends who reoriented my understanding, and a clearer-eyed account of what Calcutta's history actually means.</div>
+
+      <div class="datestamp">Written 2026</div>
+    </div>
+
+  </article>
+  <div class="chapter-nav">
+    <a href="calcutta_history6.htm">← New Horizons</a>
+    <a href="calcutta_history.htm">All Chapters</a>
+    <span></span>
+  </div>
+  <footer>
+    <p>© Ashu Chatterji · Written 2026</p>
+    <p><a href="calcutta_history.htm">← History of Calcutta</a></p>
+  </footer>
+</body>
+</html>

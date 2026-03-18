@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History of Calcutta · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 2rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose { max-width: 660px; margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--rule); }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .group-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 1rem; }
+    .group-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .card { background: var(--paper); padding: 1.5rem 1.4rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.4rem; transition: background 0.2s; }
+    .card:hover { background: var(--cream); }
+    .card:hover .card-title { color: var(--accent); }
+    .card-number { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--ink); transition: color 0.2s; line-height: 1.2; }
+    .card-desc { font-size: 0.8rem; font-weight: 300; color: var(--ink-faint); line-height: 1.5; }
+    .card-arrow { margin-top: auto; padding-top: 0.8rem; font-size: 0.8rem; color: var(--accent); opacity: 0; transform: translateX(-4px); transition: opacity 0.2s, transform 0.2s; }
+    .card:hover .card-arrow { opacity: 1; transform: translateX(0); }
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="calcutta.htm">Project Calcutta</a>
+      <span>·</span>
+      <span class="current">History</span>
+    </div>
+    <div class="eyebrow">Project Calcutta · Written 1997</div>
+    <h1>History of Calcutta</h1>
+    <p class="subtitle">A mere 300 years old — but what 300 years.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+    <div class="prose">
+      <p>What Calcutta lacks in years it makes up in intensity. Calcutta is a mere 300 years old compared to India's 5,000, but most landmarks of those 300 years exist, only slightly worn with age. While Calcutta lacks the archaeological sites of Athens, Cairo, Delhi and Rome, it is rich in living institutions that go back centuries.</p>
+      <p>Parts of the riverfront south of the city are covered by rainforests just as they were when the first European traders arrived. The streets of Dalhousie Square and Chowringhee are lined with neo-Gothic and neo-Renaissance buildings that tell the tales of the Scots businessmen who came as much to build and trade as they did to pillage and plunder — the men who defined the first wave of globalisation in the 18th and 19th centuries. There are museums just a few years younger than the oldest in the world, and the oldest golf course outside the United Kingdom and Ireland, pre-dating the first in the United States by over half a century.</p>
+      <p>South Park Street Cemetery is the final resting place of many pioneers, including a son of Charles Dickens. Walking down the streets you encounter plaques that remind you that a certain house was the birthplace of the English novelist William Makepeace Thackeray, and another was where Dr. Ronald Ross first proved that malaria was borne by mosquitoes. Nearby, in the town of Chandernagor — a French colony until 1949, not officially handed over to India until 1956 — a gateway still proclaims Liberty, Fraternity and Equality, and the local museum carries all its information in Bengali and French.</p>
+      <p>Calcutta is truly a city where history comes walking down and meets you halfway on the street.</p>
+      <p style="font-size:0.9rem; font-style:italic; color:var(--ink-faint);">Written in 1997 as part of <em>Calcutta: The City of Palaces</em> — the only completed section of that site.</p>
+    </div>
+
+    <div class="group-label">Six Chapters</div>
+    <div class="cards">
+      <a href="calcutta_history1.htm" class="card">
+        <span class="card-number">Chapter I</span>
+        <span class="card-title">East Meets West</span>
+        <span class="card-desc">The first encounter between European traders and the villages on the Hooghly.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="calcutta_history2.htm" class="card">
+        <span class="card-number">Chapter II</span>
+        <span class="card-title">Charnock's Folly</span>
+        <span class="card-desc">Job Charnock and the founding of a city that was never meant to be.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="calcutta_history3.htm" class="card">
+        <span class="card-number">Chapter III</span>
+        <span class="card-title">The Hon'ble Company</span>
+        <span class="card-desc">The East India Company and the city it built to serve its ambitions.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="calcutta_history4.htm" class="card">
+        <span class="card-number">Chapter IV</span>
+        <span class="card-title">Rule Britannia</span>
+        <span class="card-desc">The capital of British India — its grandeur, its contradictions, its consequences.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="calcutta_history5.htm" class="card">
+        <span class="card-number">Chapter V</span>
+        <span class="card-title">The Grand Old Lady</span>
+        <span class="card-desc">The city at the height of its cultural and intellectual flowering.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="calcutta_history6.htm" class="card">
+        <span class="card-number">Chapter VI</span>
+        <span class="card-title">New Horizons</span>
+        <span class="card-desc">Independence, partition, and the long reinvention that followed.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="calcutta_history7.htm" class="card">
+        <span class="card-number">Chapter VII · 2026</span>
+        <span class="card-title">A Reckoning</span>
+        <span class="card-desc">What the first six chapters got wrong — and what Calcutta is actually about.</span>
+        <span class="card-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="datestamp">Originally written 1997 · Restored 2026</div>
+  </article>
+  <footer>
+    <p>© Ashu Chatterji · Originally written 1997 · Restored 2026</p>
+    <p><a href="calcutta.htm">← Project Calcutta</a></p>
+  </footer>
+</body>
+</html>

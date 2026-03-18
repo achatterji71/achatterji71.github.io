@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charnock's Folly - History of Calcutta - Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .figure { margin: 2.5rem 0; display: grid; grid-template-columns: 260px 1fr; gap: 1.5rem; align-items: start; max-width: 700px; }
+    .figure img { width: 100%; height: auto; display: block; filter: sepia(10%) contrast(1.05); }
+    .figure figcaption { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-style: italic; color: var(--ink-faint); line-height: 1.6; padding-top: 0.25rem; }
+    .chapter-nav { max-width: 860px; margin: 0 auto; padding: 2rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .chapter-nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .chapter-nav a:hover { color: var(--accent); }
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, footer, .chapter-nav { padding-left: 1.25rem; padding-right: 1.25rem; } .figure { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="calcutta.htm">Project Calcutta</a>
+      <span>·</span>
+      <a href="calcutta_history.htm">History</a>
+      <span>·</span>
+      <span class="current">Charnock's Folly</span>
+    </div>
+    <div class="eyebrow">History of Calcutta · Chapter II</div>
+    <h1>Charnock's Folly</h1>
+    <p class="subtitle">The chance-erected city — and why it flourished anyway.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+    <div class="prose">
+      <p>The East India Company was formed in 1600 in London by appointment of Queen Elizabeth I. The English did not venture into Bengal until about fifty years later. In 1687, the Company was offered the village of Uluberia, but rejected it as too prone to silting. The Company suggested instead the village of Sutanuti, already a trading post.</p>
+    </div>
+    <div class="figure">
+      <img src="images/EICArms2.gif" alt="Coat of Arms of the East India Company at the time it establ" />
+      <figcaption>Coat of Arms of the East India Company at the time it established trade relations with Bengal and founded Calcutta.</figcaption>
+    </div>
+    <div class="prose">
+      <p>Job Charnock represented the East India Company when the factory at Sutanuti opened on August 24, 1690. In 1696, Emperor Aurungzeb granted permission to fortify their possessions. Far-sighted Armenian traders, realising the Company could provide better security than the Dutch in Chinsurah, financed the purchase of Sutanuti and the neighbouring villages of Kolikata and Gobindopur in 1698. Construction of Fort William was completed in 1699, and Calcutta — the union of three villages — was born.</p>
+    </div>
+    <div class="figure">
+      <img src="images/EIC-house.gif" alt="The head office of the East India Company in London." />
+      <figcaption>The head office of the East India Company in London.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/fruitseller.jpg" alt="Job Charnock probably met such a fruit seller in Sutanuti, n" />
+      <figcaption>Job Charnock probably met such a fruit seller in Sutanuti, not far from the present-day fruit market at Mechuabazar.</figcaption>
+    </div>
+    <div class="prose">
+      <p>Even though the site was not prone to silting, Calcutta was located next to a huge salt water lake — a breeding ground for mosquitoes — that flooded during the rains and left behind fish that died and putrefied, causing epidemics of cholera and malaria. More than a third of the European population perished in such plagues. This earned Calcutta the sobriquet of "Charnock's Folly" and the "Chance Erected City." Nevertheless, the settlement flourished because of excellent trade prospects. In 1707, Calcutta became a separate Presidency reporting directly to the Board of Directors in London.</p>
+      <p>A delegation led by Dr. Hamilton visited the court of Emperor Farrucksiyar in 1715. The Emperor, indisposed by an illness that the surgeon cured, confirmed the rights of the Company and granted ownership of thirty-seven townships, including Howrah. To defend against Mahratta marauders, the Mahratta Ditch was built in 1742.</p>
+      <p>By the mid-eighteenth century, Calcutta was a large city with a fort, a chapel (now the site of St. John's Church), a building for the clerks — or writers — and jetties for ships. That hostel for writers was rebuilt and continues to this day as the Writers' Building, seat of the state secretariat.</p>
+    </div>
+    <div class="figure">
+      <img src="images/chest.jpg" alt="The typical East India Company employee carried such a chest" />
+      <figcaption>The typical East India Company employee carried such a chest, with pen, ink and paper to carry out his business.</figcaption>
+    </div>
+    <div class="prose">
+      <p>In 1756, Nawab Sirajuddaulah marched on Calcutta and besieged the city on June 16. English troops were rounded up and confined to a tiny room in Fort William. By the next morning, 123 of 146 soldiers had died. This incident — called The Black Hole — has been disputed by historians as highly exaggerated. A memorial was built near the site, later moved to St. John's Church where it stands beside the tomb of Job Charnock.</p>
+    </div>
+    <div class="figure">
+      <img src="images/wall_hanging.jpg" alt="A wall hanging from the Company school shows a Company facto" />
+      <figcaption>A wall hanging from the Company school shows a Company factor negotiating with local nobles.</figcaption>
+    </div>
+    <div class="prose">
+      <div class="datestamp">Originally written 1997-2003 · Restored 2026</div>
+    </div>
+  </article>
+  <div class="chapter-nav">
+    <a href="calcutta_history1.htm">← East Meets West</a>
+    <a href="calcutta_history.htm">All Chapters</a>
+    <a href="calcutta_history3.htm">The Hon'ble Company →</a>
+  </div>
+  <footer>
+    <p>© Ashu Chatterji · Originally written 1997-2003 · Restored 2026</p>
+    <p><a href="calcutta_history.htm">← History of Calcutta</a></p>
+  </footer>
+</body>
+</html>

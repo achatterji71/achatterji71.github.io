@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Grand Old Lady - History of Calcutta - Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .figure { margin: 2.5rem 0; display: grid; grid-template-columns: 260px 1fr; gap: 1.5rem; align-items: start; max-width: 700px; }
+    .figure img { width: 100%; height: auto; display: block; filter: sepia(10%) contrast(1.05); }
+    .figure figcaption { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-style: italic; color: var(--ink-faint); line-height: 1.6; padding-top: 0.25rem; }
+    .chapter-nav { max-width: 860px; margin: 0 auto; padding: 2rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .chapter-nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .chapter-nav a:hover { color: var(--accent); }
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, footer, .chapter-nav { padding-left: 1.25rem; padding-right: 1.25rem; } .figure { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="calcutta.htm">Project Calcutta</a>
+      <span>·</span>
+      <a href="calcutta_history.htm">History</a>
+      <span>·</span>
+      <span class="current">The Grand Old Lady</span>
+    </div>
+    <div class="eyebrow">History of Calcutta · Chapter V</div>
+    <h1>The Grand Old Lady</h1>
+    <p class="subtitle">Independence, partition, and the decades of reinvention.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+    <div class="prose">
+      <p>The British departed Calcutta on August 15, 1947. Calcutta became the capital of the state of West Bengal in the Republic of India. Its rich hinterland in eastern Bengal was suddenly separated into another nation. Railways to Assam and northern Bengal were cut off. And refugees from East Pakistan poured into the city by the million.</p>
+    </div>
+    <div class="figure">
+      <img src="images/AshokPillar.gif" alt="The emblem of the Republic of India that replaced the Crown " />
+      <figcaption>The emblem of the Republic of India that replaced the Crown on most of Calcutta's public buildings after the British left.</figcaption>
+    </div>
+    <div class="prose">
+      <p>The city of plenty, which had never turned away a persecuted soul, could not do it again. Calcutta's sidewalks accommodated the millions of political refugees at the cost of its own wellbeing. The government's doctrine of socialism took a heavy toll. Government-owned businesses monopolised markets. Equalized freight rates eliminated Calcutta's natural advantage. Economic stagnation set in almost immediately.</p>
+    </div>
+    <div class="figure">
+      <img src="images/esplnade.jpg" alt="Esplanade: what used to be the most fashionable district of " />
+      <figcaption>Esplanade: what used to be the most fashionable district of Calcutta fell into total chaos until the 1990s.</figcaption>
+    </div>
+    <div class="prose">
+      <p>The visionary Chief Minister Dr. Bidhan Chandra Roy planned three new townships — Salt Lake, Kalyani and Durgapur — to take some focus away from Calcutta. In 1967, a Communist government came to power under Chief Minister Jyoti Basu. An ultra-communist Naxalite movement ravaged Calcutta. Work on the subway system, begun in 1975, ran at a snail's pace and grounded the city's road network.</p>
+      <p>Into this context arrived a young nun from Yugoslavia named Agnes Gonzha Bojaxhin — Mother Teresa — who founded the Missionaries of Charity in 1947. Mother Teresa's work showed Calcutta in a very negative manner internationally, but helped Calcutta take much better care of its poor than other cities. She became the fourth Nobel Laureate of Calcutta in 1979.</p>
+    </div>
+    <div class="figure">
+      <img src="images/metro.jpg" alt="The Metro Railway — once the symbol of despair when its cons" />
+      <figcaption>The Metro Railway — once the symbol of despair when its construction dragged over decades, today a state-of-the-art mass transit system, a symbol of resurgent Calcutta.</figcaption>
+    </div>
+    <div class="prose">
+      <p>The 1990s saw a resurgence. The Metro was finally in place. Calcutta's power network, once notorious, became the finest in the region. Software professionals were turning out computer software for the world at facilities in Salt Lake. The Town Hall, which had once felicitated Tagore, was restored by public subscription and readied to welcome the fifth Nobel prize winner from Calcutta, Dr. Amartya Sen.</p>
+    </div>
+    <div class="figure">
+      <img src="images/infinity.jpg" alt="A modern glass-and-steel building in Salt Lake, home to some" />
+      <figcaption>A modern glass-and-steel building in Salt Lake, home to some of the two hundred-odd technology companies in Calcutta.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/ShoppingCenter.jpg" alt="A new shopping mall in what was a decaying suburb not too lo" />
+      <figcaption>A new shopping mall in what was a decaying suburb not too long ago.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/hilandpark.gif" alt="One of the latest residential neighbourhoods in Calcutta — f" />
+      <figcaption>One of the latest residential neighbourhoods in Calcutta — featuring modern amenities and a relative affordability unthinkable in other cities of its size.</figcaption>
+    </div>
+    <div class="prose">
+      <div class="datestamp">Originally written 1997-2003 · Restored 2026</div>
+    </div>
+  </article>
+  <div class="chapter-nav">
+    <a href="calcutta_history4.htm">← Rule Britannia</a>
+    <a href="calcutta_history.htm">All Chapters</a>
+    <a href="calcutta_history6.htm">New Horizons →</a>
+  </div>
+  <footer>
+    <p>© Ashu Chatterji · Originally written 1997-2003 · Restored 2026</p>
+    <p><a href="calcutta_history.htm">← History of Calcutta</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Calcutta · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 2rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose { max-width: 660px; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 3.5rem 0; }
+    .sections { display: flex; flex-direction: column; gap: 0; }
+    .section { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; padding-bottom: 3rem; margin-bottom: 3rem; border-bottom: 1px solid var(--rule); }
+    .section:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .section-label { padding-top: 0.25rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--ink); line-height: 1.2; margin-bottom: 0.4rem; }
+    .section-title a { color: var(--accent); text-decoration: none; }
+    .section-title a:hover { opacity: 0.7; }
+    .section-body p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.05rem, 2vw, 1.2rem); font-weight: 300; line-height: 1.85; color: var(--ink); max-width: 580px; }
+    .section-body p + p { margin-top: 1.2rem; }
+    .coming-note { font-size: 0.78rem; font-weight: 300; color: var(--ink-faint); font-style: italic; margin-top: 1rem; }
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .section { grid-template-columns: 1fr; gap: 0.5rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <span class="current">Project Calcutta</span>
+    </div>
+    <div class="eyebrow">Places · Spiritual Home</div>
+    <h1>Project Calcutta</h1>
+    <p class="subtitle">The city that history comes walking down to meet you on the street.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+    <div class="prose">
+      <p>In 1997, I built a website called <em>Calcutta: The City of Palaces</em>. I was an outsider to the city — my connection was as a visitor with family, or as a student passing through — and my picture of Calcutta was wrapped up in its stereotype of lament and nostalgia. I was also writing partly in response to the then-prevalent poverty stereotype, driven by the celebrities and wannabe celebrities who flocked to the city to rub shoulders with Mother Teresa, or walk in her footsteps for a minute. Only the History section of that site was ever completed, but it was written with care and is preserved here.</p>
+
+      <p>It was not until 2013 — when I first visited Calcutta with a co-worker friend from the US, and on subsequent similar trips — that I began to understand my true attraction to the city. What draws me is not the nostalgia, and not the poverty. It is the ethos of inclusivity and innovation, the cosmopolitan humanity, that stands in quiet contrast to the globalised corporate capitalism of cities that are seen as more "progressive" today. Calcutta does not perform its identity. It simply has one.</p>
+
+      <p>This page is a catch-all for what I now consider my spiritual home — a place I return to whenever I can, to rejuvenate. The stories are still accumulating.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="sections">
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-title"><a href="calcutta_history.htm">History</a></div>
+        </div>
+        <div class="section-body">
+          <p>Calcutta is a mere 300 years old compared to India's 5,000, but most landmarks of those 300 years exist, only slightly worn with age. Neo-Gothic buildings in Dalhousie Square, the oldest golf course outside the UK and Ireland, a French colony that flew the tricolour until 1949, the birthplace of William Makepeace Thackeray, the street where Ronald Ross first proved that malaria was borne by mosquitoes. Six chapters of history, written in 1997, preserved here.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-title">The City Today</div>
+        </div>
+        <div class="section-body">
+          <p>The Calcutta I return to now is not the city of 1995, or 1997, or even 2005. It is a city in the middle of its own quiet reinvention — holding its traditions and its contradictions with equal confidence. The writing about this Calcutta is coming in Phase 2.</p>
+          <p class="coming-note">Coming in Phase 2.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-title">The Calcutta Ashram</div>
+        </div>
+        <div class="section-body">
+          <p>A planned winter residence — a workshop and studio for the Digital Agency Project, and a way of returning to where so much began. Still being designed, still being dreamed.</p>
+          <p class="coming-note">See also: <a href="calcutta_ashram.htm" style="color:var(--accent);text-decoration:none;">The Calcutta Ashram</a> under Our Homes.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="datestamp">Originally written 1997 · Substantially updated 2026</div>
+  </article>
+  <footer>
+    <p>© Ashu Chatterji · Originally written 1997 · Substantially updated 2026</p>
+    <p><a href="index.html">← Home</a></p>
+  </footer>
+</body>
+</html>

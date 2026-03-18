@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>East Meets West - History of Calcutta - Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .figure { margin: 2.5rem 0; display: grid; grid-template-columns: 260px 1fr; gap: 1.5rem; align-items: start; max-width: 700px; }
+    .figure img { width: 100%; height: auto; display: block; filter: sepia(10%) contrast(1.05); }
+    .figure figcaption { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-style: italic; color: var(--ink-faint); line-height: 1.6; padding-top: 0.25rem; }
+    .chapter-nav { max-width: 860px; margin: 0 auto; padding: 2rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .chapter-nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .chapter-nav a:hover { color: var(--accent); }
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, footer, .chapter-nav { padding-left: 1.25rem; padding-right: 1.25rem; } .figure { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="calcutta.htm">Project Calcutta</a>
+      <span>·</span>
+      <a href="calcutta_history.htm">History</a>
+      <span>·</span>
+      <span class="current">East Meets West</span>
+    </div>
+    <div class="eyebrow">History of Calcutta · Chapter I</div>
+    <h1>East Meets West</h1>
+    <p class="subtitle">Two thousand years of maritime history before Job Charnock arrived.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+    <div class="prose">
+      <p>Although Calcutta's official birthday is August 24, 1690, the city's environs date back nearly two thousand years, when Tamralipti — now Tamluk — was a thriving port of the Gupta Empire, trading with all of South East Asia. Tamralipti was the starting point of the southwestern silk route that passed through Bengal, Assam and Burma before ending in the Yunnan province of China.</p>
+    </div>
+    <div class="figure">
+      <img src="images/TamraliptiCoin.jpg" alt="A gold coin of the Gupta Empire, used as an instrument of in" />
+      <figcaption>A gold coin of the Gupta Empire, used as an instrument of international trade at the port of Tamralipti.</figcaption>
+    </div>
+    <div class="prose">
+      <p>After the decline of the Gupta Empire, Bengal was ruled successively by the Pala and Sena dynasties. Tamralipti declined after Bengal fell to the Sultanate of Delhi in the twelfth century. By the sixteenth century Tamralipti was subject to excessive silting and the new traders from Europe began seeking other sites.</p>
+      <p>In 1537, the Portuguese sailed up the Ganges to establish their settlement at Satgaon. In 1580, they moved to Bandel de Hooghly. Emperor Shah Jehan attacked and destroyed it in 1632. The Church of Our Lady of Happy Voyage — already a pilgrimage site for Christians, Hindus and Muslims alike — survived and is now a Basilica, a major centre of Roman Catholicism in South East Asia.</p>
+    </div>
+    <div class="figure">
+      <img src="images/1911PortugalFlag.gif" alt="The flag of the Kingdom of Portugal — possibly the first Eur" />
+      <figcaption>The flag of the Kingdom of Portugal — possibly the first European ensign to fly in what is today the metropolitan area of Calcutta.</figcaption>
+    </div>
+    <div class="prose">
+      <p>In 1625, the Dutch East India Company (Jan Companie) established a settlement at Chinsurah to trade in opium, saltpeter, muslin and spices. They built Fort Gustavius and several other buildings. The Dutch settlement survived until 1825, when the Dutch ceded Chinsurah to the English in lieu of the island of Sumatra.</p>
+    </div>
+    <div class="figure">
+      <img src="images/VOCArms.jpg" alt="The arms of the Dutch East India Company." />
+      <figcaption>The arms of the Dutch East India Company.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/1665Chinsurah.jpg" alt="The Dutch factory at Chinsurah, dated 1665." />
+      <figcaption>The Dutch factory at Chinsurah, dated 1665.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/1690ChinsurahCoin.jpg" alt="A coin struck by the Dutch East India Company for use in Chi" />
+      <figcaption>A coin struck by the Dutch East India Company for use in Chinsurah, dated 1690.</figcaption>
+    </div>
+    <div class="prose">
+      <p>The French established their colony at Chandernagor in 1673. Chandernagor remained a French colony until 1949 when a referendum led to its merger with the Republic of India — the French aura remains to this day. A gate with the motto Liberté, Égalité, Fraternité marks the entrance to the former French Establishment. Behind the Administrateur's residence stands the Église du Sacré Coeur, reminiscent of French village churches.</p>
+    </div>
+    <div class="figure">
+      <img src="images/FICArms.gif" alt="The coat of arms of the French East India Company." />
+      <figcaption>The coat of arms of the French East India Company.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/1893ChandernagorStamp.gif" alt="Three stamps of the French Establishments of India — from 18" />
+      <figcaption>Three stamps of the French Establishments of India — from 1893, 1929 and 1949 — affixed to letters mailed from Chandernagor.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/1945ChandernagorRupee.jpg" alt="A 1-Roupie note issued by the Banque de Indo Chine in 1945. " />
+      <figcaption>A 1-Roupie note issued by the Banque de Indo Chine in 1945. Legal tender in Chandernagor until 1949.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/1935BanqueNationaleDeParis.jpg" alt="The Comptoir National d'Escompte de Paris on Dalhousie Squar" />
+      <figcaption>The Comptoir National d'Escompte de Paris on Dalhousie Square, 1935. This organisation, which continues today as BNP Banque Paribas, opened in Calcutta in 1860.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/ChandernagorChurch.jpg" alt="The Eglise du Sacré Coeur, where the French atmosphere linge" />
+      <figcaption>The Eglise du Sacré Coeur, where the French atmosphere lingers to this day.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/1949RadioChandernagor.jpg" alt="A 1949 reception report card of the French radio station at " />
+      <figcaption>A 1949 reception report card of the French radio station at Chandernagor.</figcaption>
+    </div>
+    <div class="prose">
+      <p>The Danish East India Company established a colony called Fredericknagore near Serampore in 1699. In 1799, Reverend William Carey established the first printing press in Asia at Serampore, and in 1819 the Serampore College — the first institution of western higher education in Asia. Denmark ceded Serampore to Britain in 1845.</p>
+    </div>
+    <div class="figure">
+      <img src="images/DenmarkFlag.gif" alt="The Danish flag — guardian of wisdom until it was replaced b" />
+      <figcaption>The Danish flag — guardian of wisdom until it was replaced by the Union Jack.</figcaption>
+    </div>
+    <div class="prose">
+      <p>Armenians settled as traders in Chinsurah in the sixteenth century. They funded the English East India Company to build Calcutta and moved to the city where they continue to live to this day. Greeks established a colony in Rishra, Prussians in Bhadreshwar, Belgians at Banquibazar. With the rapid development of Calcutta, these colonies wound up and their residents moved to the city and continued to contribute to its growth.</p>
+    </div>
+    <div class="figure">
+      <img src="images/OstendCompany.gif" alt="The flag of the Ostend Company, representing Flemish interes" />
+      <figcaption>The flag of the Ostend Company, representing Flemish interests in Bengal for about twenty years in the eighteenth century.</figcaption>
+    </div>
+    <div class="prose">
+      <div class="datestamp">Originally written 1997-2003 · Restored 2026</div>
+    </div>
+  </article>
+  <div class="chapter-nav">
+    
+    <a href="calcutta_history.htm">All Chapters</a>
+    <a href="calcutta_history2.htm">Charnock's Folly →</a>
+  </div>
+  <footer>
+    <p>© Ashu Chatterji · Originally written 1997-2003 · Restored 2026</p>
+    <p><a href="calcutta_history.htm">← History of Calcutta</a></p>
+  </footer>
+</body>
+</html>

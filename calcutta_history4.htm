@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rule Britannia - History of Calcutta - Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .figure { margin: 2.5rem 0; display: grid; grid-template-columns: 260px 1fr; gap: 1.5rem; align-items: start; max-width: 700px; }
+    .figure img { width: 100%; height: auto; display: block; filter: sepia(10%) contrast(1.05); }
+    .figure figcaption { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-style: italic; color: var(--ink-faint); line-height: 1.6; padding-top: 0.25rem; }
+    .chapter-nav { max-width: 860px; margin: 0 auto; padding: 2rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .chapter-nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .chapter-nav a:hover { color: var(--accent); }
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, footer, .chapter-nav { padding-left: 1.25rem; padding-right: 1.25rem; } .figure { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="calcutta.htm">Project Calcutta</a>
+      <span>·</span>
+      <a href="calcutta_history.htm">History</a>
+      <span>·</span>
+      <span class="current">Rule Britannia</span>
+    </div>
+    <div class="eyebrow">History of Calcutta · Chapter IV</div>
+    <h1>Rule Britannia</h1>
+    <p class="subtitle">The Imperial Capital — its grandeur, its contradictions, and its decline.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+    <div class="prose">
+      <p>On November 1, 1858, Queen Victoria's proclamation was read at the Grand Durbar in Allahabad. The Queen assumed the Government of India with Calcutta as the Royal Capital. The University of Calcutta was established in 1857. The new municipal corporation completed the public sewerage system in 1859 and the filtered water distribution network in 1860.</p>
+    </div>
+    <div class="figure">
+      <img src="images/1879IndianFlag.gif" alt="The flag of the Indian Empire, 1879-1946. This flag flew ato" />
+      <figcaption>The flag of the Indian Empire, 1879-1946. This flag flew atop Fort William but was seen as a symbol of oppression by the nationalists who would eventually lead India to freedom.</figcaption>
+    </div>
+    <div class="prose">
+      <p>Calcutta's reputation as a trading centre began to wane. The indigo and saltpeter markets collapsed. In 1869, the opening of the Suez Canal made Bombay the closest port to Europe. The business houses on Clive Street, however, were not slow to react. Companies like Martin Burn, Andrew Yule and Williamson Magor moved into tea — found to be superior to Chinese varieties. Calcutta changed from a trading port to a manufacturing base.</p>
+    </div>
+    <div class="figure">
+      <img src="images/1890CliveStreet.jpg" alt="Clive Street, 1890. To the north of the old Fort William, Cl" />
+      <figcaption>Clive Street, 1890. To the north of the old Fort William, Clive Street became the mercantile hub of the greatest city in Asia.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/1890GPO.jpg" alt="The Imperial General Post Office, 1890. Built on the site of" />
+      <figcaption>The Imperial General Post Office, 1890. Built on the site of the old Fort William.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/1890WritersBuilding.jpg" alt="Writers' Building, 1890 — then the Secretariat of the Imperi" />
+      <figcaption>Writers' Building, 1890 — then the Secretariat of the Imperial Government, today the Secretariat of the Government of West Bengal.</figcaption>
+    </div>
+    <div class="prose">
+      <p>Horse-drawn tramcars arrived in 1873, and the New Market opened in 1874. The Great Eastern Hotel had opened in 1841 and Spence's Hotel in 1830 — the first two hotels in Asia. In 1876, Sir Surendranath Banerjea founded the Indian Association, the first political movement in Asia. In 1877, Queen Victoria assumed the title of Empress of India.</p>
+    </div>
+    <div class="figure">
+      <img src="images/1890JardineSkinner.jpg" alt="A label from Jardine Skinner & Co. of Calcutta, 1890 — one o" />
+      <figcaption>A label from Jardine Skinner & Co. of Calcutta, 1890 — one of the trading houses that prospered from the three-way trade between London, Calcutta and Shanghai.</figcaption>
+    </div>
+    <div class="prose">
+      <p>In 1886, a pontoon bridge linked Calcutta and Howrah. Electric lighting arrived in 1899. Siemens laid the first cable between Calcutta and London — Calcutta had arrived as the second city of the British Empire. In 1919, the Victoria Memorial was completed.</p>
+    </div>
+    <div class="figure">
+      <img src="images/1905HowrahStation.jpg" alt="Howrah Station, 1905 — one of the world's busiest railway st" />
+      <figcaption>Howrah Station, 1905 — one of the world's busiest railway stations.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/1905HowrahBridge.jpg" alt="The old Howrah Bridge, 1905, built in 1886. Replaced by the " />
+      <figcaption>The old Howrah Bridge, 1905, built in 1886. Replaced by the cantilever Howrah Bridge in 1942, the old bridge continues to operate at the Kidderpore Docks.</figcaption>
+    </div>
+    <div class="prose">
+      <p>Lord Curzon promoted the partition of Bengal. The partition received Royal Assent on October 16, 1905. Instead of eliminating political dissent, it inflamed nationalist feelings. In 1911, King George V rescinded the partition — but also announced the transfer of the Imperial Capital to Delhi.</p>
+    </div>
+    <div class="figure">
+      <img src="images/1915GreatEasternHotel.jpg" alt="Great Eastern Hotel, 1915. Once regarded as the finest hoste" />
+      <figcaption>Great Eastern Hotel, 1915. Once regarded as the finest hostelry east of the Suez.</figcaption>
+    </div>
+    <div class="prose">
+      <p>The Golden Thirties was the golden age of Calcutta. Streets glowed with electric lights. Great Eastern, Spence's and the newer Grand and Continental were the finest hotels on the continent. Imperial Airways linked Calcutta to London. Chinese chefs and craftsmen arrived to escape Japanese invasion — Calcutta welcomed everybody.</p>
+    </div>
+    <div class="figure">
+      <img src="images/1940Chowringhee.jpg" alt="Chowringhee Road, 1940. One of the finest promenades in the " />
+      <figcaption>Chowringhee Road, 1940. One of the finest promenades in the world. Three Allied airstrips were nicknamed Broadway, Piccadilly and Chowringhee.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/1944DumDumAirport.jpg" alt="Dum Dum Aerodrome, 1944. Calcutta appeared on KLM, Air Franc" />
+      <figcaption>Dum Dum Aerodrome, 1944. Calcutta appeared on KLM, Air France and Imperial Airways routes.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/1945NewMarket.jpg" alt="New Market, 1945 — officially the Sir Stuart Hogg Market, on" />
+      <figcaption>New Market, 1945 — officially the Sir Stuart Hogg Market, one of the first shopping malls in the world.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/WhiteawayLaidlayCo.jpg" alt="The tea room of Whiteway, Laidlaw & Co. — the famous Calcutt" />
+      <figcaption>The tea room of Whiteway, Laidlaw & Co. — the famous Calcutta department store that once rivalled Harrods, Macy's and Mitsukoshi.</figcaption>
+    </div>
+    <div class="prose">
+    </div>
+    <div class="figure">
+      <img src="images/CalcuttaPortBISSWardha.jpg" alt="S.S. Wardha at the Kidderpore Docks. Until the Second World " />
+      <figcaption>S.S. Wardha at the Kidderpore Docks. Until the Second World War, passenger ships of all prominent lines connected Calcutta with ports from New York to Honolulu.</figcaption>
+    </div>
+    <div class="prose">
+      <p>In 1943, Bengal suffered a terrible man-made famine as supplies were flown over the Himalayas to the besieged Allied forces in China, leaving millions dead. The Indian Empire was partitioned on August 14, 1947. Calcutta's glory as the second city of the British Empire ended with the lowering of the Union Jack from Fort William on August 15, 1947.</p>
+    </div>
+    <div class="figure">
+      <img src="images/1956BabyHindusthan.jpg" alt="An advertisement for the 1953 Baby Hindusthan. Hindusthan Mo" />
+      <figcaption>An advertisement for the 1953 Baby Hindusthan. Hindusthan Motors began manufacturing Morris automobiles near Calcutta in 1943 and continues to manufacture the Ambassador, the standard taxi cab of Calcutta.</figcaption>
+    </div>
+    <div class="prose">
+      <div class="datestamp">Originally written 1997-2003 · Restored 2026</div>
+    </div>
+  </article>
+  <div class="chapter-nav">
+    <a href="calcutta_history3.htm">← The Hon'ble Company</a>
+    <a href="calcutta_history.htm">All Chapters</a>
+    <a href="calcutta_history5.htm">The Grand Old Lady →</a>
+  </div>
+  <footer>
+    <p>© Ashu Chatterji · Originally written 1997-2003 · Restored 2026</p>
+    <p><a href="calcutta_history.htm">← History of Calcutta</a></p>
+  </footer>
+</body>
+</html>

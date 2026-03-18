@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Horizons - History of Calcutta - Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .figure { margin: 2.5rem 0; display: grid; grid-template-columns: 260px 1fr; gap: 1.5rem; align-items: start; max-width: 700px; }
+    .figure img { width: 100%; height: auto; display: block; filter: sepia(10%) contrast(1.05); }
+    .figure figcaption { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-style: italic; color: var(--ink-faint); line-height: 1.6; padding-top: 0.25rem; }
+    .chapter-nav { max-width: 860px; margin: 0 auto; padding: 2rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .chapter-nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .chapter-nav a:hover { color: var(--accent); }
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, footer, .chapter-nav { padding-left: 1.25rem; padding-right: 1.25rem; } .figure { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="calcutta.htm">Project Calcutta</a>
+      <span>·</span>
+      <a href="calcutta_history.htm">History</a>
+      <span>·</span>
+      <span class="current">New Horizons</span>
+    </div>
+    <div class="eyebrow">History of Calcutta · Chapter VI</div>
+    <h1>New Horizons</h1>
+    <p class="subtitle">At the beginning of the 21st century, a city rebuilds itself.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+    <div class="prose">
+      <p>At the beginning of the 21st century, Calcutta — slightly worse from the wear of the last fifty years — seems to have a bright future. Significant infrastructure development projects are changing the shape of Calcutta altogether.</p>
+      <p>Calcutta's traditional manufacturing industries have declined steadily, but their demise has also meant that the pollution from old factories is disappearing. New manufacturing industries, chiefly petrochemicals and steel, are being set up at Haldia and Durgapur, thus sparing the city. Calcutta is becoming a hub for information technology and biotechnology.</p>
+    </div>
+    <div class="figure">
+      <img src="images/RajarhatRail.jpg" alt="Map of the proposed northern extension of the Circular Railw" />
+      <figcaption>Map of the proposed northern extension of the Circular Railway to Rajarhat New Town.</figcaption>
+    </div>
+    <div class="prose">
+      <p>Calcutta's Metro line is being extended. A second Metro line is proposed linking the new town of Rajarhat — being built for 500,000 residents to the northeast — to Howrah. A series of flyover bridges is providing an expressway link east-west through the city.</p>
+      <p>Major urban revitalisation projects are underway. The Metropolitan Insurance Building has been restored after the World Monuments Fund brought its plight to the limelight. A British society is working on the redevelopment of the Calcutta riverfront. Some results are already visible in the form of Millennium Park.</p>
+    </div>
+    <div class="figure">
+      <img src="images/2005CurzonPark.jpg" alt="Map of the proposed Curzon Park redevelopment project by arc" />
+      <figcaption>Map of the proposed Curzon Park redevelopment project by architect Dulal Mukherjee and Concern for Calcutta. This single project could restore the Chowringhee district closer to its past glory.</figcaption>
+    </div>
+    <div class="prose">
+      <p>Calcutta's reputation as "hell on earth" — which she never deserved in the first place — is definitely headed towards oblivion. Calcutta is likely to build on its culture of a fun place full of creative juices — in art, music, literature or software — and reemerge as the Paris of the East. Until then the show goes on. Cholchhe! Cholbe!</p>
+      <div class="datestamp">Originally written 1997-2003 · Restored 2026</div>
+    </div>
+  </article>
+  <div class="chapter-nav">
+    <a href="calcutta_history5.htm">← The Grand Old Lady</a>
+    <a href="calcutta_history.htm">All Chapters</a>
+    <a href="calcutta_history7.htm">A Reckoning →</a>
+  </div>
+  <footer>
+    <p>© Ashu Chatterji · Originally written 1997-2003 · Restored 2026</p>
+    <p><a href="calcutta_history.htm">← History of Calcutta</a></p>
+  </footer>
+</body>
+</html>
