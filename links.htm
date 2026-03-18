@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interests & Links · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+
+    /* ── Interest sections ── */
+    .interest-group { margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--rule); }
+    .interest-group:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .group-header { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; align-items: start; }
+    .group-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); padding-top: 0.25rem; }
+    .group-content { }
+    .group-note { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.05rem, 2vw, 1.2rem); font-weight: 300; line-height: 1.85; color: var(--ink); margin-bottom: 1.5rem; max-width: 580px; }
+    .group-note + .group-note { margin-top: -0.5rem; }
+
+    /* ── Item lists ── */
+    .item-list { display: flex; flex-direction: column; gap: 0.6rem; }
+    .item { display: flex; align-items: baseline; gap: 0.75rem; }
+    .item-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 0.55rem; }
+    .item-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; line-height: 1.6; color: var(--ink); }
+    .item-text a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+    .item-text a:hover { opacity: 0.7; }
+    .item-sub { font-size: 0.85rem; color: var(--ink-faint); font-style: italic; margin-left: 0.5rem; }
+
+    /* ── Phase 2 note ── */
+    .phase2-note { margin-top: 1.5rem; padding: 1.25rem 1.5rem; background: var(--cream); font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--ink-faint); line-height: 1.7; }
+
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) {
+      header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .group-header { grid-template-columns: 1fr; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <span class="current">Interests & Links</span>
+    </div>
+    <div class="eyebrow">Interests & Links</div>
+    <h1>Interests & Links</h1>
+    <p class="subtitle">The things that sustain me — updated for 2026.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests" class="active">Interests</a>
+  </nav>
+  <article>
+
+    <!-- NEWSPAPERS -->
+    <div class="interest-group">
+      <div class="group-header">
+        <div class="group-label">News & Radio</div>
+        <div class="group-content">
+          <p class="group-note">My reading habits have shifted considerably since 2005 — a reflection less of my changing tastes than of the changing nature of journalism itself. I dropped The Times of India and, more recently, the Washington Post, both long-time staples. This reflects what I can only describe as the global sellout of news outlets to corporate interests. The Statesman, once a great paper, is now a ghost of its storied past. All India Radio has lost its independence and sounds rather like Pravda these days.</p>
+          <p class="group-note">What remains, and what I have added, are outlets I still trust.</p>
+          <div class="item-list">
+            <div class="item"><div class="item-dot"></div><span class="item-text"><a href="https://www.thehindu.com" target="_blank">The Hindu</a></span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text"><a href="https://www.nytimes.com" target="_blank">The New York Times</a></span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text"><a href="https://www.telegraphindia.com" target="_blank">The Telegraph</a> <span class="item-sub">— still my source for all things Calcutta</span></span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text"><a href="https://www.bbc.co.uk/news" target="_blank">BBC News</a></span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text"><a href="https://www.npr.org" target="_blank">National Public Radio</a></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- READING -->
+    <div class="interest-group">
+      <div class="group-header">
+        <div class="group-label">Reading &amp; Favourite Authors</div>
+        <div class="group-content">
+          <p class="group-note">Some names have been on this list since school. Others I discovered later. Tagore has moved beyond "favourite author" — his philosophy and his works now shape my worldview in ways I did not anticipate in 2005. Sankar and Premchand were always there; I simply did not think to list them when the web had not yet caught up with them.</p>
+          <div class="item-list">
+            <div class="item"><div class="item-dot"></div><span class="item-text">Rabindranath Tagore</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Enid Blyton</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Pearl S. Buck</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Sukumar Ray</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Sankar (Mani Sankar Mukherjee)</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Premchand</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Bishwanath Ghosh</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Mark Twain</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Naguib Mahfouz</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Yuval Noah Harari</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Abhijit Banerjee &amp; Esther Duflo</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Eric Weiner</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Hans Rosling</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHILATELY & NUMISMATICS -->
+    <div class="interest-group">
+      <div class="group-header">
+        <div class="group-label">Philately &amp; Numismatics</div>
+        <div class="group-content">
+          <p class="group-note">These two hobbies have been with me since childhood and show no signs of leaving. There is something grounding about holding a piece of paper or metal that has passed through history. Stamps and coins are, in their own way, the most democratic of archives.</p>
+          <div class="item-list">
+            <div class="item"><div class="item-dot"></div><span class="item-text">Philately <span class="item-sub">— <a href="https://www.stanleygibbons.com" target="_blank">Stanley Gibbons</a></span></span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Numismatics <span class="item-sub">— coins and paper money</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRAVEL & FOOD -->
+    <div class="interest-group">
+      <div class="group-header">
+        <div class="group-label">Travel &amp; Food</div>
+        <div class="group-content">
+          <p class="group-note">In 2005 these were hobbies. By 2026 they have become something closer to obsessions — and, in the case of travel, something of a vocation. Eighty-four countries so far. The stories, the meals, the kitchens, and the restaurants will find their proper home in Phase 2 of this site.</p>
+          <div class="phase2-note">The travel writing and food essays are coming in Phase 2. There is a great deal to say.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTELLECTUAL INTERESTS -->
+    <div class="interest-group">
+      <div class="group-header">
+        <div class="group-label">Intellectual Interests</div>
+        <div class="group-content">
+          <p class="group-note">What was once a list of technologies I worked with has become something broader. I am no longer the lone technologist — my interests have shifted to the intersection of technology, design, and human development.</p>
+          <div class="item-list">
+            <div class="item"><div class="item-dot"></div><span class="item-text">DevOps &amp; Systems Engineering</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">User Experience &amp; Design Thinking</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Agile Development</span></div>
+            <div class="item"><div class="item-dot"></div><span class="item-text">Developmental Economics</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="datestamp">Originally written May 2005 · Substantially updated 2026</div>
+
+  </article>
+  <footer>
+    <p>© Ashu Chatterji · Originally written May 2005 · Substantially updated 2026</p>
+    <p><a href="index.html">← Home</a></p>
+  </footer>
+</body>
+</html>
