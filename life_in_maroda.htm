@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life in Maroda · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .photo-item { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; margin: 3rem 0; padding: 3rem 0; border-top: 1px solid var(--rule); }
+    .photo-item:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+    .photo-item.full { grid-template-columns: 1fr; max-width: 500px; }
+    .photo-wrap { background: var(--cream); overflow: hidden; }
+    .photo-wrap img { width: 100%; height: auto; display: block; filter: sepia(15%) contrast(1.05); transition: transform 0.4s ease; }
+    .photo-wrap:hover img { transform: scale(1.02); }
+    .photo-meta { padding-top: 0.5rem; }
+    .photo-number { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .photo-caption { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; line-height: 1.75; color: var(--ink-light); }
+    .subnav { max-width: 860px; margin: 0 auto; padding: 0 2rem 3rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-top: 1px solid var(--rule); padding-top: 2rem; }
+    .subnav a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .subnav a:hover { color: var(--accent); }
+    .subnav .sep { color: var(--rule); font-size: 0.72rem; }
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, footer, .subnav { padding-left: 1.25rem; padding-right: 1.25rem; } .photo-item { grid-template-columns: 1fr; } .photo-item.full { max-width: 100%; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="workplaces.htm">Workplaces</a>
+      <span>·</span>
+      <a href="cmc.htm">CMC Limited</a>
+      <span>·</span>
+      <span class="current">Life in Maroda</span>
+    </div>
+    <div class="eyebrow">CMC Limited · Bhilai · 1992–1994</div>
+    <h1>Life in Maroda</h1>
+    <p class="subtitle">Mundane and miserable — unless you count the little things that make you nostalgic.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+
+    <div class="photo-item full">
+      <div class="photo-wrap">
+        <img src="images/Bhilai1.jpg" alt="Ashutosh Chatterji, summer 1992" />
+      </div>
+      <div class="photo-meta">
+        <div class="photo-number">Summer 1992</div>
+        <p class="photo-caption">Ashutosh Chatterji in the summer of 1992, in the good old days when he still weighed under 125 lbs. Photograph by Sumit Sinha using his legendary Pentax SLR.</p>
+      </div>
+    </div>
+
+    <div class="photo-item">
+      <div class="photo-wrap">
+        <img src="images/Bhilai2.jpg" alt="Outdoor party, Maroda, summer 1993" />
+      </div>
+      <div class="photo-meta">
+        <div class="photo-number">Maroda · Summer 1993</div>
+        <p class="photo-caption">Outdoor party. Seated left to right: Mr. B. G. Chowdhury, Prakash Bajpai (self-styled "pillar" of the project), T. K. Baidya (widely perceived as VP-Bhilai Operations), our consultant friend from Voest-Alpine GmbH Austria whose name slips my mind, Dinesh Agrawal, Ashutosh Chatterji, Partha Mookerji and Shridhar Subramaniam.</p>
+      </div>
+    </div>
+
+    <div class="photo-item">
+      <div class="photo-wrap">
+        <img src="images/Bhilai3.jpg" alt="Living room of the apartment" />
+      </div>
+      <div class="photo-meta">
+        <div class="photo-number">The Apartment</div>
+        <p class="photo-caption">Living room of the apartment. Left to right: Ashutosh Chatterji and Sumit Sinha.</p>
+      </div>
+    </div>
+
+    <div class="photo-item">
+      <div class="photo-wrap">
+        <img src="images/Bhilai4.jpg" alt="Outing to Bharda Dam" />
+      </div>
+      <div class="photo-meta">
+        <div class="photo-number">Bharda Dam</div>
+        <p class="photo-caption">Outing to Bharda Dam. Left to right: Khurshid Usmani, Shamshad Usmani (Khurshid's brother) and Ashutosh Chatterji.</p>
+      </div>
+    </div>
+
+    <div class="photo-item">
+      <div class="photo-wrap">
+        <img src="images/Bhilai5.jpg" alt="Rajim Expedition, October 1993" />
+      </div>
+      <div class="photo-meta">
+        <div class="photo-number">Rajim Expedition · October 12, 1993</div>
+        <p class="photo-caption">Shortly before starting from Bhilai — a good view of the Maroda apartments. Left to right: Tapan Das, Sudarshan Prasad, Khurshid Usmani, Sumit Sengupta, Ashutosh Chatterji and Sudip Sen. Picture possibly attributable to Sumit Sinha and his legendary Pentax SLR.</p>
+      </div>
+    </div>
+
+    <div class="photo-item">
+      <div class="photo-wrap">
+        <img src="images/Bhilai6.jpg" alt="Resting at Abhanpur, Rajim Expedition" />
+      </div>
+      <div class="photo-meta">
+        <div class="photo-number">Abhanpur · 70km from Bhilai</div>
+        <p class="photo-caption">Resting at Abhanpur, 70 kilometres from Bhilai. Standing left to right: Aniruddha Mukherjee (back to camera), Probir, Nirmalendu Patra and Somnath Neogy. Sitting left to right: Tapan Das, Khurshid Usmani, Abhijit Mitra, Ashutosh Chatterji and Sumit Sinha.</p>
+      </div>
+    </div>
+
+    <div class="datestamp">Originally written May 2005 · Restored 2026</div>
+
+  </article>
+
+  <div class="subnav">
+    <a href="the_picnic.htm">The Picnic →</a>
+  </div>
+
+  <footer>
+    <p>© Ashu Chatterji · Originally written May 2005 · Restored 2026</p>
+    <p><a href="cmc.htm">← CMC Limited</a></p>
+  </footer>
+</body>
+</html>

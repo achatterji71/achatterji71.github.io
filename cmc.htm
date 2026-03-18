@@ -25,16 +25,27 @@
     nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
     nav a:hover, nav a.active { color: var(--accent); }
     nav .sep { color: var(--rule); }
-    .coming-soon { max-width: 860px; margin: 0 auto; padding: 5rem 2rem 8rem; animation: fadeUp 0.8s 0.2s ease both; }
-    .coming-soon-inner { max-width: 520px; }
-    .coming-soon p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2.2vw, 1.3rem); font-weight: 300; line-height: 1.85; color: var(--ink-light); margin-bottom: 2rem; }
-    .coming-soon .note { font-size: 0.78rem; font-weight: 300; color: var(--ink-faint); font-style: italic; }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 2rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose { max-width: 660px; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .sections { display: flex; flex-direction: column; gap: 0; margin-top: 3.5rem; padding-top: 3.5rem; border-top: 1px solid var(--rule); }
+    .section { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; padding-bottom: 3rem; margin-bottom: 3rem; border-bottom: 1px solid var(--rule); }
+    .section:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .section-label { padding-top: 0.25rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--ink); line-height: 1.2; margin-bottom: 0.4rem; }
+    .section-title a { color: var(--accent); text-decoration: none; }
+    .section-title a:hover { opacity: 0.7; }
+    .section-body p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.05rem, 2vw, 1.2rem); font-weight: 300; line-height: 1.85; color: var(--ink); max-width: 580px; }
+    .section-body p + p { margin-top: 1.2rem; }
+    .coming-note { font-size: 0.78rem; font-weight: 300; color: var(--ink-faint); font-style: italic; margin-top: 1rem; }
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
     footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
     footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--accent); }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 640px) { header, nav, .coming-soon, footer { padding-left: 1.25rem; padding-right: 1.25rem; } }
+    @media (max-width: 640px) { header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .section { grid-template-columns: 1fr; gap: 0.5rem; } }
   </style>
 </head>
 <body>
@@ -48,7 +59,7 @@
     </div>
     <div class="eyebrow">Workplaces · 1992–1995</div>
     <h1>CMC Limited</h1>
-    <p class="subtitle">The idealist years.</p>
+    <p class="subtitle">The idealist years — Bhilai, Calcutta, and the finest technological work of a young career.</p>
   </header>
   <nav>
     <a href="index.html#family">Family</a>
@@ -57,14 +68,70 @@
     <span class="sep">·</span>
     <a href="index.html#interests">Interests</a>
   </nav>
-  <div class="coming-soon">
-    <div class="coming-soon-inner">
-      <p>CMC was then a premier technology company that cared more about doing extraordinary things than making money. The project to automate the steelmaking process at Bhilai Steel Plant was the finest technological achievement of a young career. 28 Camac Street in Calcutta was the address where everything else happened — the friendships, the rivalries, and the full spectrum of what working life can be. The stories from those years are coming in Phase 2.</p>
-      <p class="note">This chapter is being written. Check back in Phase 2.</p>
+  <article>
+    <div class="prose">
+      <p>When I was still in college, CMC Limited — formerly known as The Computer Maintenance Corporation of India Limited, still formerly known as IBM India — was the most glamorous job that could be had on campus, as far as the CSEA department was concerned. The company's accomplishments were an engineer's dream: the world's largest travel reservation system, port management systems for leading ports in the UK, Germany, the Middle East and Asia-Pacific, steel plant automation, coal mine automation, and a hundred other interesting applications spanning the entire gamut from mainframes to PC-ATs. Anyone remember Intel 80286 and 80386 chips running at 33 MHz with the staggering RAM size of 640 KB to 1 MB?</p>
+      <p>On top of that, CMC was the most highly paid job at the time — Rupees 6,000 per month approximately, including all perks. The glamour was further reinforced by the fact that Ranco-da, the brightest and most invincible of all the smart guys, had to go through many painful rounds of interviews before CMC made him an offer. A year later, I went through the same process — painful at the time, hilarious afterwards.</p>
+      <p>CMC Limited was eventually acquired by Tata Sons Limited and merged with Tata Consultancy Services. The culture — or cult, perhaps — has disappeared from the face of the earth, and is also rapidly disappearing from memory. These pages are an attempt to preserve some of it.</p>
     </div>
-  </div>
+
+    <div class="sections">
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-title">The Interview</div>
+        </div>
+        <div class="section-body">
+          <p>The ordeal of the CMC interview — a <em>tête-à-tête</em> with Mr. Aloke Bhattacharya, then Manager (Projects), and Ms. Malati Hota, then HRD Manager — was painful at the time and the subject of much hilarity afterwards.</p>
+          <p class="coming-note">Coming in Phase 2.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-title">System School</div>
+        </div>
+        <div class="section-body">
+          <p>The survivors of the interview ordeal gathered at 2 Ripon Street, 10th Floor — regarded too uncouth to be seen at 28 Camac Street — for six weeks euphemistically called System School. SSAD, C and UNIX programming kept about fifteen fresh graduates from eastern India's better engineering schools occupied until they could be tucked away safely at various projects. A wonderful thing called a paycheck had just been discovered. Some of us, until then sheltered at home or in dorms, were finding a place to live and eat unassisted for the first time in our lives.</p>
+          <p class="coming-note">Coming in Phase 2.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-title">LD Bhilai</div>
+        </div>
+        <div class="section-body">
+          <p>My first project was known internally as LD Bhilai — the complete automation of the LD Process for manufacturing steel at India's largest steel plant in Bhilai. This is by far the most technologically challenging and gratifying assignment I ever had, and was the one enormous silver lining to the otherwise rather dull two years spent working on it in Bhilai.</p>
+          <p class="coming-note">Coming in Phase 2.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-title"><a href="life_in_maroda.htm">Life in Maroda</a></div>
+        </div>
+        <div class="section-body">
+          <p>Life in Bhilai outside the project was quite mundane and miserable, unless you count the little things that make you nostalgic. At least two great friends were made there. And there was the Kawasaki motorbike, used on some memorable daytrips — including one that became, definitively, The Picnic.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">
+          <div class="section-title">Wrathin Wroy</div>
+        </div>
+        <div class="section-body">
+          <p>One of the greatest legends of CMC Eastern Region was a fictitious project manager named Wrathin Wray — not to be confused with Mr. Rathin Ray, even though they are pronounced somewhat the same way — whose jokes are part of CMC folklore. A fitting tribute to a culture that, having disappeared from the face of the earth, is also rapidly disappearing from memory.</p>
+          <p class="coming-note">Coming in Phase 2.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="datestamp">Originally written May 2005 · Restored 2026</div>
+  </article>
   <footer>
-    <p>© Ashu Chatterji · 2026</p>
+    <p>© Ashu Chatterji · Originally written May 2005 · Restored 2026</p>
     <p><a href="workplaces.htm">← Workplaces</a></p>
   </footer>
 </body>

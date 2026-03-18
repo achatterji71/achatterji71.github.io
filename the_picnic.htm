@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Picnic · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose { max-width: 660px; margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--rule); }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .gallery { display: flex; flex-direction: column; gap: 0; }
+    .photo-item { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; padding: 3rem 0; border-bottom: 1px solid var(--rule); }
+    .photo-item:last-child { border-bottom: none; }
+    .photo-item.full { grid-template-columns: 1fr; max-width: 540px; }
+    .photo-item.quad { grid-template-columns: 1fr 1fr; }
+    .photo-quad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .photo-wrap { background: var(--cream); overflow: hidden; }
+    .photo-wrap img { width: 100%; height: auto; display: block; filter: sepia(15%) contrast(1.05); transition: transform 0.4s ease; }
+    .photo-wrap:hover img { transform: scale(1.02); }
+    .photo-meta { padding-top: 0.5rem; }
+    .photo-number { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .photo-caption { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; line-height: 1.75; color: var(--ink-light); }
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .photo-item, .photo-item.full { grid-template-columns: 1fr; max-width: 100%; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="workplaces.htm">Workplaces</a>
+      <span>·</span>
+      <a href="cmc.htm">CMC Limited</a>
+      <span>·</span>
+      <a href="life_in_maroda.htm">Life in Maroda</a>
+      <span>·</span>
+      <span class="current">The Picnic</span>
+    </div>
+    <div class="eyebrow">CMC · Bhilai · 1992–1994</div>
+    <h1>The Picnic</h1>
+    <p class="subtitle">An epic that rivals Jerome K. Jerome's boat outing up the Thames.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+
+    <div class="prose">
+      <p>One of the most memorable incidents at Maroda between 1992–94 was a picnic to what are known as the Hazra Falls — which people traveling between Bombay and Calcutta by train are more apt to miss than see, somewhere just before they enter a tunnel a couple of hours out of Nagpur. The picnic would not have become "The Picnic" had it not been for a series of events that snatched this particular outing from one of the many others into an epic that rivals <a href="https://www.jeromekjerome.com/" target="_blank">Jerome K. Jerome's</a> boat outing up the Thames with his two friends and dog.</p>
+
+      <p>For starters, this was not one of the amateur efforts we often undertook on our respective motorcycles. This was a company-funded affair — which was perhaps why it was doomed to start with — which meant we got to go in a bus and the number of people involved was quite high. The trip involved a reconnaissance mission on three motorcycles with four riders: two Yamahas with one rider each (Purnendu Chakraborty and Sudip Sen) and my little Kawasaki with me and Shridhar Subramaniam astride. The location was not known to anyone except Gyani, the gentleman who ran the cafeteria.</p>
+
+      <p>The riders of the Yamahas had two definite advantages: comparatively powerful machines and they knew the way to Dongargarh, apparently like the backs of their respective hands. Elaborate instructions were given to us rookies — since we were going to be left far behind — as to how not to miss the turn for Dongargarh. True to our reputation we arrived at the fork and found no one waiting for us. We guessed the two fearless riders would have reached Hazra Falls by now, so we trundled on to Dongargarh, sought directions, and set off. A few kilometers further it seemed less and less likely that Purnendu and Sudip would have continued without us. Something was definitely wrong. Instinctively we headed back to Dongargarh, and who do we see but our good friend Purnendu coming in our direction, quite lost. He had missed the turn — and when we asked where Sudip was, he said, "Gee, how were we to know?" Apparently the two of them had chosen to have a friendly race, and that is how Purnendu had missed the turn. We had lunch at Dongargarh and with no Sudip in sight we figured he was truly lost or had gone way ahead.</p>
+
+      <p>We then proceeded past the stream that needed fording and down many a dirt track, asking for directions — with everyone saying it was another 8 kilometres, until we had traveled about 40. Hazra Falls did live up to Gyani's description, even though we found no evidence of Sudip or his Yamaha. We came back quite worried, until upon arrival in Maroda we saw his bike parked right there. Sudip had missed the turn and continued for miles, wondered why Purnendu had not caught up with him, and while he was wondering, sleep overcame him and he decided to take a nap — after pulling over, of course — until the rest of the slow pokes caught up with him. One wonders if he was a rather celebrated hare in another life.</p>
+
+      <p>Anyway, the picnic proper took off under the able organisation of Mr. T. K. Baidya, not to mention the misgivings of our resident doubting-Thomas-designate, Parthasarathi Mookerji. I had my little Kodak Kroma at hand, and as the day began to unravel — literally — it was put to very good use. The album was lost for a while and only recently discovered during a trip back to Meerut. The next 23 pictures and their captions speak of the day.</p>
+    </div>
+
+    <div class="gallery">
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic01.jpg" alt="Breakfast stop at Apna Ghar" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">01 · Apna Ghar</div>
+          <p class="photo-caption">Breakfast stop at a "diner" called Apna Ghar on G. E. Road between Durg and Rajnandgaon. The folks are making good use of a football. The three to the right, standing front to back, are Tapan Das, Robin Saha and Sumit Sengupta.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic02.jpg" alt="At Apna Ghar" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">02 · Still quite calm</div>
+          <p class="photo-caption">Also at Apna Ghar, while all is still quite on the western front. Standing left to right: Mrs. Baidya, Mrs. Sandhya Bajpai, Parthasarathi Mookerji, Mrs. Mookerji holding little Master Bajpai, Ashutosh Chatterji, T. K. Baidya, Abhijit Mitra, Nirmalendu Patra and S. Velmurugan.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic03.jpg" alt="A fearless rider and admirers" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">03 · A fearless rider</div>
+          <p class="photo-caption">A fearless rider and his admirers at Apna Ghar. Left to right: Patra, Gulathi (both summer trainees whose names slip my mind), Sudip Sen and Shridhar Subramaniam.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic04.jpg" alt="The bus breaks down" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">04 · The first debacle</div>
+          <p class="photo-caption">Our bus suffers a broken transmission. The three kids playing in front are, left to right, Mithu Baidya, Pana Mookerji and Tukai Mookerji. Gyani is on his haunches looking at either the provisions for lunch or possibly talking to the mechanic under the bus.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic05.jpg" alt="Bus stuck in mud" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">05 · Spirits still high</div>
+          <p class="photo-caption">The bus fords the stream but then gets caught in mud. Spirits are still high as everyone has an idea of how to get the bus out. How many engineers does it take to extricate a bus from a mud trap?</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic06.jpg" alt="Engineers assess the situation" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">06 · Assessment</div>
+          <p class="photo-caption">A second round of engineers assess the situation from a distance and from up close.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic07.jpg" alt="Cows pass by" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">07 · An interlude</div>
+          <p class="photo-caption">The rescue mission is temporarily suspended to let a herd of cows pass by.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic08.jpg" alt="Tractor to the rescue" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">08 · Tractor to the rescue</div>
+          <p class="photo-caption">Tractor to the rescue. A rope is being used to haul the bus out of the mud.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic09.jpg" alt="Rope test fails" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">09 · The rope</div>
+          <p class="photo-caption">The strength of the rope is tested successfully a second time. Conclusion: the rope is not strong enough.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic10.jpg" alt="All aboard the Tractor Express" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">10 · The Tractor Express</div>
+          <p class="photo-caption">Trust Partha Mookerji to persuade a tractor going home east to head west to the Falls with all of us. All aboard, the Tractor Express!</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic11.jpg" alt="Nirmalendu wakes up Sumit" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">11 · Rise and shine</div>
+          <p class="photo-caption">Get up Sumit! You don't have to feel faint anymore. Nirmalendu Patra wakes up Sumit Sengupta.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic12.jpg" alt="Human chain" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">12 · The human chain</div>
+          <p class="photo-caption">The human chain gets stuff moved faster from bus to tractor. Left to right: Sumit Sengupta, Nirmalendu Patra, Sudarshan Prasad, Robin Saha, Tapan Das, Baidya's elder son, Shridhar Subramaniam and Khurshid Usmani.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic13.jpg" alt="Other end of human chain" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">13 · Sathi Haath Badhana</div>
+          <p class="photo-caption">The other end of the human chain that would have made it to a Raj Kapoor movie sequence if only it had been a couple of years sooner. Left to right: Ashutosh Chatterji, unidentified, Sudip Sen, Manan Mandal, Abhijit Mitra and Gulati. Three South Eastern Railway workers look on to the left.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic14.jpg" alt="Tractor Express from behind trees" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">14 · Through the trees</div>
+          <p class="photo-caption">The Tractor Express from behind a clump of trees.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic15.jpg" alt="Tractor Express moves on" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">15 · Moving on</div>
+          <p class="photo-caption">The Tractor Express moves on.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic16.jpg" alt="Pilot team on Yamaha" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">16 · The pilot team</div>
+          <p class="photo-caption">The pilot team of the Tractor Express — Prakash and Sandhya Bajpai astride Sudip Sen's Yamaha.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic17.jpg" alt="Sumit as conductor" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">17 · The conductor</div>
+          <p class="photo-caption">Sumit Sengupta as conductor of the Tractor Express. Not sure who the gentleman trying to get run over by the tractor is.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic18.jpg" alt="Hazra Falls at last" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">18 · At last</div>
+          <p class="photo-caption">Hazra Falls, at last. The little van to the right carried another set of more fortunate picnickers who will soon leave.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-quad-grid">
+          <div class="photo-wrap"><img src="images/Picnic19.jpg" alt="At the Falls" /></div>
+          <div class="photo-wrap"><img src="images/Picnic20.jpg" alt="At the Falls" /></div>
+          <div class="photo-wrap"><img src="images/Picnic21.jpg" alt="At the Falls" /></div>
+          <div class="photo-wrap"><img src="images/Picnic22.jpg" alt="At the Falls" /></div>
+        </div>
+        <div class="photo-meta">
+          <div class="photo-number">19–22 · A refreshing bath</div>
+          <p class="photo-caption">A refreshing bath at the Falls. The sun is almost ready to set. We step out of the water and talk to the locals. This happens to be plum in the middle of a Project Tiger Reserve Forest. A nearby Government Guest House is being reconstructed after it was torched by Marxist guerillas. And of course, we have no way of going back — yet.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-wrap"><img src="images/Picnic23.jpg" alt="Lunch at 5pm" /></div>
+        <div class="photo-meta">
+          <div class="photo-number">23 · Lunch at 5pm</div>
+          <p class="photo-caption">The plunge in the cold waters over, we settle down to Gyani's lunch. I have never had better tasting food in my life — of course, I have not had lunch at 5 p.m. too often either. Manan is so hungry he is eating a raw tomato. While we are in the middle of our "lunch", no one has noticed T. K. Baidya and Purnendu Chakraborty. Suddenly there is a rumbling noise, and lo and behold, there comes our bus. Baidya-da had gone to the local Public Works Department, flashed his CMC ID and his trademarked charm, and there appeared a powerful crane that hauled the bus out of its muddy resting incarceration. There were no memorable events on the way back except the longest session of off-key singing of Bengali and Hindi songs ever — lasting all the way from Hazra Falls to Apna Ghar, where we stopped for a midnight dinner.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="datestamp">Originally written May 2005 · Restored 2026</div>
+
+  </article>
+  <footer>
+    <p>© Ashu Chatterji · Originally written May 2005 · Restored 2026</p>
+    <p><a href="life_in_maroda.htm">← Life in Maroda</a></p>
+  </footer>
+</body>
+</html>
