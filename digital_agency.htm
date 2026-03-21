@@ -9,7 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    :root {
+      --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92;
+      --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a;
+    }
     html { scroll-behavior: smooth; }
     body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
     header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
@@ -25,16 +28,45 @@
     nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
     nav a:hover, nav a.active { color: var(--accent); }
     nav .sep { color: var(--rule); }
-    .coming-soon { max-width: 860px; margin: 0 auto; padding: 5rem 2rem 8rem; animation: fadeUp 0.8s 0.2s ease both; }
-    .coming-soon-inner { max-width: 520px; }
-    .coming-soon p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2.2vw, 1.3rem); font-weight: 300; line-height: 1.85; color: var(--ink-light); margin-bottom: 2rem; }
-    .coming-soon .note { font-size: 0.78rem; font-weight: 300; color: var(--ink-faint); font-style: italic; }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .problem-statement { background: var(--cream); border-left: 3px solid var(--accent); padding: 2rem 2rem 2rem 2.5rem; margin-bottom: 3.5rem; max-width: 660px; }
+    .problem-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .problem-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.15rem, 2.2vw, 1.4rem); font-weight: 300; line-height: 1.85; color: var(--ink); font-style: italic; }
+    .prose { max-width: 660px; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 3.5rem 0; max-width: 660px; }
+    .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); max-width: 400px; }
+    .activities { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); max-width: 660px; margin-bottom: 3.5rem; }
+    .activity { background: var(--paper); padding: 1.5rem; }
+    .activity-title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
+    .activity-desc { font-size: 0.82rem; font-weight: 300; color: var(--ink-faint); line-height: 1.6; }
+    .geography { margin-bottom: 3.5rem; max-width: 660px; }
+    .geo-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .geo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; line-height: 1.8; color: var(--ink-light); font-style: italic; }
+    .stage-note { background: var(--cream); padding: 1.75rem 2rem; max-width: 660px; margin-bottom: 3.5rem; }
+    .stage-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .stage-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; line-height: 1.8; color: var(--ink); }
+    .contact-block { max-width: 660px; padding-top: 3rem; border-top: 1px solid var(--rule); }
+    .contact-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .contact-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; line-height: 1.85; color: var(--ink); }
+    .contact-form { margin-top: 2rem; max-width: 560px; display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-field label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
+    .form-field input, .form-field textarea, .form-field select { background: var(--cream); border: 1px solid var(--rule); padding: 0.75rem 1rem; font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--ink); outline: none; transition: border-color 0.2s; width: 100%; }
+    .form-field input:focus, .form-field textarea:focus, .form-field select:focus { border-color: var(--accent); }
+    .form-field textarea { resize: vertical; min-height: 120px; }
+    .form-submit { align-self: flex-start; background: var(--accent); color: var(--paper); border: none; padding: 0.85rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s; }
+    .form-submit:hover { opacity: 0.85; }
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); max-width: 660px; }
     footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
     footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--accent); }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 640px) { header, nav, .coming-soon, footer { padding-left: 1.25rem; padding-right: 1.25rem; } }
+    @media (max-width: 640px) { header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .activities { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -48,7 +80,7 @@
     </div>
     <div class="eyebrow">Workplaces · Current</div>
     <h1>The Digital Agency Project</h1>
-    <p class="subtitle">The giving away phase.</p>
+    <p class="subtitle">Sustaining the energy for lasting change — in the hands of those who will carry it forward.</p>
   </header>
   <nav>
     <a href="index.html#family">Family</a>
@@ -57,12 +89,91 @@
     <span class="sep">·</span>
     <a href="index.html#interests">Interests</a>
   </nav>
-  <div class="coming-soon">
-    <div class="coming-soon-inner">
-      <p>Sharing three decades of professional experience and hard-won wisdom so that the next generation may retain agency — and use their privileges, however modest, to give agency to others. At a moment when technology is being projected as overwhelming humanity, the work is to show that it need not be so. This chapter is still being written, in real time.</p>
-      <p class="note">This chapter is being written. Check back in Phase 2.</p>
+  <article>
+
+    <div class="problem-statement">
+      <div class="problem-label">The Problem</div>
+      <p class="problem-text">How might we sustain the energy that results in lasting positive impact from the desire for such change from a cohort of well-meaning, resourceful individuals and organisations?</p>
     </div>
-  </div>
+
+    <div class="prose">
+      <p>The world is not short of people who want to make it better. It is short of the infrastructure that turns that desire into something durable. Good intentions, adequate resources and genuine commitment are necessary — but they are not sufficient. The gap between wanting change and achieving it is where most efforts quietly expire.</p>
+      <p>The Digital Agency Project is an early-stage initiative built around a single conviction: that the next generation of changemakers — in the US Mid-Atlantic, in South and Southeast Asia, and in middle-income societies more broadly — can achieve what previous generations missed if they are given the right tools, the right relationships, and the right framework for using their privilege to generate agency in others rather than dependency.</p>
+      <p>Technology is not the solution to this problem. But in a moment when technology is being projected as overwhelming humanity, it is a necessary part of the answer — used with intention, equity and humility.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="section-label">What We Do</div>
+    <div class="activities">
+      <div class="activity">
+        <div class="activity-title">Mentorship</div>
+        <div class="activity-desc">Working directly with young professionals to build the confidence, frameworks and relationships they need to lead change on their own terms.</div>
+      </div>
+      <div class="activity">
+        <div class="activity-title">Tools for Digital Equity</div>
+        <div class="activity-desc">Building and curating digital tools that expand access — not just to technology, but to the agency that technology can enable.</div>
+      </div>
+      <div class="activity">
+        <div class="activity-title">Writing & Publishing</div>
+        <div class="activity-desc">Making the frameworks and lessons of three decades of professional experience available — clearly, accessibly, and without the gatekeeping of traditional publishing.</div>
+      </div>
+      <div class="activity">
+        <div class="activity-title">Training & Workshops</div>
+        <div class="activity-desc">Structured learning experiences for teams and cohorts working on complex social challenges — designed to build capacity that outlasts the workshop.</div>
+      </div>
+      <div class="activity">
+        <div class="activity-title">Consulting & Advisory</div>
+        <div class="activity-desc">Working with impact investors and changemakers to sharpen strategy, stress-test assumptions and identify the conditions for durable impact.</div>
+      </div>
+    </div>
+
+    <div class="geography">
+      <div class="geo-label">Geography</div>
+      <p class="geo-text">Middle-income societies broadly — with initial focus on the US Mid-Atlantic, South Asia and Southeast Asia, where proximity and familiarity create the conditions for relationships rather than transactions.</p>
+    </div>
+
+    <div class="stage-note">
+      <div class="stage-label">Where We Are</div>
+      <p class="stage-text">The Digital Agency Project is at an early concept stage. The problem is well-defined. The team is small and the work is beginning. What we are building toward — the frameworks, the tools, the relationships, the body of writing — will take shape in the coming years. We are not in a hurry. Lasting change rarely is.</p>
+    </div>
+
+    <div class="contact-block">
+      <div class="contact-label">Get Involved</div>
+      <p class="contact-text">If you are an impact investor, a changemaker, or someone who recognises this problem from your own experience — we would like to hear from you. The Digital Agency Project is at the stage where the right conversations matter more than the right deck.</p>
+      <form class="contact-form" action="https://formspree.io/f/xwvrjbew" method="POST">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="role">I am a</label>
+          <select id="role" name="role">
+            <option value="">Select one</option>
+            <option value="Impact investor">Impact investor</option>
+            <option value="Changemaker / practitioner">Changemaker / practitioner</option>
+            <option value="Young professional">Young professional seeking mentorship</option>
+            <option value="Potential collaborator">Potential collaborator</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us a little about yourself and why you'd like to connect" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
+    </div>
+
+    <div class="datestamp">Written 2026</div>
+
+  </article>
   <footer>
     <p>© Ashu Chatterji · 2026</p>
     <p><a href="workplaces.htm">← Workplaces</a></p>
