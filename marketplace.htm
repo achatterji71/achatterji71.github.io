@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transformative Pilots Marketplace · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .concept-banner { background: var(--cream); border-left: 3px solid var(--accent); padding: 1.25rem 1.5rem 1.25rem 2rem; margin-bottom: 3rem; max-width: 660px; }
+    .concept-banner p { font-size: 0.82rem; font-weight: 400; color: var(--ink-faint); line-height: 1.6; }
+    .concept-banner strong { color: var(--accent); font-weight: 500; }
+    .prose { max-width: 660px; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 3.5rem 0; max-width: 660px; }
+    .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); max-width: 400px; }
+
+    /* Personas */
+    .personas { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); max-width: 660px; margin-bottom: 3.5rem; }
+    .persona { background: var(--paper); padding: 1.75rem 1.5rem; }
+    .persona-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--ink); margin-bottom: 0.6rem; }
+    .persona-desc { font-size: 0.82rem; font-weight: 300; color: var(--ink-faint); line-height: 1.65; }
+
+    /* Workflows */
+    .workflows { max-width: 660px; margin-bottom: 3.5rem; display: flex; flex-direction: column; gap: 0; }
+    .workflow { display: grid; grid-template-columns: 2rem 1fr; gap: 1.25rem; padding: 1.5rem 0; border-bottom: 1px solid var(--rule); align-items: start; }
+    .workflow:last-child { border-bottom: none; }
+    .workflow-num { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--accent); line-height: 1; padding-top: 0.2rem; }
+    .workflow-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
+    .workflow-desc { font-size: 0.85rem; font-weight: 300; color: var(--ink-light); line-height: 1.65; }
+
+    /* Principles */
+    .principles { max-width: 660px; margin-bottom: 3.5rem; }
+    .principle { padding: 1.25rem 0; border-bottom: 1px solid var(--rule); }
+    .principle:last-child { border-bottom: none; }
+    .principle-title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+    .principle-desc { font-size: 0.85rem; font-weight: 300; color: var(--ink-light); line-height: 1.65; }
+
+    .stage-note { background: var(--cream); padding: 1.75rem 2rem; max-width: 660px; margin-bottom: 3.5rem; }
+    .stage-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .stage-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; line-height: 1.8; color: var(--ink); }
+
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); max-width: 660px; }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .personas { grid-template-columns: 1fr; } .workflow { grid-template-columns: 1.5rem 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="workplaces.htm">Workplaces</a>
+      <span>·</span>
+      <a href="digital_agency.htm">The Digital Agency Project</a>
+      <span>·</span>
+      <span class="current">The Marketplace</span>
+    </div>
+    <div class="eyebrow">Digital Agency Project · In Design</div>
+    <h1>Transformative Pilots Marketplace</h1>
+    <p class="subtitle">Connecting the people who understand a problem, the people who can build solutions to it, and the people who can fund those solutions.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+
+    <div class="concept-banner">
+      <p><strong>This is a concept document.</strong> The marketplace is currently in design. The first proposals will come out of the <a href="workshop.htm" style="color:var(--accent);">Transformative Innovation Workshop</a> pilots, and the platform will be designed around what those proposals actually look like in practice rather than what we imagine they will look like now.</p>
+    </div>
+
+    <div class="prose">
+      <p>The nearest reference points are Kickstarter and Upwork, but the underlying logic is impact investment rather than pure market logic. Success is not measured by transactions completed. It is measured by whether real conditions improved for real people, and whether the system that produced those improvements can sustain itself.</p>
+      <p>Proposals on this platform come out of the Transformative Innovation Workshop. They are not crowdsourced ideas or startup pitches. They are grounded in a structured analysis of a specific broken system, written by people who live or work inside it.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="section-label">The Four Personas</div>
+    <div class="personas">
+      <div class="persona">
+        <div class="persona-title">The Cohort</div>
+        <div class="persona-desc">A group of people who ran a workshop around a specific problem. They own the context — they know what the system looks like below the surface, who gets hurt by it, and why previous attempts to fix it haven't worked. They post proposals, review responses from implementers, and track outcomes over time.</div>
+      </div>
+      <div class="persona">
+        <div class="persona-title">The Implementer</div>
+        <div class="persona-desc">A builder — software engineer, designer, researcher, fabricator, or some combination. Implementers browse proposals, filter by domain or skill match, and submit responses. They are evaluated over time by the quality and real-world impact of what they deliver, not just whether they shipped on time.</div>
+      </div>
+      <div class="persona">
+        <div class="persona-title">The Sponsor</div>
+        <div class="persona-desc">An individual or organisation that funds proposals — a Rotary chapter, a college research fund, a municipal government, a foundation, a private donor. Funding works like Kickstarter: a proposal does not move to active work until it is fully funded.</div>
+      </div>
+      <div class="persona">
+        <div class="persona-title">The Curator</div>
+        <div class="persona-desc">The platform administrator. Before a proposal goes live, a curator reviews it for completeness and coherence — checking that the problem statement is grounded, the constraints are realistic, the success metrics are meaningful, and the proposal doesn't inadvertently recreate the problem it's trying to solve.</div>
+      </div>
+    </div>
+
+    <div class="section-label">How It Works</div>
+    <div class="workflows">
+      <div class="workflow">
+        <div class="workflow-num">1</div>
+        <div>
+          <div class="workflow-title">Posting a Proposal</div>
+          <div class="workflow-desc">A cohort member drafts a proposal from a backlog item generated in the workshop. The curator reviews it for completeness and coherence. Once approved, the proposal is listed with its full context: the problem it addresses, the constraints it must work within, the definition of done, and the funding target.</div>
+        </div>
+      </div>
+      <div class="workflow">
+        <div class="workflow-num">2</div>
+        <div>
+          <div class="workflow-title">Funding a Proposal</div>
+          <div class="workflow-desc">Sponsors browse listed proposals and commit funding toward a target. A proposal does not move to active work until it is fully funded. Partial funding is held in escrow. If a funding deadline passes without full commitment, held funds are released and the cohort can resubmit with reduced scope or generate a spike to build the case further.</div>
+        </div>
+      </div>
+      <div class="workflow">
+        <div class="workflow-num">3</div>
+        <div>
+          <div class="workflow-title">Responding to a Proposal</div>
+          <div class="workflow-desc">Implementers browse funded proposals and submit responses describing their approach, relevant experience, and any proposed modifications to scope. The cohort reviews responses and selects an implementer, or negotiates a modified scope before selection.</div>
+        </div>
+      </div>
+      <div class="workflow">
+        <div class="workflow-num">4</div>
+        <div>
+          <div class="workflow-title">Executing and Closing</div>
+          <div class="workflow-desc">The implementer does the work. The cohort tracks progress against the definition of done, tied to OKRs rather than just a list of deliverables. When complete, the outcome is documented and visible on the platform. Sponsors see what their funding produced. The cohort's track record accumulates over time.</div>
+        </div>
+      </div>
+      <div class="workflow">
+        <div class="workflow-num">5</div>
+        <div>
+          <div class="workflow-title">Ongoing Cohort Activity</div>
+          <div class="workflow-desc">A cohort does not disappear after a proposal is posted. They return to check on active pilots, review outcomes, and adjust their backlog based on what they've learned. New workshop sessions can add new proposals. The cohort's page is a living record of a community's engagement with a problem over time.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">A Few Things Worth Getting Right</div>
+    <div class="principles">
+      <div class="principle">
+        <div class="principle-title">Idea Implementation Matching</div>
+        <div class="principle-desc">The gap between a proposal's constraints and an implementer's actual capabilities is where most projects fail. A proposal written for a low-bandwidth, low-literacy context in a semi-urban Indian town needs a very different implementer than one written for a county government in Virginia. Keyword matching won't catch this. The matching logic needs to understand constraints, not just tags.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-title">Scope Negotiation</div>
+        <div class="principle-desc">Implementers need a structured way to propose modifications without undermining the cohort's ownership of the problem context. The workflow has to make it easy to negotiate without making it easy to gut the proposal's original intent.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-title">Impact Metrics</div>
+        <div class="principle-desc">Standard delivery metrics — shipped on time, within budget, user count — are insufficient here. The platform needs to track whether conditions actually improved for the people the proposal was written for, including a year after delivery. This is harder to measure and harder to automate, but it's the only metric that matters for sponsor trust and cohort credibility over time.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-title">Ownership</div>
+        <div class="principle-desc">By default, everything produced through the marketplace is open. Communities that generated these proposals should not have to pay a license fee to use what was built for them. The platform enforces this as a default and makes exceptions explicit and visible.</div>
+      </div>
+    </div>
+
+    <div class="stage-note">
+      <div class="stage-label">Where We Are</div>
+      <p class="stage-text">The marketplace is currently a concept. The workshop is being piloted. The first proposals will come out of those pilots, and the platform will be designed around what those proposals actually look like in practice rather than what we imagine they will look like now. If you are a developer, designer or impact investor who wants to be involved in building this, we want to hear from you.</p>
+    </div>
+
+    <div class="prose">
+      <p>To learn more or get involved, <a href="digital_agency.htm#contact" style="color:var(--accent);">contact us through the Digital Agency Project page</a>.</p>
+    </div>
+
+    <div class="datestamp">Written 2026</div>
+
+  </article>
+  <footer>
+    <p>© Ashu Chatterji · 2026</p>
+    <p><a href="digital_agency.htm">← The Digital Agency Project</a></p>
+  </footer>
+</body>
+</html>

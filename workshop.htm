@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Transformative Innovation Workshop · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose { max-width: 660px; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 3.5rem 0; max-width: 660px; }
+    .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); max-width: 400px; }
+
+    /* Callout boxes */
+    .callout { background: var(--cream); border-left: 3px solid var(--accent); padding: 1.75rem 2rem 1.75rem 2.5rem; margin: 2rem 0; max-width: 660px; }
+    .callout p { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; line-height: 1.8; color: var(--ink-light); }
+
+    /* Outcomes grid */
+    .outcomes { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); max-width: 660px; margin: 1.5rem 0 3.5rem; }
+    .outcome { background: var(--paper); padding: 1.4rem 1.5rem; }
+    .outcome-title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+    .outcome-desc { font-size: 0.82rem; font-weight: 300; color: var(--ink-faint); line-height: 1.6; }
+
+    /* Agenda */
+    .agenda { max-width: 660px; margin: 1.5rem 0 3.5rem; }
+    .agenda-part { margin-bottom: 2.5rem; }
+    .agenda-part-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--rule); }
+    .agenda-item { display: grid; grid-template-columns: 110px 1fr; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+    .agenda-item:last-child { border-bottom: none; }
+    .agenda-time { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; color: var(--accent); padding-top: 0.2rem; }
+    .agenda-content-title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+    .agenda-content-desc { font-size: 0.85rem; font-weight: 300; color: var(--ink-light); line-height: 1.65; }
+    .agenda-content-desc ul { margin-top: 0.5rem; padding-left: 1.2rem; }
+    .agenda-content-desc li { margin-bottom: 0.3rem; }
+    .agenda-break { background: var(--cream); padding: 0.75rem 1rem; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-align: center; margin: 0.5rem 0; }
+
+    /* Mindsets */
+    .mindsets { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); max-width: 660px; margin: 1.5rem 0; }
+    .mindset { background: var(--paper); padding: 1.4rem; }
+    .mindset-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+    .mindset-desc { font-size: 0.8rem; font-weight: 300; color: var(--ink-faint); line-height: 1.6; }
+
+    /* What we need */
+    .requirements { max-width: 660px; margin: 1.5rem 0 3.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .requirement { background: var(--paper); padding: 1.4rem 1.5rem; }
+    .req-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+    .req-desc { font-size: 0.82rem; font-weight: 300; color: var(--ink-faint); line-height: 1.6; }
+
+    /* Contact */
+    .contact-block { max-width: 660px; padding-top: 3rem; border-top: 1px solid var(--rule); }
+    .contact-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .contact-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; line-height: 1.85; color: var(--ink); margin-bottom: 2rem; }
+    .contact-form { max-width: 560px; display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-field label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
+    .form-field input, .form-field textarea, .form-field select { background: var(--cream); border: 1px solid var(--rule); padding: 0.75rem 1rem; font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--ink); outline: none; transition: border-color 0.2s; width: 100%; }
+    .form-field input:focus, .form-field textarea:focus, .form-field select:focus { border-color: var(--accent); }
+    .form-field textarea { resize: vertical; min-height: 120px; }
+    .form-submit { align-self: flex-start; background: var(--accent); color: var(--paper); border: none; padding: 0.85rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s; }
+    .form-submit:hover { opacity: 0.85; }
+
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); max-width: 660px; }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) {
+      header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .outcomes, .mindsets, .requirements { grid-template-columns: 1fr; }
+      .agenda-item { grid-template-columns: 1fr; gap: 0.25rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="workplaces.htm">Workplaces</a>
+      <span>·</span>
+      <a href="digital_agency.htm">The Digital Agency Project</a>
+      <span>·</span>
+      <span class="current">The Workshop</span>
+    </div>
+    <div class="eyebrow">Digital Agency Project · Now Piloting</div>
+    <h1>The Transformative Innovation Workshop</h1>
+    <p class="subtitle">A one-day process that turns awareness of a problem into a concrete plan for doing something about it.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+
+    <div class="prose">
+      <p>This is not a brainstorming session. Not a seminar. Not a hackathon. It is a structured one-day process that takes a group of people who care about a specific problem and produces a concrete backlog of actionable pilots — new roles, things to build, knowledge to create, and questions to answer — formatted as proposals that can attract the people and resources needed to implement them.</p>
+      <p>A secondary benefit: participants work alongside AI assistants throughout the day. Not in a tutorial — in practice, on a real problem. Most people leave having learned more about how to use AI effectively in an hour of actual work than they would in a week of instruction.</p>
+    </div>
+
+    <div class="callout">
+      <p>The tools to do this work have existed for decades in the software industry. Design thinking, systems engineering, agile development — these are mature disciplines that have been used to build some of the most complex products in the world. They have almost never been pointed at civic and social problems in a structured way. This workshop is that structure.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="section-label">Who It's For</div>
+    <div class="prose" style="margin-bottom: 3.5rem;">
+      <p>People who are aware of the problems around them and want to act, but lack a structure that makes action feel feasible rather than futile. The mindset work is built into the day.</p>
+      <p>That could be a Rotary chapter looking for projects with more lasting impact than a charity drive. A group of engineering students who want their dissertation work to matter beyond their committee. A county board trying to understand why a wealthy community still has a homeless shelter and a teacher shortage at the same time.</p>
+    </div>
+
+    <div class="section-label">The Agenda</div>
+    <div class="agenda">
+
+      <div class="agenda-part">
+        <div class="agenda-part-title">Part 1 — The Foundation</div>
+        <div class="agenda-item">
+          <div class="agenda-time">09:00 – 09:15</div>
+          <div>
+            <div class="agenda-content-title">Opening: Mindsets, Principles and Practices</div>
+            <div class="agenda-content-desc">Three mindsets frame the day:</div>
+            <div class="mindsets" style="margin-top:0.75rem;">
+              <div class="mindset">
+                <div class="mindset-title">Radical Inclusion</div>
+                <div class="mindset-desc">Actively looking for the people who are affected but not in the room.</div>
+              </div>
+              <div class="mindset">
+                <div class="mindset-title">Systemic Stewardship</div>
+                <div class="mindset-desc">Recognising that the privilege of education and position comes with a responsibility to act.</div>
+              </div>
+              <div class="mindset">
+                <div class="mindset-title">Growth Mindset</div>
+                <div class="mindset-desc">The humility to admit we may not understand the whole system, and the confidence that we can learn by doing.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">09:15 – 09:45</div>
+          <div>
+            <div class="agenda-content-title">Pain Points and the Stakeholder Spectrum</div>
+            <div class="agenda-content-desc">Each participant shares what they know and feel about the problem. The AI assistants contribute the perspective of the people who aren't in the room — those most harmed by the current situation, and those whose influence shapes it invisibly.</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">09:45 – 10:15</div>
+          <div>
+            <div class="agenda-content-title">Problem Statement, Vision and Goals</div>
+            <div class="agenda-content-desc">The group drafts a problem statement from the ground up — no jargon, no assumptions. That statement is then inverted into a vision and three or four specific, measurable goals.</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">10:15 – 10:45</div>
+          <div>
+            <div class="agenda-content-title">Milestones, Failure Modes and External Events</div>
+            <div class="agenda-content-desc">The group works through how this effort could fail. The AI assistants surface relevant external events — regulatory deadlines, climate cycles, policy windows — that should anchor the project timeline.</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">10:45 – 11:15</div>
+          <div>
+            <div class="agenda-content-title">The Map and Stakeholder List</div>
+            <div class="agenda-content-desc">The group builds a high-level map of the current system and lists every stakeholder — mapped across the full spectrum of power and influence, not divided into "customers" and "internal people."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="agenda-break">Break — 11:15 to 11:30</div>
+
+      <div class="agenda-part">
+        <div class="agenda-part-title">Part 2 — Discovery and the Shadow Blueprint</div>
+        <div class="agenda-item">
+          <div class="agenda-time">11:30 – 12:30</div>
+          <div>
+            <div class="agenda-content-title">Mapping What's Actually Happening</div>
+            <div class="agenda-content-desc">Most systems that need fixing are functioning — just not well, and not equitably. The AI assistants bring in a skeleton: relevant regulations, known technical dependencies, historical context. The group fills in what the skeleton can't know — the informal workarounds, the undocumented hand-offs, the tribal knowledge that keeps things running. The output is a starter service blueprint — not a finished document, but enough of a shared map to make the afternoon's work grounded in reality rather than assumption.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="agenda-break">Lunch — 12:30 to 13:30</div>
+
+      <div class="agenda-part">
+        <div class="agenda-part-title">Part 3 — The Four-Part Backlog</div>
+        <div class="agenda-item">
+          <div class="agenda-time">13:30 – 15:15</div>
+          <div>
+            <div class="agenda-content-title">Building Concrete Pilots</div>
+            <div class="agenda-content-desc">
+              This is the core of the day. The group builds a backlog of concrete pilots in four categories:
+              <ul>
+                <li><strong>Roles</strong> — what new human and AI configurations would make the system work better and more fairly; what meaningless work can be eliminated</li>
+                <li><strong>Fabrication</strong> — what physical things need to exist that don't exist yet</li>
+                <li><strong>Content</strong> — what software, training material, documentation or media needs to be created</li>
+                <li><strong>Spikes</strong> — what we need to learn before we can act; the questions that must be answered before a full proposal can be written</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="agenda-part">
+        <div class="agenda-part-title">Part 4 — Prioritisation and Retrospective</div>
+        <div class="agenda-item">
+          <div class="agenda-time">15:15 – 16:15</div>
+          <div>
+            <div class="agenda-content-title">Prioritisation</div>
+            <div class="agenda-content-desc">The backlog is ranked by impact relative to cost — not just financial cost, but human cost. Does this create meaningful work or more drudgery? Does it reach the people at the bottom of the system, or only make life easier for those already at the top?</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">16:15 – 16:30</div>
+          <div>
+            <div class="agenda-content-title">Retrospective</div>
+            <div class="agenda-content-desc">The group reflects on the day — what shifted, what surprised them, and what they are committing to next.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-label">What You Get</div>
+    <div class="outcomes">
+      <div class="outcome">
+        <div class="outcome-title">A Prioritised Backlog</div>
+        <div class="outcome-desc">Concrete pilots, each described well enough to share with someone who could build or fund them. Not a report. Not recommendations. Actual starting points.</div>
+      </div>
+      <div class="outcome">
+        <div class="outcome-title">A Shared Map</div>
+        <div class="outcome-desc">A service blueprint of the system you're trying to change — built collaboratively and grounded in what's actually happening, not what's supposed to happen.</div>
+      </div>
+      <div class="outcome">
+        <div class="outcome-title">AI Fluency</div>
+        <div class="outcome-desc">Practical experience using AI assistants on a real problem. More useful than a week of instruction.</div>
+      </div>
+      <div class="outcome">
+        <div class="outcome-title">A Room With a Plan</div>
+        <div class="outcome-desc">People who came in aware of a problem and leave with something to do about it — and commitments made to each other in the room.</div>
+      </div>
+    </div>
+
+    <div class="section-label">What We Need From You</div>
+    <div class="prose" style="margin-bottom: 1.5rem;">
+      <p>We are running the first pilots now. We are looking for people who can convene a room and host the workshop. We bring the facilitation and the AI assistants. You bring the people and the problem. No budget required for the pilot.</p>
+    </div>
+    <div class="requirements">
+      <div class="requirement">
+        <div class="req-title">The Cohort</div>
+        <div class="req-desc">8 to 15 people who share a genuine concern about a specific problem. They don't all need to be experts. They do need to be willing to question their assumptions for a day.</div>
+      </div>
+      <div class="requirement">
+        <div class="req-title">The Space</div>
+        <div class="req-desc">A room large enough to move around in. Furniture that can be rearranged. A projector or large display. Plenty of wall space for sticky notes — that's where the real work gets done. Reliable wifi.</div>
+      </div>
+    </div>
+
+    <div class="contact-block">
+      <div class="contact-label">Host a Pilot Workshop</div>
+      <p class="contact-text">If you can convene the room and the problem, we would like to hear from you.</p>
+      <form class="contact-form" action="https://formspree.io/f/xwvrjbew" method="POST">
+        <input type="hidden" name="subject" value="Workshop pilot enquiry" />
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="org">Organisation</label>
+          <input type="text" id="org" name="organisation" placeholder="Your organisation or group" />
+        </div>
+        <div class="form-field">
+          <label for="problem">The problem you'd like to work on</label>
+          <textarea id="problem" name="problem" placeholder="Briefly describe the problem your group cares about" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Register Interest</button>
+      </form>
+    </div>
+
+    <div class="datestamp">Written 2026</div>
+
+  </article>
+  <footer>
+    <p>© Ashu Chatterji · 2026</p>
+    <p><a href="digital_agency.htm">← The Digital Agency Project</a></p>
+  </footer>
+</body>
+</html>

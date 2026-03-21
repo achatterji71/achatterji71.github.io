@@ -9,10 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92;
-      --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a;
-    }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
     html { scroll-behavior: smooth; }
     body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
     header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
@@ -38,10 +35,15 @@
     .divider { border: none; border-top: 1px solid var(--rule); margin: 3.5rem 0; max-width: 660px; }
     .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
     .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); max-width: 400px; }
-    .activities { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); max-width: 660px; margin-bottom: 3.5rem; }
-    .activity { background: var(--paper); padding: 1.5rem; }
-    .activity-title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
-    .activity-desc { font-size: 0.82rem; font-weight: 300; color: var(--ink-faint); line-height: 1.6; }
+    .initiative-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); max-width: 660px; margin-bottom: 3.5rem; }
+    .initiative-card { background: var(--paper); padding: 2rem 1.75rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.5rem; transition: background 0.2s; }
+    .initiative-card:hover { background: var(--cream); }
+    .initiative-card:hover .initiative-title { color: var(--accent); }
+    .initiative-tag { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+    .initiative-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); transition: color 0.2s; line-height: 1.2; }
+    .initiative-desc { font-size: 0.82rem; font-weight: 300; color: var(--ink-faint); line-height: 1.6; margin-top: 0.25rem; }
+    .initiative-arrow { margin-top: auto; padding-top: 1rem; font-size: 0.8rem; color: var(--accent); opacity: 0; transform: translateX(-4px); transition: opacity 0.2s, transform 0.2s; }
+    .initiative-card:hover .initiative-arrow { opacity: 1; transform: translateX(0); }
     .geography { margin-bottom: 3.5rem; max-width: 660px; }
     .geo-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
     .geo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; line-height: 1.8; color: var(--ink-light); font-style: italic; }
@@ -50,8 +52,8 @@
     .stage-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; line-height: 1.8; color: var(--ink); }
     .contact-block { max-width: 660px; padding-top: 3rem; border-top: 1px solid var(--rule); }
     .contact-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .contact-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; line-height: 1.85; color: var(--ink); }
-    .contact-form { margin-top: 2rem; max-width: 560px; display: flex; flex-direction: column; gap: 1rem; }
+    .contact-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; line-height: 1.85; color: var(--ink); margin-bottom: 2rem; }
+    .contact-form { max-width: 560px; display: flex; flex-direction: column; gap: 1rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
     .form-field label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
@@ -66,7 +68,7 @@
     footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--accent); }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 640px) { header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .activities { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .initiative-cards { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -97,35 +99,31 @@
     </div>
 
     <div class="prose">
-      <p>The world is not short of people who want to make it better. It is short of the infrastructure that turns that desire into something durable. Good intentions, adequate resources and genuine commitment are necessary — but they are not sufficient. The gap between wanting change and achieving it is where most efforts quietly expire.</p>
-      <p>The Digital Agency Project is an early-stage initiative built around a single conviction: that the next generation of changemakers — in the US Mid-Atlantic, in South and Southeast Asia, and in middle-income societies more broadly — can achieve what previous generations missed if they are given the right tools, the right relationships, and the right framework for using their privilege to generate agency in others rather than dependency.</p>
-      <p>Technology is not the solution to this problem. But in a moment when technology is being projected as overwhelming humanity, it is a necessary part of the answer — used with intention, equity and humility.</p>
+      <p>In 1992, I joined CMC Limited in Calcutta straight out of engineering college. CMC was doing something unusual for an Indian IT company at the time — it was using technology to solve problems that actually mattered in India. I worked on automating the steelmaking process at Bhilai Steel Plant, one of the largest steel factories in the world. The work was hard, the problems were real, and the impact was visible.</p>
+      <p>Then the outsourcing boom happened.</p>
+      <p>By the mid-1990s, the Indian IT industry had found a more lucrative model: do the chores that companies in high-income countries didn't want to do, at a fraction of the cost. It worked spectacularly, by certain measures. The engineers who could work on problems worth solving aren't. They're busy.</p>
+      <p>This isn't a moral failing. It's a structural one. The labor arbitrage model that built India's IT industry also ensured that its meritocratic elite became, in practice, an extension of high-income country economies. They are aware that problems exist around them. When they gather socially, they talk about them. But the conversation usually ends with "population," "corruption," or a convenient someone else to blame. Nobody leaves with a plan.</p>
+      <p>I don't think this is because they don't care. I think it's because they've never been given a structure that matches their skills to the problems in front of them.</p>
+      <p>The Medicis, the Tagores, the Edinburgh intellectuals who between them produced modern economics, modern medicine and modern philosophy in about fifty years — they faced versions of the same problems. They didn't wait for better conditions. They built something small enough to start and consequential enough to matter, and brought others along as they went. Crucially, they didn't stop at charity. They intervened in the systems themselves.</p>
+      <p>Over 33 years in software engineering, I worked with human-centered design, agile development, systems engineering and DevOps to build products that solved real organisational problems. At some point it became obvious that the same structure could be pointed at wicked problems — not just software backlogs, but actual interventions in broken systems. The Digital Agency Project is that structure, applied.</p>
     </div>
 
     <hr class="divider" />
 
-    <div class="section-label">What We Do</div>
-    <div class="activities">
-      <div class="activity">
-        <div class="activity-title">Mentorship</div>
-        <div class="activity-desc">Working directly with young professionals to build the confidence, frameworks and relationships they need to lead change on their own terms.</div>
-      </div>
-      <div class="activity">
-        <div class="activity-title">Tools for Digital Equity</div>
-        <div class="activity-desc">Building and curating digital tools that expand access — not just to technology, but to the agency that technology can enable.</div>
-      </div>
-      <div class="activity">
-        <div class="activity-title">Writing & Publishing</div>
-        <div class="activity-desc">Making the frameworks and lessons of three decades of professional experience available — clearly, accessibly, and without the gatekeeping of traditional publishing.</div>
-      </div>
-      <div class="activity">
-        <div class="activity-title">Training & Workshops</div>
-        <div class="activity-desc">Structured learning experiences for teams and cohorts working on complex social challenges — designed to build capacity that outlasts the workshop.</div>
-      </div>
-      <div class="activity">
-        <div class="activity-title">Consulting & Advisory</div>
-        <div class="activity-desc">Working with impact investors and changemakers to sharpen strategy, stress-test assumptions and identify the conditions for durable impact.</div>
-      </div>
+    <div class="section-label">What We Are Building</div>
+    <div class="initiative-cards">
+      <a href="workshop.htm" class="initiative-card">
+        <span class="initiative-tag">Now Piloting</span>
+        <span class="initiative-title">The Transformative Innovation Workshop</span>
+        <span class="initiative-desc">A one-day structured process that takes a group of people who care about a specific problem and produces a concrete backlog of things to actually do about it.</span>
+        <span class="initiative-arrow">→</span>
+      </a>
+      <a href="marketplace.htm" class="initiative-card">
+        <span class="initiative-tag">In Design</span>
+        <span class="initiative-title">Transformative Pilots Marketplace</span>
+        <span class="initiative-desc">A platform that connects the people who understand a problem, the people who can build solutions to it, and the people who can fund those solutions.</span>
+        <span class="initiative-arrow">→</span>
+      </a>
     </div>
 
     <div class="geography">
@@ -135,7 +133,7 @@
 
     <div class="stage-note">
       <div class="stage-label">Where We Are</div>
-      <p class="stage-text">The Digital Agency Project is at an early concept stage. The problem is well-defined. The team is small and the work is beginning. What we are building toward — the frameworks, the tools, the relationships, the body of writing — will take shape in the coming years. We are not in a hurry. Lasting change rarely is.</p>
+      <p class="stage-text">The Digital Agency Project is at an early stage. The workshop is being piloted now. The marketplace is in design. What we are building toward — the frameworks, the tools, the relationships, the body of writing — will take shape in the coming years. We are not in a hurry. Lasting change rarely is.</p>
     </div>
 
     <div class="contact-block">
@@ -159,6 +157,7 @@
             <option value="Impact investor">Impact investor</option>
             <option value="Changemaker / practitioner">Changemaker / practitioner</option>
             <option value="Young professional">Young professional seeking mentorship</option>
+            <option value="Potential workshop host">Potential workshop host</option>
             <option value="Potential collaborator">Potential collaborator</option>
             <option value="Other">Other</option>
           </select>
