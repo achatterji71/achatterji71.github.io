@@ -26,40 +26,33 @@
     nav a:hover, nav a.active { color: var(--accent); }
     nav .sep { color: var(--rule); }
     article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
-    .problem-statement { background: var(--cream); border-left: 3px solid var(--accent); padding: 2rem 2rem 2rem 2.5rem; margin-bottom: 3.5rem; max-width: 660px; }
-    .problem-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .problem-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.15rem, 2.2vw, 1.4rem); font-weight: 300; line-height: 1.85; color: var(--ink); font-style: italic; }
     .prose { max-width: 660px; }
     .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
     .prose p + p { margin-top: 1.4rem; }
-    .divider { border: none; border-top: 1px solid var(--rule); margin: 3.5rem 0; max-width: 660px; }
-    .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
-    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); max-width: 400px; }
-    .initiative-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); max-width: 660px; margin-bottom: 3.5rem; }
-    .initiative-card { background: var(--paper); padding: 2rem 1.75rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.5rem; transition: background 0.2s; }
-    .initiative-card:hover { background: var(--cream); }
-    .initiative-card:hover .initiative-title { color: var(--accent); }
-    .initiative-tag { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
-    .initiative-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); transition: color 0.2s; line-height: 1.2; }
-    .initiative-desc { font-size: 0.82rem; font-weight: 300; color: var(--ink-faint); line-height: 1.6; margin-top: 0.25rem; }
-    .initiative-arrow { margin-top: auto; padding-top: 1rem; font-size: 0.8rem; color: var(--accent); opacity: 0; transform: translateX(-4px); transition: opacity 0.2s, transform 0.2s; }
-    .initiative-card:hover .initiative-arrow { opacity: 1; transform: translateX(0); }
-    .geography { margin-bottom: 3.5rem; max-width: 660px; }
-    .geo-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-    .geo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; line-height: 1.8; color: var(--ink-light); font-style: italic; }
-    .stage-note { background: var(--cream); padding: 1.75rem 2rem; max-width: 660px; margin-bottom: 3.5rem; }
-    .stage-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-    .stage-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; line-height: 1.8; color: var(--ink); }
+    blockquote { margin: 2rem 0; padding: 0 0 0 1.5rem; border-left: 3px solid var(--accent); max-width: 620px; }
+    blockquote p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.05rem, 2vw, 1.2rem); font-style: italic; line-height: 1.85; color: var(--ink-light); }
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 3rem 0; max-width: 660px; }
+    .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; max-width: 660px; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .cards { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); max-width: 660px; margin-bottom: 3rem; }
+    .card { background: var(--paper); padding: 1.6rem 1.75rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.4rem; transition: background 0.2s; }
+    .card:hover { background: var(--cream); }
+    .card:hover .card-title { color: var(--accent); }
+    .card-tag { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--ink); transition: color 0.2s; line-height: 1.25; }
+    .card-desc { font-size: 0.82rem; font-weight: 300; color: var(--ink-faint); line-height: 1.6; margin-top: 0.2rem; }
+    .card-arrow { margin-top: 0.6rem; font-size: 0.8rem; color: var(--accent); opacity: 0; transform: translateX(-4px); transition: opacity 0.2s, transform 0.2s; }
+    .card:hover .card-arrow { opacity: 1; transform: translateX(0); }
     .contact-block { max-width: 660px; padding-top: 3rem; border-top: 1px solid var(--rule); }
     .contact-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .contact-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; line-height: 1.85; color: var(--ink); margin-bottom: 2rem; }
-    .contact-form { max-width: 560px; display: flex; flex-direction: column; gap: 1rem; }
+    .contact-form { max-width: 540px; display: flex; flex-direction: column; gap: 1rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
     .form-field label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
     .form-field input, .form-field textarea, .form-field select { background: var(--cream); border: 1px solid var(--rule); padding: 0.75rem 1rem; font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--ink); outline: none; transition: border-color 0.2s; width: 100%; }
     .form-field input:focus, .form-field textarea:focus, .form-field select:focus { border-color: var(--accent); }
-    .form-field textarea { resize: vertical; min-height: 120px; }
+    .form-field textarea { resize: vertical; min-height: 110px; }
     .form-submit { align-self: flex-start; background: var(--accent); color: var(--paper); border: none; padding: 0.85rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s; }
     .form-submit:hover { opacity: 0.85; }
     .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); max-width: 660px; }
@@ -68,7 +61,7 @@
     footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--accent); }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 640px) { header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .initiative-cards { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; } .form-row { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -82,7 +75,7 @@
     </div>
     <div class="eyebrow">Workplaces · Current</div>
     <h1>The Digital Agency Project</h1>
-    <p class="subtitle">Sustaining the energy for lasting change — in the hands of those who will carry it forward.</p>
+    <p class="subtitle">Equipping the meritocratic elite of middle-income societies to solve the problems in front of them.</p>
   </header>
   <nav>
     <a href="index.html#family">Family</a>
@@ -93,52 +86,96 @@
   </nav>
   <article>
 
-    <div class="problem-statement">
-      <div class="problem-label">The Problem</div>
-      <p class="problem-text">How might we sustain the energy that results in lasting positive impact from the desire for such change from a cohort of well-meaning, resourceful individuals and organisations?</p>
+    <div class="section-label">A Personal Starting Point</div>
+    <div class="prose">
+      <p>In 1992, I joined CMC Limited in Calcutta straight out of engineering college. CMC was India's second largest software company: under 2,000 employees, the most sought-after job on campus, and also the best paying. What made it unusual was what it did. It used technology to solve problems that actually mattered in India. I worked on automating the steelmaking process at Bhilai Steel Plant, one of the largest steel factories in the world. Others in our cohort were optimizing supply chains for energy, helping balance power grids, automating the ticketing system for Indian Railways, the world's largest transportation network. The work was hard, the problems were real, and the impact was visible.</p>
+      <p>By contrast, there was TCS: the self-proclaimed largest software company in India, founded ironically exactly a century after the Tata family exited their traditional opium trade business and founded the Tata Group. TCS was known for one thing: supplying IT labor to the developed world. We all understood the tradeoff. You got paid next to nothing, but you got to travel overseas.</p>
+      <p>Then the outsourcing boom happened.</p>
+      <p>By the mid-1990s, the Indian IT industry had found a more lucrative model: do the chores that companies in high-income countries did not want to do, at a fraction of the cost. Not only did members of my own cohort move into this new orbit, but some of the most respected seniors at CMC, people who had done path-breaking work modernizing Indian society through their projects, moved to the US or took on executive roles in multinationals managing armies of workers on Y2K remediation. The ultimate irony was TCS acquiring CMC and merging it into its fold. The CMC culture and capability disappeared from the face of the earth rather like Amelia Earhart.</p>
+      <p>It worked spectacularly, by certain measures. The engineers who could work on problems worth solving are not. They are busy doing the work their counterparts in high-income societies find too tedious to do themselves. Senior roles mean giving up even that, and becoming efficient orchestrators of an army of such engineers. A third of a century later, I do not think this is a story about India. It is a story about a structural trap that now affects three quarters of humanity, and where the people most capable of addressing it are the ones most thoroughly caught inside it.</p>
     </div>
 
+    <hr class="divider" />
+
+    <div class="section-label">The World That Changed</div>
     <div class="prose">
-      <p>In 1992, I joined CMC Limited in Calcutta straight out of engineering college. CMC was doing something unusual for an Indian IT company at the time — it was using technology to solve problems that actually mattered in India. I worked on automating the steelmaking process at Bhilai Steel Plant, one of the largest steel factories in the world. The work was hard, the problems were real, and the impact was visible.</p>
-      <p>Then the outsourcing boom happened.</p>
-      <p>By the mid-1990s, the Indian IT industry had found a more lucrative model: do the chores that companies in high-income countries didn't want to do, at a fraction of the cost. It worked spectacularly, by certain measures. The engineers who could work on problems worth solving aren't. They're busy.</p>
-      <p>This isn't a moral failing. It's a structural one. The labor arbitrage model that built India's IT industry also ensured that its meritocratic elite became, in practice, an extension of high-income country economies. They are aware that problems exist around them. When they gather socially, they talk about them. But the conversation usually ends with "population," "corruption," or a convenient someone else to blame. Nobody leaves with a plan.</p>
-      <p>I don't think this is because they don't care. I think it's because they've never been given a structure that matches their skills to the problems in front of them.</p>
-      <p>The Medicis, the Tagores, the Edinburgh intellectuals who between them produced modern economics, modern medicine and modern philosophy in about fifty years — they faced versions of the same problems. They didn't wait for better conditions. They built something small enough to start and consequential enough to matter, and brought others along as they went. Crucially, they didn't stop at charity. They intervened in the systems themselves.</p>
-      <p>Over 33 years in software engineering, I worked with human-centered design, agile development, systems engineering and DevOps to build products that solved real organisational problems. At some point it became obvious that the same structure could be pointed at wicked problems — not just software backlogs, but actual interventions in broken systems. The Digital Agency Project is that structure, applied.</p>
+      <p>For most of the 20th century, the world was divided into rich communities and poor ones. Every problem or inconvenience in a rich community was a commercial opportunity. The same problem in a poor community was not financially viable, and was addressed, if at all, through charity or aid from the rich. Most of our inherited worldview, and most of the polarized arguments we encounter today, are shaped by information from that period.</p>
+      <p>That world no longer exists. Over the past eight decades, three quarters of humanity have moved into what economists now call middle-income societies. Their problems cannot be solved by replicating commercial best practices from high-income countries: the economic and institutional conditions are too different. And they do not need charity. What they need is something the old frameworks do not have a name for: locally grounded, evidence-based innovation by people who understand the system from inside it.</p>
+      <p>The mechanism that created this middle-income world also created the trap that keeps it there. Globalization allowed goods to be manufactured and services rendered from lower-cost economies to higher-income ones, lifting hundreds of millions out of poverty in the process. But it is precisely the cost differential that made this model work that now sets the ceiling on what middle-income societies can achieve within it. This is the middle-income trap. Only a handful of countries have made a sustainable transition to high-income status. Even China has not made that transition. The Bretton Woods institutions, whose strategies inadvertently helped create this trap, are now beginning to acknowledge it.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="section-label">The People Who Could Help, and Why They Do Not</div>
+    <div class="prose">
+      <p>Here is the specific irony. The top deciles of most middle-income countries do make it into the high-income bracket in income terms. The 90th percentile of earners in India, for example, earns slightly more than the 10th percentile of earners in the United States. But the majority of these people work for multinational companies providing services to high-income economies. In practice, they are extensions of those economies: their professional identities calibrated to standards set elsewhere, their connection to their own communities increasingly tenuous and transactional.</p>
+      <p>The result is a class of highly educated, genuinely capable people who are acutely aware of the problems around them, in their cities, their institutions, their communities, and who have less and less time or cognitive bandwidth to do anything about them. When they gather, they talk about those problems. The conversation usually ends with "population," "corruption," or a convenient someone else to blame. Nobody leaves with a plan.</p>
+    </div>
+
+    <blockquote>
+      <p>In Hergé's comics, Thompson and Thomson are the well-meaning detectives who follow procedure meticulously and miss everything important. Tintin is the reporter who asks the question nobody else thought to ask. Armed with the muscle memory of standard operating procedures and best practices, most of us navigate our communities like Thompson and Thomson. Our interventions are sometimes comical, often tragic, and consistently ineffective. The Digital Agency Project exists to make us more like Tintin.</p>
+    </blockquote>
+
+    <div class="prose">
+      <p>This is not because the capable elite does not care. It is because the incentive systems around them reward procedure over curiosity, and because nobody has given them a structure that matches their skills to the problems in front of them.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="section-label">The Precedent</div>
+    <div class="prose">
+      <p>This problem is not new. And it has been solved before.</p>
+      <p>The Italian Renaissance was built by merchants who redirected their capital toward shared intellectual and cultural infrastructure rather than private accumulation alone. The Scottish Enlightenment, which produced Adam Smith, David Hume, and James Watt in roughly fifty years in a small, peripheral, recently subordinated country, emerged from a networked community of thinkers who took each other's ideas seriously across professional boundaries and connected intellectual work to practical application.</p>
+      <p>The Bengal Renaissance took that same culture, carried to Calcutta in 1800 by a Scots watchmaker who asked a group of wealthy merchants a simple question in response to their stated problem about the waywardness of their spoiled sons: "Don't you have schools?" The institutions that followed, built by people with capital and concern but no prior framework for connecting the two, produced among other things the first Nobel Prize in Literature ever awarded to a non-European. The laureate wrote in Bengali, a language that had developed the overwhelming majority of its literary tradition over just the preceding century, and in doing so it surpassed literary traditions built over millennia.</p>
+      <p>What makes this more remarkable still is that Bengali achieved this entirely without state support. It was never a court language, never the lingua franca of trade or empire, never sponsored by any government in its entire history. It was built entirely by citizens: written, published, read, argued over, and loved by ordinary people with no institutional backing. The United Nations now designates February 21 as International Mother Language Day, to commemorate the students shot dead in Dhaka on that date in 1952 for protesting in its defense. A crowdsourced language that literally became worth dying for. That is the inspiration the Digital Agency Project is working from.</p>
+      <p>The tools available today, AI, data systems, agile methodologies, global connectivity, are incomparably more powerful than anything available to the Edinburgh clubs, the Medici circle, or the reformers of 19th-century Calcutta. The limiting factor is not capability. It is the absence of a structure that activates it.</p>
     </div>
 
     <hr class="divider" />
 
     <div class="section-label">What We Are Building</div>
-    <div class="initiative-cards">
-      <a href="workshop.htm" class="initiative-card">
-        <span class="initiative-tag">Now Piloting</span>
-        <span class="initiative-title">The Transformative Innovation Workshop</span>
-        <span class="initiative-desc">A one-day structured process that takes a group of people who care about a specific problem and produces a concrete backlog of things to actually do about it.</span>
-        <span class="initiative-arrow">→</span>
+    <div class="cards">
+      <a href="workshop.htm" class="card">
+        <span class="card-tag">Now Piloting</span>
+        <span class="card-title">The Transformative Innovation Workshop</span>
+        <span class="card-desc">A one-day structured process that takes a group of people who care about a specific problem and produces a concrete backlog of things to actually do about it.</span>
+        <span class="card-arrow">→</span>
       </a>
-      <a href="marketplace.htm" class="initiative-card">
-        <span class="initiative-tag">In Design</span>
-        <span class="initiative-title">Transformative Pilots Marketplace</span>
-        <span class="initiative-desc">A platform that connects the people who understand a problem, the people who can build solutions to it, and the people who can fund those solutions.</span>
-        <span class="initiative-arrow">→</span>
+      <a href="tintin.htm" class="card">
+        <span class="card-tag">In Use</span>
+        <span class="card-title">Tintin: The AI Research Intern</span>
+        <span class="card-desc">The backstage analytical partner for workshop facilitators. Disaggregates data, reframes questions, surfaces blind spots, and names drift — fast enough to use in a live session.</span>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="marketplace.htm" class="card">
+        <span class="card-tag">In Design</span>
+        <span class="card-title">Transformative Pilots Marketplace</span>
+        <span class="card-desc">A platform that connects the people who understand a problem, the people who can build solutions to it, and the people who can fund those solutions.</span>
+        <span class="card-arrow">→</span>
       </a>
     </div>
 
-    <div class="geography">
-      <div class="geo-label">Geography</div>
-      <p class="geo-text">Middle-income societies broadly — with initial focus on the US Mid-Atlantic, South Asia and Southeast Asia, where proximity and familiarity create the conditions for relationships rather than transactions.</p>
+    <div class="section-label">The Deeper Goal</div>
+    <div class="prose">
+      <p>The workshop produces pilots. The marketplace connects pilots to builders and funders. But the output that matters most is neither of these. It is the formation of human Tintins: people who carry the disaggregation instinct, the systems thinking discipline, and the civic responsibility frame into every room they enter, without needing a prompt.</p>
+      <p>This is a citizen-driven, citizen-sourced, citizen-funded initiative. It draws its template from the Italian Renaissance, the Scottish Enlightenment, and the Bengal Renaissance: three moments in history when a small group of people decided that their education and standing came with an obligation to the world around them, and built something that lasted.</p>
     </div>
 
-    <div class="stage-note">
-      <div class="stage-label">Where We Are</div>
-      <p class="stage-text">The Digital Agency Project is at an early stage. The workshop is being piloted now. The marketplace is in design. What we are building toward — the frameworks, the tools, the relationships, the body of writing — will take shape in the coming years. We are not in a hurry. Lasting change rarely is.</p>
+    <hr class="divider" />
+
+    <div class="section-label">Geography</div>
+    <div class="prose" style="margin-bottom: 3rem;">
+      <p>Middle-income societies broadly, with initial focus on the US Mid-Atlantic, South Asia, and Southeast Asia, where proximity and familiarity create the conditions for relationships rather than transactions.</p>
     </div>
 
-    <div class="contact-block">
+    <div class="section-label">Where We Are</div>
+    <div class="prose" style="margin-bottom: 3rem;">
+      <p>The Digital Agency Project is at an early stage. The workshop is being piloted now. The marketplace is in design. What we are building toward, the frameworks, the tools, the relationships, the body of writing, will take shape in the coming years. We are not in a hurry. Lasting change rarely is.</p>
+    </div>
+
+    <div class="contact-block" id="contact">
       <div class="contact-label">Get Involved</div>
-      <p class="contact-text">If you are an impact investor, a changemaker, or someone who recognises this problem from your own experience — we would like to hear from you. The Digital Agency Project is at the stage where the right conversations matter more than the right deck.</p>
+      <p class="contact-text">If you are an impact investor, a changemaker, or someone who recognizes this problem from your own experience, we would like to hear from you. The Digital Agency Project is at the stage where the right conversations matter more than the right deck.</p>
       <form class="contact-form" action="https://formspree.io/f/xwvrjbew" method="POST">
         <div class="form-row">
           <div class="form-field">

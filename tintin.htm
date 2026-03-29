@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tintin · The Digital Agency Project · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --ink-light: #5a5a54; --ink-faint: #9a9a92; --paper: #faf9f6; --cream: #f2efe8; --rule: #e0ddd4; --accent: #b85c2a; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose { max-width: 660px; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    blockquote { margin: 2rem 0; padding: 0 0 0 1.5rem; border-left: 3px solid var(--accent); max-width: 600px; }
+    blockquote p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.05rem, 2vw, 1.2rem); font-style: italic; line-height: 1.85; color: var(--ink-light); }
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 3rem 0; max-width: 660px; }
+    .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; max-width: 660px; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+    /* Principles */
+    .principles { max-width: 660px; display: flex; flex-direction: column; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 3rem; }
+    .principle { background: var(--paper); padding: 1.5rem; }
+    .principle-title { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+    .principle p { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; line-height: 1.8; color: var(--ink-light); }
+
+    /* Library */
+    .library { max-width: 660px; display: flex; flex-direction: column; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 3rem; }
+    .library-item { background: var(--paper); padding: 1.4rem 1.5rem; }
+    .library-tag { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.35rem; }
+    .library-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; line-height: 1.3; }
+    .library-desc { font-size: 0.82rem; font-weight: 300; color: var(--ink-faint); line-height: 1.6; }
+
+    /* Tagore poem */
+    .poem { max-width: 580px; margin: 3rem 0 1.5rem; }
+    .poem p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.05rem, 1.8vw, 1.15rem); font-style: italic; line-height: 2.1; color: var(--ink-light); }
+    .poem-attribution { font-size: 0.78rem; font-weight: 300; color: var(--ink-faint); line-height: 1.6; margin-top: 1rem; max-width: 580px; }
+
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); max-width: 660px; }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="workplaces.htm">Workplaces</a>
+      <span>·</span>
+      <a href="digital_agency.htm">The Digital Agency Project</a>
+      <span>·</span>
+      <span class="current">Tintin</span>
+    </div>
+    <div class="eyebrow">Digital Agency Project · Research and Facilitation</div>
+    <h1>Tintin</h1>
+    <p class="subtitle">The mascot of the Digital Agency Project, and the instinct every changemaker aspires to carry.</p>
+  </header>
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+  <article>
+
+    <div class="prose">
+      <p>Tintin is the mascot of the Digital Agency Project, named for Hergé's iconic reporter who travelled everywhere, refused the obvious explanation, and had an uncanny ability to see what the people inside a situation could not. Every role associated with the Digital Agency Project, whether AI or human, aspires to embody these characteristics.</p>
+      <p>The character is deliberate. Changemakers are not authorities. They are fellow investigators who happen to have been almost everywhere, read almost everything relevant, and developed the instinct to ask the question that changes the frame of an entire conversation.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="section-label">What Tintins Do</div>
+    <div class="prose">
+      <p>A Tintin, human or AI, does not wait to be the most qualified person in the room before speaking. They ask the question the insiders cannot formulate because they are too close to the system. They disaggregate before concluding. They find the specific number or comparison that makes a blind spot visible. And they name the drift when a room full of smart people has spent three exchanges circling a hard question without asking it.</p>
+    </div>
+
+    <blockquote>
+      <p>"The question worth asking is not how to stem talent migration from a struggling region. It is what would make that region a place where people want to build a life."</p>
+    </blockquote>
+
+    <div class="prose">
+      <p>That reframe, from symptom to desired condition, from the administrator's frame to the person's frame, is the Tintin instinct. It applies whether the room is in Baltimore, Kolkata, or Hangzhou. Not instead of analysis, but before it.</p>
+      <p>The AI Tintin is a specific implementation of this role: a research assistant that works backstage alongside the human facilitator during workshop sessions, giving them the sharpest analytical tool available fast enough to use in a live session. But the AI is a training wheel. The goal is the human Tintin, the changemaker who has internalised the instinct deeply enough to carry it without prompting, into every room they enter.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="section-label">How Tintin Thinks</div>
+    <div class="principles">
+      <div class="principle">
+        <div class="principle-title">Data Before Description</div>
+        <p>A table showing what is actually happening, disaggregated by income decile, age, gender, and geography. Prose is the annotation on the structure, not the substitute for it.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-title">Accurate Before Precise</div>
+        <p>A clearly flagged directional estimate is more useful than a methodological caveat that produces nothing. Precision is for the spike. Action is for now.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-title">The Average Hides the Story</div>
+        <p>Outmigration from any region is rarely one phenomenon. In urban centres it is often moderate and formal, people leaving for better opportunities. In rural low-income districts it is often high, informal, and remittance-driven, people leaving because the local economy has collapsed. Those are two different problems requiring two different interventions. Treating them as one produces policies that serve neither.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-title">No Civilisational Silver Bullets</div>
+        <p>States and countries with completely different reputations and development models often show remarkably similar human development trajectories over time. The model explanation is usually retrofitted onto a trajectory that deeper structural forces were already determining. The question is never "what did Country X do?" It is: what is the binding constraint, in this district, for this population, right now?</p>
+      </div>
+      <div class="principle">
+        <div class="principle-title">The Thinkers Are the Drivers</div>
+        <p>The AI Tintin and the facilitator are assistants. The ideas, the hypotheses, the pilots, the commitments, must come from the thinkers, the people in the room. They have the standing, the knowledge, and the relationships. The facilitator and the AI Tintin surface the friction. The thinkers decide what to do with it.</p>
+      </div>
+    </div>
+
+    <div class="section-label">The Goal: Human Tintins</div>
+    <div class="prose">
+      <p>The AI Tintin is a training wheel. The goal of the Digital Agency Project is to produce human Tintins, thinkers who have internalised the disaggregation instinct, the bias chain awareness, the systems thinking discipline, and the civic responsibility frame deeply enough that they carry them into every room they enter, without the AI prompting them.</p>
+      <p>History offers the same pattern repeatedly. A peripheral outsider arrives in a city in crisis, listens to the people with capital and concern but no framework, and asks the obvious question that nobody inside the system has thought to formulate. The question produces an institution. The institution produces a generation. The generation changes what is possible. The Medici did it in Florence. The Edinburgh clubs did it in 18th-century Scotland. A Scots watchmaker named David Hare did it in early 19th-century Calcutta, asking a group of wealthy merchants worried about their idle sons, "Don't you have any schools?" The Bengal Renaissance that followed produced three Nobel laureates across physics, literature, and economics. The same mechanism has operated wherever a small group of people with privilege and genuine concern chose to act on that concern rather than retreat from it.</p>
+      <p>The workshop is the mechanism for producing people who carry that kind of question into their own context. Tintin is the thing that helps them ask it more precisely, more quickly, and with better evidence than they could alone.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="section-label">Tintin's Library</div>
+    <div class="prose" style="margin-bottom: 1.5rem;">
+      <p>The articles below are drawn from Tintin's knowledge base, the body of frameworks, field notes, and historical analysis that Tintin draws on during workshop sessions. They are published here for the human Tintins who want to go deeper.</p>
+    </div>
+    <div class="library">
+      <div class="library-item">
+        <div class="library-tag">Identity and Foundations</div>
+        <div class="library-title">Tintin's Brief</div>
+        <div class="library-desc">Who Tintin is, how it thinks, what it has read, and where it has been. The grounding document.</div>
+      </div>
+      <div class="library-item">
+        <div class="library-tag">Geography</div>
+        <div class="library-title">Field Notes: The Three Pilot Geographies</div>
+        <div class="library-desc">The US Mid-Atlantic, Kolkata, and Hangzhou: demographic data, economic structure, governance context, and the districts to watch.</div>
+      </div>
+      <div class="library-item">
+        <div class="library-tag">Field Notes</div>
+        <div class="library-title">What Morocco Taught Us About the Civic Floor</div>
+        <div class="library-desc">Income decile comparisons, public investment data, and the argument that the 99th percentile's secession from public life is a choice, not a necessity.</div>
+      </div>
+      <div class="library-item">
+        <div class="library-tag">Framework</div>
+        <div class="library-title">Radical Inclusion</div>
+        <div class="library-desc">From Aham Brahmasmi to the UDHR to the SDG indicators: the philosophical and operational framework for asking who is not in the room.</div>
+      </div>
+      <div class="library-item">
+        <div class="library-tag">Methodology</div>
+        <div class="library-title">How Tintin Thinks</div>
+        <div class="library-desc">Systems thinking as the foundation, first-principles thinking as the interrogator, design thinking as the making layer, and the silver bullet graveyard.</div>
+      </div>
+      <div class="library-item">
+        <div class="library-tag">Ethics</div>
+        <div class="library-title">The Quiet Path: From Bias to Hatred</div>
+        <div class="library-desc">The five-stage progression from unavoidable cognitive bias to organised persecution: how to recognise each stage and how to interrupt it.</div>
+      </div>
+      <div class="library-item">
+        <div class="library-tag">Organisational Culture</div>
+        <div class="library-title">The Westrum Model and the Karpman Drama Triangle</div>
+        <div class="library-desc">Why generative culture inside the team is non-negotiable, why the pathological environment is the expected condition outside it, and how to stay generative despite it.</div>
+      </div>
+      <div class="library-item">
+        <div class="library-tag">History</div>
+        <div class="library-title">The Generative Tradition: Medici, Scottish Enlightenment, Bengal Renaissance</div>
+        <div class="library-desc">One story across three centuries: what happens when a small group of people with privilege and genuine concern choose to act on it rather than retreat from it.</div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="poem">
+      <p>
+        Where the mind is without fear and the head is held high;<br />
+        Where knowledge is free;<br />
+        Where the world has not been broken up into fragments<br />
+        by narrow domestic walls;<br />
+        Where words come out from the depth of truth;<br />
+        Where tireless striving stretches its arms towards perfection;<br />
+        Where the clear stream of reason has not lost its way<br />
+        into the dreary desert sand of dead habit;<br />
+        Where the mind is led forward by thee<br />
+        into ever-widening thought and action —<br />
+        Into that heaven of freedom, my Father, let my country awake.
+      </p>
+    </div>
+    <p class="poem-attribution">Rabindranath Tagore, Gitanjali, 1910. Tagore was a Bengali poet, philosopher, and Nobel laureate whose work shaped the intellectual traditions of India, East Asia, and Latin America in the 20th century.</p>
+
+    <div class="datestamp">Written 2026</div>
+
+  </article>
+  <footer>
+    <p>© Ashu Chatterji · 2026</p>
+    <p><a href="digital_agency.htm">← The Digital Agency Project</a></p>
+  </footer>
+</body>
+</html>
