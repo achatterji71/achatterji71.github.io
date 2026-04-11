@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Generative Retreat · Ashu Chatterji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a18;
+      --ink-light: #5a5a54;
+      --ink-faint: #9a9a92;
+      --paper: #faf9f6;
+      --cream: #f2efe8;
+      --rule: #e0ddd4;
+      --accent: #b85c2a;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+
+    /* ── Header ── */
+    header { padding: 4rem 2rem 3rem; max-width: 860px; margin: 0 auto; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s ease both; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { font-size: 0.75rem; color: var(--rule); }
+    .breadcrumb .current { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 0.75rem; }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink-light); }
+
+    /* ── Nav ── */
+    nav { max-width: 860px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--rule); animation: fadeUp 0.8s 0.1s ease both; }
+    nav a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav .sep { color: var(--rule); }
+
+    /* ── Article ── */
+    article { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .prose { max-width: 660px; }
+    .prose p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.08rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.9; color: var(--ink); }
+    .prose p + p { margin-top: 1.4rem; }
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 3rem 0; max-width: 660px; }
+    .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; max-width: 660px; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+    blockquote { margin: 2rem 0; padding: 0 0 0 1.5rem; border-left: 3px solid var(--accent); max-width: 620px; }
+    blockquote p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.05rem, 2vw, 1.2rem); font-style: italic; line-height: 1.85; color: var(--ink-light); }
+    blockquote cite { display: block; margin-top: 0.75rem; font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); font-style: normal; }
+
+    /* ── Before/After Slider ── */
+    .slider-section { max-width: 660px; margin: 0 0 3rem; }
+    .slider-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      max-height: 520px;
+      overflow: hidden;
+      cursor: col-resize;
+      user-select: none;
+      background: var(--cream);
+      border: 1px solid var(--rule);
+    }
+    .img-after, .img-before {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .img-before {
+      clip-path: inset(0 50% 0 0);
+    }
+    .slider-divider {
+      position: absolute;
+      top: 0; left: 50%;
+      width: 1px; height: 100%;
+      background: var(--accent);
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 10;
+    }
+    .slider-handle {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 36px; height: 36px;
+      background: var(--paper);
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none;
+      z-index: 11;
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: -0.05em;
+    }
+    .slider-labels { display: flex; justify-content: space-between; margin-top: 0.6rem; }
+    .slider-label { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+
+    /* ── Photo pair ── */
+    .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); max-width: 660px; margin: 0 0 3rem; }
+    .photo-item { position: relative; background: var(--cream); }
+    .photo-item img { display: block; width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; }
+    .photo-caption { padding: 0.75rem 1rem; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
+
+    /* ── Terms ── */
+    .terms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); max-width: 660px; margin: 0 0 1.5rem; }
+    .term-block { background: var(--paper); padding: 1.6rem 1.75rem; }
+    .term-block.highlight { background: var(--cream); }
+    .term-block.full { grid-column: 1 / -1; background: var(--paper); }
+    .term-tier { display: block; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+    .term-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--ink); margin-bottom: 1rem; }
+    .term-block ul { padding-left: 1.1rem; }
+    .term-block li { font-size: 0.82rem; font-weight: 300; color: var(--ink-light); line-height: 1.7; margin-bottom: 0.4rem; }
+    .term-block li.sub { font-size: 0.76rem; color: var(--ink-faint); list-style: none; padding-left: 0.5rem; margin-bottom: 0.2rem; }
+    .term-note { margin-top: 1rem; font-size: 0.76rem; font-weight: 300; font-style: italic; color: var(--ink-faint); line-height: 1.65; border-top: 1px solid var(--rule); padding-top: 0.75rem; }
+
+    .owner-block { max-width: 660px; background: var(--cream); border: 1px solid var(--rule); padding: 1.5rem 1.75rem; margin-bottom: 3rem; }
+    .owner-label { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; display: block; }
+    .owner-block p { font-size: 0.85rem; font-weight: 300; color: var(--ink-light); line-height: 1.75; }
+
+    /* ── Footer ── */
+    .datestamp { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); max-width: 660px; }
+    footer { border-top: 1px solid var(--rule); max-width: 860px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: var(--ink-faint); font-weight: 300; }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 640px) {
+      header, nav, article, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .terms-grid { grid-template-columns: 1fr; }
+      .photo-pair { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>·</span>
+      <a href="digital_agency.htm">The Digital Agency Project</a>
+      <span>·</span>
+      <span class="current">The Generative Retreat</span>
+    </div>
+    <div class="eyebrow">Digital Agency Project · Calcutta</div>
+    <h1>The Generative Retreat</h1>
+    <p class="subtitle">Not to preserve it behind glass. To inhabit it. To make things in it.</p>
+  </header>
+
+  <nav>
+    <a href="index.html#family">Family</a>
+    <span class="sep">·</span>
+    <a href="index.html#places" class="active">Places</a>
+    <span class="sep">·</span>
+    <a href="index.html#interests">Interests</a>
+  </nav>
+
+  <article>
+
+    <div class="section-label">The Idea</div>
+    <div class="prose">
+      <p>Every period of concentrated intellectual production that history remembers had a physical centre. The Edinburgh clubs. The Medici palaces. The coffee houses of 18th-century London. The Tagore family's Jorasanko. The work happened in those rooms: debate, revision, collaboration, and the particular kind of thinking that only happens when people share a table rather than a screen.</p>
+      <p>By the mid-twentieth century, an entire generation in Calcutta had been inspired by Jorasanko to build their own generative retreats in their own homes. The tradition was never about the one house. It was about what that house made thinkable. The Generative Retreat is an attempt to recreate that condition — not to replicate Jorasanko, but to continue what it started.</p>
+      <p>The model is simple. A mid-century house in South Calcutta: a drawing room for gathering, a work room for producing, a kitchen serious enough for recreation as well as experimentation. Resident for three to four months a year. Available for workshop residencies, writing retreats, and the kind of extended conversation the Digital Agency Project requires but that no hotel or serviced apartment can host.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="section-label">The Space</div>
+
+    <div class="slider-section">
+      <div class="slider-wrap" id="slider">
+        <img class="img-after" src="images/exterior_after.jpg" alt="Exterior — restored" />
+        <img class="img-before" id="before-img" src="images/exterior_before.jpg" alt="Exterior — as found" />
+        <div class="slider-divider" id="divider"></div>
+        <div class="slider-handle" id="handle">&#8646;</div>
+      </div>
+      <div class="slider-labels">
+        <span class="slider-label">As found</span>
+        <span class="slider-label">The vision</span>
+      </div>
+    </div>
+
+    <div class="photo-pair">
+      <div class="photo-item">
+        <img src="images/interior_1.jpg" alt="The drawing room" />
+        <div class="photo-caption">The drawing room</div>
+      </div>
+      <div class="photo-item">
+        <img src="images/interior_2.jpg" alt="The work room" />
+        <div class="photo-caption">The work room</div>
+      </div>
+    </div>
+
+    <blockquote>
+      <p>Not to preserve it behind glass. To inhabit it. To make things in it. To continue, in that specific place, what the Bhadralok generation started.</p>
+      <cite>Ashutosh &amp; Meenakshi Chatterji</cite>
+    </blockquote>
+
+    <hr class="divider" />
+
+    <div class="section-label">Why Calcutta</div>
+    <div class="prose">
+      <p>Calcutta produced the Bengal Renaissance on no resources other than the energy of people who felt that their education came with an obligation. It did so in a language that had no institutional backing, no court patronage, no historical prestige. It built that tradition in a century and a half, and the tradition held long enough to produce a Nobel laureate writing in Bengali.</p>
+      <p>That energy does not disappear. It goes underground. It waits for a structure that can hold it. The Generative Retreat is one such structure: small, specific, and deliberately located in the city where the precedent was set.</p>
+      <p>South Calcutta in particular. This is where the modern Bhadralok lives: the engineers, doctors, academics, and lawyers who are the direct inheritors of the Bengal Renaissance tradition. Too many of them are caught in the same vicious cycle the Digital Agency Project is trying to break — educated for ambition, rewarded for compliance, and quietly aware that something has gone wrong. The Generative Retreat belongs in their neighbourhood. It is addressed to them.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="section-label">The Arrangement</div>
+    <div class="prose" style="margin-bottom: 1.5rem;">
+      <p>The legal arrangement is conventional tenancy. Rent paid year-round; in residence three to four months a year. But the project can only succeed if the owner cares what happens to the house — not only what rent it earns. We are looking for that kind of owner as much as we are looking for the right property.</p>
+      <p>What follows is a precise account of our requirements and responsibilities, defined clearly so there is no ambiguity on either side.</p>
+    </div>
+
+    <div class="terms-grid">
+
+      <div class="term-block">
+        <span class="term-tier">Threshold one — property consideration</span>
+        <h3>Minimum habitability</h3>
+        <ul>
+          <li>Functioning bathroom plumbing
+            <ul>
+              <li class="sub">Hot and cold running water</li>
+              <li class="sub">Toilet with proper flush and seal</li>
+              <li class="sub">Shower or bath operational</li>
+              <li class="sub">Drainage without blockage or backflow</li>
+              <li class="sub">No visible pipe leaks or wall seepage</li>
+            </ul>
+          </li>
+          <li>Functioning kitchen plumbing
+            <ul>
+              <li class="sub">Hot and cold running water at sink</li>
+              <li class="sub">Drainage without blockage</li>
+              <li class="sub">Gas line present and safe, or LPG provision</li>
+              <li class="sub">No visible leaks or seepage</li>
+            </ul>
+          </li>
+          <li>Electrical wiring adequate and safe</li>
+          <li>Basic lighting in all rooms</li>
+          <li>AC installation structurally feasible</li>
+          <li>Structurally sound interior</li>
+        </ul>
+        <p class="term-note">Properties below this threshold are heritage restoration projects. We admire that work but it is not our undertaking.</p>
+      </div>
+
+      <div class="term-block highlight">
+        <span class="term-tier">Threshold two — move-in ready</span>
+        <h3>Standard requirements</h3>
+        <ul>
+          <li>Air conditioning in bedroom, drawing room, work area</li>
+          <li>Functional kitchen for serious cooking
+            <ul>
+              <li class="sub">Hob with minimum four burners, gas or induction</li>
+              <li class="sub">Oven or OTG</li>
+              <li class="sub">Adequate counter space for active preparation</li>
+              <li class="sub">Exhaust fan or chimney with ventilation</li>
+              <li class="sub">Refrigerator space or provision</li>
+              <li class="sub">Sufficient power points for appliances</li>
+              <li class="sub">Working storage, not decorative cabinetry alone</li>
+            </ul>
+          </li>
+          <li>Internet infrastructure in place</li>
+          <li>Windows and shutters restored and operational</li>
+          <li>Pest treatment and thorough clean completed</li>
+          <li>Adequate power points throughout</li>
+        </ul>
+        <p class="term-note">We do not occupy until standard requirements are met. We may offer an advance against rent to help owners reach this threshold, to be deducted from future rent.</p>
+      </div>
+
+      <div class="term-block full">
+        <span class="term-tier">Beyond standard — our investment</span>
+        <h3>Aesthetic and functional improvements</h3>
+        <ul>
+          <li>Period-appropriate lighting fixtures</li>
+          <li>Bookshelves, drawing room configuration, working furnishings</li>
+          <li>Kitchen upgrades beyond the functional baseline</li>
+          <li>Any other improvements we choose to make</li>
+        </ul>
+        <p class="term-note">These are our investment, depreciated over five years. If we vacate before five years, residual value is either compensated by the owner or the improvements remain with the property — to be agreed in writing at the outset.</p>
+      </div>
+
+    </div>
+
+    <div class="owner-block">
+      <span class="owner-label">Owner's permanent responsibility</span>
+      <p>All structural repairs — walls, floors, ceilings, surfaces, and plumbing infrastructure — remain the owner's responsibility under all circumstances and at all times. This is not negotiable and not subject to cost-sharing.</p>
+    </div>
+
+    <div class="section-label">If You Know of a Property</div>
+    <div class="prose">
+      <p>We are looking actively. If you know of a property in South Calcutta that fits this description — a mid-century house, currently underused or vacant, whose owners would welcome this kind of use — we would like to hear from you.</p>
+    </div>
+
+    <div class="datestamp">Written 2026</div>
+
+  </article>
+
+  <footer>
+    <p>© Ashu Chatterji · 2026</p>
+    <p><a href="digital_agency.htm">← The Digital Agency Project</a></p>
+  </footer>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const beforeImg = document.getElementById('before-img');
+    const divider = document.getElementById('divider');
+    const handle = document.getElementById('handle');
+    let dragging = false;
+
+    function setPos(x) {
+      const rect = slider.getBoundingClientRect();
+      let pct = Math.max(0.02, Math.min(0.98, (x - rect.left) / rect.width));
+      beforeImg.style.clipPath = `inset(0 ${((1 - pct) * 100).toFixed(1)}% 0 0)`;
+      divider.style.left = handle.style.left = `${(pct * 100).toFixed(1)}%`;
+    }
+
+    slider.addEventListener('mousedown', e => { dragging = true; setPos(e.clientX); });
+    window.addEventListener('mousemove', e => { if (dragging) setPos(e.clientX); });
+    window.addEventListener('mouseup', () => dragging = false);
+    slider.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchend', () => dragging = false);
+  </script>
+
+</body>
+</html>
